@@ -129,3 +129,4 @@ button.district {
 .citations blockquote { margin: 0; padding-left: 0.75rem; border-left: 3px solid var(--border); }
 a { color: var(--accent); }
 details > summary { cursor: pointer; }
+.policy + .policy { border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.75rem; }
