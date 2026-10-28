@@ -3,6 +3,15 @@
     "id": "2026-local",
     "name": "2026年地方公職人員選舉",
     "electionDate": "2026-11-28",
-    "citations": []
+    "citations": [
+      {
+        "sourceId": "cec-2026-local-announcement",
+        "quote": "投票日期：中華民國115年11月28日（星期六）",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，公告事項二(一)"
+        }
+      }
+    ]
   }
 ]

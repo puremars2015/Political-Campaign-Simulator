@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "id": "cec-2026-local-announcement",
+    "url": "https://web.cec.gov.tw/api/file/45d8e965-f63a-46d5-b636-7d81e47cf4d1.pdf",
+    "title": "公告115年直轄市長、縣（市）長、直轄市議員、縣（市）議員選舉之選舉種類、名額、選舉區之劃分、投票日期、投票起止時間及競選經費最高金額等事項（中選務字第1153150253號）",
+    "publisher": "中央選舉委員會",
+    "publishedAt": "2026-08-20",
+    "retrievedAt": "2026-10-28",
+    "nature": "election-authority",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cec-2026-mayor-registration",
+    "url": "https://web.cec.gov.tw/api/file/bb9a8d7a-9b8a-41ec-8e23-33efd009385a.pdf",
+    "title": "115年直轄市長選舉候選人登記彙總表",
+    "publisher": "中央選舉委員會",
+    "publishedAt": "2026-09-07",
+    "retrievedAt": "2026-10-28",
+    "nature": "election-authority",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20261027-ballot-numbers",
+    "url": "https://www.cna.com.tw/news/aipl/202610275002.aspx",
+    "title": "2026九合一選舉 縣市長參選人抽籤號次一覽",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-10-27",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20260811-shen-heart",
+    "url": "https://www.cna.com.tw/news/aloc/202608110044.aspx",
+    "title": "沈伯洋發布競選願景　從「心」出發推5大政見",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-08-11",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "pts-20260916-shen-transport",
+    "url": "https://news.pts.org.tw/article/827290",
+    "title": "沈伯洋拋交通政見 蔣萬安細數政績回應",
+    "publisher": "公視新聞網",
+    "publishedAt": "2026-09-16",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "newtalk-20261026-shen-water",
+    "url": "https://newtalk.tw/news/view/2026-10-26/1067465",
+    "title": "「台北水文化復興運動」打造北市親水生活 沈伯洋提出五大政見",
+    "publisher": "新頭殼 Newtalk",
+    "publishedAt": "2026-10-26",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "ebc-20261022-chiang-interview",
+    "url": "https://news.ebc.net.tw/news/politics/577028",
+    "title": "獨家專訪／首都之爭藍綠激戰 蔣萬安拚勝選也拚未來",
+    "publisher": "東森新聞",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  }
+]

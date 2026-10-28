@@ -1,1 +1,454 @@
-[]
+[
+  {
+    "id": "shen-marriage-youth-housing",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "住宅",
+    "summary": "推動婚育宅與青年宅。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "推動婚育宅和青年宅",
+        "locator": {
+          "kind": "quote",
+          "value": "推動婚育宅和青年宅"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-two-rivers",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "河川與親水",
+    "summary": "兩河流域計畫：整合淡水河與基隆河的清淤與親水設施。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "兩河流域計畫整合淡水河與基隆河的清淤與親水設施",
+        "locator": {
+          "kind": "quote",
+          "value": "兩河流域計畫整合淡水河與基隆河的清淤與親水設施"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-mountain-trails",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "休閒與觀光",
+    "summary": "台北山徑計畫：串連城市周邊山徑，目標成為亞洲第一的登山城市。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "台北山徑計畫串連城市周邊山徑成為亞洲第一的登山城市",
+        "locator": {
+          "kind": "quote",
+          "value": "台北山徑計畫串連城市周邊山徑成為亞洲第一的登山城市"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-old-building-life-extension",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "高齡與居住",
+    "summary": "針對無電梯老公寓，與中央合作推動「老宅延壽計畫」。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "將與中央合作積極推動「老宅延壽計畫」",
+        "locator": {
+          "kind": "quote",
+          "value": "將與中央合作積極推動「老宅延壽計畫」"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-respite-care-hours",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "育兒",
+    "summary": "提供家庭固定臨托時數等喘息服務。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "提供家庭固定臨托時數等喘息服務",
+        "locator": {
+          "kind": "quote",
+          "value": "提供家庭固定臨托時數等喘息服務"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-tpass-shared-scooter",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "交通",
+    "summary": "推動 TPASS 納入共享機車。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "推動TPASS納入共享機車",
+        "locator": {
+          "kind": "quote",
+          "value": "推動TPASS納入共享機車"
+        }
+      },
+      {
+        "sourceId": "pts-20260916-shen-transport",
+        "quote": "「TPASS納入共享機車」",
+        "locator": {
+          "kind": "quote",
+          "value": "「TPASS納入共享機車」"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-youth-city-fund",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "青年發展",
+    "summary": "設立城市基金並擴大圓夢基金；由市府帶頭與新創公司合作，成為年輕團隊的第一位客戶。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "將設立城市基金，讓年輕人有做夢的本錢與餘裕，擴大圓夢基金，並規劃由市府帶頭與新創公司合作，成為年輕團隊的第一位客戶",
+        "locator": {
+          "kind": "quote",
+          "value": "將設立城市基金，讓年輕人有做夢的本錢與餘裕，擴大圓夢基金，並規劃由市府帶頭與新創"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-chief-officers",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "城市治理",
+    "summary": "設置「永續長」職能，並為台北設立「設計長」及「夜間市長」。",
+    "citations": [
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "規劃設置「永續長」職能，並為台北設立「設計長」及「夜間市長」",
+        "locator": {
+          "kind": "quote",
+          "value": "規劃設置「永續長」職能，並為台北設立「設計長」及「夜間市長」"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-school-zone-speed-humps",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "交通安全",
+    "summary": "在8年內建置150多所國小的通學區減速帶。",
+    "citations": [
+      {
+        "sourceId": "pts-20260916-shen-transport",
+        "quote": "8年內建置150多所國小「通學區減速帶」",
+        "locator": {
+          "kind": "quote",
+          "value": "8年內建置150多所國小「通學區減速帶」"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "150多所國小",
+        "citation": {
+          "sourceId": "pts-20260916-shen-transport",
+          "quote": "150多所國小",
+          "locator": {
+            "kind": "quote",
+            "value": "150多所國小"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "8年內",
+        "citation": {
+          "sourceId": "pts-20260916-shen-transport",
+          "quote": "8年內建置150多所國小",
+          "locator": {
+            "kind": "quote",
+            "value": "8年內建置150多所國小"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-neihu-bike-bridge",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "交通",
+    "summary": "針對內湖交通壅塞，提出興建自行車道橋跨越進入內湖；候選人估計約需1年10個月、花費約9.5億元。",
+    "citations": [
+      {
+        "sourceId": "pts-20260916-shen-transport",
+        "quote": "我們是希望再有一條自行車道橋，可以讓從這邊的位置的人，可以輕鬆的從這邊直接跨越橋，進入到內湖，大概要1年10個月，大概花費要9.5億左右。",
+        "locator": {
+          "kind": "quote",
+          "value": "內文候選人引述"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": "自行車道橋",
+        "citation": {
+          "sourceId": "pts-20260916-shen-transport",
+          "quote": "再有一條自行車道橋",
+          "locator": {
+            "kind": "quote",
+            "value": "再有一條自行車道橋"
+          }
+        }
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "約1年10個月（候選人估計）",
+        "citation": {
+          "sourceId": "pts-20260916-shen-transport",
+          "quote": "大概要1年10個月",
+          "locator": {
+            "kind": "quote",
+            "value": "大概要1年10個月"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-distributed-detention",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "防洪與韌性",
+    "summary": "推動分散式／微型社區滯洪，透過校園與公園改造及建物雨撲滿強化市區排洪能力。",
+    "citations": [
+      {
+        "sourceId": "newtalk-20261026-shen-water",
+        "quote": "推動「分散式/微型社區滯洪」，透過校園與公園大變身，以及建物的雨撲滿，強化市區排洪能力",
+        "locator": {
+          "kind": "quote",
+          "value": "推動「分散式/微型社區滯洪」，透過校園與公園大變身，以及建物的雨撲滿，強化市區排"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": "校園與公園改造、建物雨撲滿",
+        "citation": {
+          "sourceId": "newtalk-20261026-shen-water",
+          "quote": "透過校園與公園大變身，以及建物的雨撲滿",
+          "locator": {
+            "kind": "quote",
+            "value": "透過校園與公園大變身，以及建物的雨撲滿"
+          }
+        }
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-songshan-airport-ai-park",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "產業與土地",
+    "summary": "提出遷移松山機場，規劃將約300公頃土地打造為AI產業園區（報導稱預估創造12兆產值與6.5萬個工作機會）。",
+    "citations": [
+      {
+        "sourceId": "ebc-20261022-chiang-interview",
+        "quote": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12兆產值與6.5萬個工作機會",
+        "locator": {
+          "kind": "quote",
+          "value": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "約300公頃",
+        "citation": {
+          "sourceId": "ebc-20261022-chiang-interview",
+          "quote": "規劃將300公頃土地打造為AI產業園區",
+          "locator": {
+            "kind": "quote",
+            "value": "規劃將300公頃土地打造為AI產業園區"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  }
+]

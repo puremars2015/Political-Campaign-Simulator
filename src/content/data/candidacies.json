@@ -1,1 +1,170 @@
-[]
+[
+  {
+    "id": "2026-taipei-kuo-hsi",
+    "personId": "kuo-hsi",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "office": "臺北市長",
+    "party": "台灣麻將最大黨",
+    "ballotNumber": 1,
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺北市   115/08/31   郭璽    台灣麻將最大黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁"
+        }
+      },
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "1號：台灣麻將最大黨郭璽",
+        "locator": {
+          "kind": "quote",
+          "value": "1號：台灣麻將最大黨郭璽"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-taipei-lin-chih-cheng",
+    "personId": "lin-chih-cheng",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "office": "臺北市長",
+    "party": "無黨籍",
+    "ballotNumber": 2,
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺北市   115/09/04   林志成      無",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁"
+        }
+      },
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "2號：無黨籍林志成",
+        "locator": {
+          "kind": "quote",
+          "value": "2號：無黨籍林志成"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-taipei-shen-po-yang",
+    "personId": "shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "office": "臺北市長",
+    "party": "民主進步黨",
+    "ballotNumber": 3,
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺北市   115/09/02   沈伯洋    民主進步黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁"
+        }
+      },
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "3號：民進黨沈伯洋",
+        "locator": {
+          "kind": "quote",
+          "value": "3號：民進黨沈伯洋"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-taipei-hsiao-wen-chien",
+    "personId": "hsiao-wen-chien",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "office": "臺北市長",
+    "party": "臺灣SoR無法黨",
+    "ballotNumber": 4,
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺北市   115/09/02   蕭文乾   臺灣SoR無法黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁"
+        }
+      },
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "4號：台灣SoR無法黨蕭文乾",
+        "locator": {
+          "kind": "quote",
+          "value": "4號：台灣SoR無法黨蕭文乾"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-taipei-chiang-wan-an",
+    "personId": "chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "office": "臺北市長",
+    "party": "中國國民黨",
+    "ballotNumber": 5,
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺北市   115/09/04   蔣萬安    中國國民黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁"
+        }
+      },
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "5號：國民黨蔣萬安",
+        "locator": {
+          "kind": "quote",
+          "value": "5號：國民黨蔣萬安"
+        }
+      }
+    ]
+  },
+  {
+    "id": "2026-taipei-tang-hsin-min",
+    "personId": "tang-hsin-min",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "office": "臺北市長",
+    "party": "三勢團結促進聯盟",
+    "ballotNumber": 6,
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺北市   115/09/03   唐新民   三勢團結促進聯盟",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁"
+        }
+      },
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "6號：三勢團結促進聯盟唐新民",
+        "locator": {
+          "kind": "quote",
+          "value": "6號：三勢團結促進聯盟唐新民"
+        }
+      }
+    ]
+  }
+]
