@@ -38,8 +38,16 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "河川與親水",
-    "summary": "兩河流域計畫：整合淡水河與基隆河的清淤與親水設施。",
+    "summary": "推動淡水河、基隆河兩河沿岸空間再造與親水設施改善（8月11日發表會稱「兩河流域計畫」，提及清淤）。",
     "citations": [
+      {
+        "sourceId": "puma-water",
+        "quote": "特別針對淡水河、基隆河推動空間再造",
+        "locator": {
+          "kind": "quote",
+          "value": "特別針對淡水河、基隆河推動空間再造"
+        }
+      },
       {
         "sourceId": "cna-20260811-shen-heart",
         "quote": "兩河流域計畫整合淡水河與基隆河的清淤與親水設施",
@@ -60,7 +68,15 @@
         "stated": null
       },
       "deadline": {
-        "stated": null
+        "stated": "長期完成兩河沿岸空間再造",
+        "citation": {
+          "sourceId": "puma-water",
+          "quote": "完成淡水河、基隆河兩大河川沿岸的空間再造",
+          "locator": {
+            "kind": "quote",
+            "value": "完成淡水河、基隆河兩大河川沿岸的空間再造"
+          }
+        }
       }
     },
     "timeframe": "current"
@@ -71,8 +87,24 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "休閒與觀光",
-    "summary": "台北山徑計畫：串連城市周邊山徑，目標成為亞洲第一的登山城市。",
+    "summary": "在北劍潭、東象山、南貓空設立三座登山觀光中心，提供裝備租借與多語導覽，並補上捷運站到登山口的接駁。",
     "citations": [
+      {
+        "sourceId": "puma-trails",
+        "quote": "在北劍潭、東象山、南貓空建立整合服務據點",
+        "locator": {
+          "kind": "quote",
+          "value": "在北劍潭、東象山、南貓空建立整合服務據點"
+        }
+      },
+      {
+        "sourceId": "puma-trails",
+        "quote": "從捷運站到登山口補上「最後一哩路」，增開接駁服務",
+        "locator": {
+          "kind": "quote",
+          "value": "從捷運站到登山口補上「最後一哩路」，增開接駁服務"
+        }
+      },
       {
         "sourceId": "cna-20260811-shen-heart",
         "quote": "台北山徑計畫串連城市周邊山徑成為亞洲第一的登山城市",
@@ -87,7 +119,15 @@
         "stated": null
       },
       "scale": {
-        "stated": null
+        "stated": "三座登山觀光中心（北劍潭、東象山、南貓空）",
+        "citation": {
+          "sourceId": "puma-trails",
+          "quote": "山林徑則以三座登山觀光中心作為重要節點",
+          "locator": {
+            "kind": "quote",
+            "value": "山林徑則以三座登山觀光中心作為重要節點"
+          }
+        }
       },
       "funding": {
         "stated": null
@@ -137,8 +177,16 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "育兒",
-    "summary": "提供家庭固定臨托時數等喘息服務。",
+    "summary": "規劃為滿6個月至6歲孩子提供每週固定時數免費臨時托育。",
     "citations": [
+      {
+        "sourceId": "puma-family",
+        "quote": "每週固定時數免費臨托：規劃提供滿 6 個月至六歲孩子，每週固定時數免費臨時托育",
+        "locator": {
+          "kind": "quote",
+          "value": "每週固定時數免費臨托：規劃提供滿 6 個月至六歲孩子，每週固定時數免費臨時托育"
+        }
+      },
       {
         "sourceId": "cna-20260811-shen-heart",
         "quote": "提供家庭固定臨托時數等喘息服務",
@@ -153,7 +201,15 @@
         "stated": null
       },
       "scale": {
-        "stated": null
+        "stated": "滿6個月至6歲孩子，每週固定時數",
+        "citation": {
+          "sourceId": "puma-family",
+          "quote": "規劃提供滿 6 個月至六歲孩子，每週固定時數免費臨時托育",
+          "locator": {
+            "kind": "quote",
+            "value": "規劃提供滿 6 個月至六歲孩子，每週固定時數免費臨時托育"
+          }
+        }
       },
       "funding": {
         "stated": null
@@ -170,22 +226,30 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "交通",
-    "summary": "推動 TPASS 納入共享機車。",
+    "summary": "將共享電動機車納入 TPASS：持記名 TPASS 市民每日前10分鐘免費，並媒合路外停車場引導共享機車離開路邊格位。",
     "citations": [
+      {
+        "sourceId": "puma-transport",
+        "quote": "持記名 TPASS 市民享每日前 10 分鐘免費（市府出資試辦 3 個月，後續與中央協商常態化）",
+        "locator": {
+          "kind": "quote",
+          "value": "持記名 TPASS 市民享每日前 10 分鐘免費（市府出資試辦 3 個月，後續與"
+        }
+      },
+      {
+        "sourceId": "puma-transport",
+        "quote": "媒合公有（含委外）及私人路外停車場提供定型化契約，引導共享機車離開路邊格位",
+        "locator": {
+          "kind": "quote",
+          "value": "媒合公有（含委外）及私人路外停車場提供定型化契約，引導共享機車離開路邊格位"
+        }
+      },
       {
         "sourceId": "cna-20260811-shen-heart",
         "quote": "推動TPASS納入共享機車",
         "locator": {
           "kind": "quote",
           "value": "推動TPASS納入共享機車"
-        }
-      },
-      {
-        "sourceId": "pts-20260916-shen-transport",
-        "quote": "「TPASS納入共享機車」",
-        "locator": {
-          "kind": "quote",
-          "value": "「TPASS納入共享機車」"
         }
       }
     ],
@@ -197,10 +261,26 @@
         "stated": null
       },
       "funding": {
-        "stated": null
+        "stated": "市府出資試辦3個月，後續與中央協商常態化",
+        "citation": {
+          "sourceId": "puma-transport",
+          "quote": "市府出資試辦 3 個月，後續與中央協商常態化",
+          "locator": {
+            "kind": "quote",
+            "value": "市府出資試辦 3 個月，後續與中央協商常態化"
+          }
+        }
       },
       "deadline": {
-        "stated": null
+        "stated": "第一階段（1–2年）啟動3個月試辦",
+        "citation": {
+          "sourceId": "puma-transport",
+          "quote": "啟動記名TPASS共享機車前10 分鐘免費3 個月試辦",
+          "locator": {
+            "kind": "quote",
+            "value": "啟動記名TPASS共享機車前10 分鐘免費3 個月試辦"
+          }
+        }
       }
     },
     "timeframe": "current"
@@ -211,23 +291,47 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "青年發展",
-    "summary": "設立城市基金並擴大圓夢基金；由市府帶頭與新創公司合作，成為年輕團隊的第一位客戶。",
+    "summary": "城市青年基金：18至22歲台北青年每月由市府提撥1,500元（弱勢3,000元）並鼓勵自存1,500元，協助累積第一筆起步本金。",
     "citations": [
       {
-        "sourceId": "cna-20260811-shen-heart",
-        "quote": "將設立城市基金，讓年輕人有做夢的本錢與餘裕，擴大圓夢基金，並規劃由市府帶頭與新創公司合作，成為年輕團隊的第一位客戶",
+        "sourceId": "puma-youth",
+        "quote": "協助 18 至 22 歲台北青年累積第一筆起步本金。",
         "locator": {
           "kind": "quote",
-          "value": "將設立城市基金，讓年輕人有做夢的本錢與餘裕，擴大圓夢基金，並規劃由市府帶頭與新創"
+          "value": "協助 18 至 22 歲台北青年累積第一筆起步本金。"
+        }
+      },
+      {
+        "sourceId": "cna-20260811-shen-heart",
+        "quote": "將設立城市基金，讓年輕人有做夢的本錢與餘裕，擴大圓夢基金",
+        "locator": {
+          "kind": "quote",
+          "value": "將設立城市基金，讓年輕人有做夢的本錢與餘裕，擴大圓夢基金"
         }
       }
     ],
     "fields": {
       "tool": {
-        "stated": null
+        "stated": "仿照勞退基金運營，搭配財商教育與重大犯罪退場機制",
+        "citation": {
+          "sourceId": "puma-youth",
+          "quote": "配套機制：財商教育、仿照勞退基金運營、重大犯罪退場機制",
+          "locator": {
+            "kind": "quote",
+            "value": "配套機制：財商教育、仿照勞退基金運營、重大犯罪退場機制"
+          }
+        }
       },
       "scale": {
-        "stated": null
+        "stated": "18至22歲台北青年；市府每月1,500元（弱勢3,000元），鼓勵自存1,500元",
+        "citation": {
+          "sourceId": "puma-youth",
+          "quote": "市府提撥：每月 1,500 元，鼓勵自存1,500",
+          "locator": {
+            "kind": "quote",
+            "value": "市府提撥：每月 1,500 元，鼓勵自存1,500"
+          }
+        }
       },
       "funding": {
         "stated": null
@@ -277,8 +381,16 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "交通安全",
-    "summary": "在8年內建置150多所國小的通學區減速帶。",
+    "summary": "以「通學區零死亡」為目標，8年內完成全市150多所國小通學區改善，並落實全市統一工程規格（學校四周150公尺為原則）。",
     "citations": [
+      {
+        "sourceId": "puma-transport",
+        "quote": "以「通學區零死亡」為目標，承諾於八年內完成全市一百五十多所國小通學區改善並落實全市統一工程規格",
+        "locator": {
+          "kind": "quote",
+          "value": "以「通學區零死亡」為目標，承諾於八年內完成全市一百五十多所國小通學區改善並落實全"
+        }
+      },
       {
         "sourceId": "pts-20260916-shen-transport",
         "quote": "8年內建置150多所國小「通學區減速帶」",
@@ -290,16 +402,24 @@
     ],
     "fields": {
       "tool": {
-        "stated": null
-      },
-      "scale": {
-        "stated": "150多所國小",
+        "stated": "全市統一工程規格（車道縮減、抬升行穿線、減速丘、行人庇護島、轉彎半徑縮小、路口淨空）",
         "citation": {
-          "sourceId": "pts-20260916-shen-transport",
-          "quote": "150多所國小",
+          "sourceId": "puma-transport",
+          "quote": "制定全市統一工程規格（車道縮減、抬升行穿線、減速丘、行人庇護島、轉彎半徑縮小、路口淨空）",
           "locator": {
             "kind": "quote",
-            "value": "150多所國小"
+            "value": "制定全市統一工程規格（車道縮減、抬升行穿線、減速丘、行人庇護島、轉彎半徑縮小、路"
+          }
+        }
+      },
+      "scale": {
+        "stated": "全市150多所國小；以學校四周150公尺為原則",
+        "citation": {
+          "sourceId": "puma-transport",
+          "quote": "以學校四周 150 公尺為原則",
+          "locator": {
+            "kind": "quote",
+            "value": "以學校四周 150 公尺為原則"
           }
         }
       },
@@ -307,13 +427,13 @@
         "stated": null
       },
       "deadline": {
-        "stated": "8年內",
+        "stated": "8年內全面完成（3–4年累計50所）",
         "citation": {
-          "sourceId": "pts-20260916-shen-transport",
-          "quote": "8年內建置150多所國小",
+          "sourceId": "puma-transport",
+          "quote": "8 年內全面完成全市 150 多所國小通學區改善",
           "locator": {
             "kind": "quote",
-            "value": "8年內建置150多所國小"
+            "value": "8 年內全面完成全市 150 多所國小通學區改善"
           }
         }
       }
@@ -326,11 +446,19 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "交通",
-    "summary": "針對內湖交通壅塞，提出興建自行車道橋跨越進入內湖；候選人估計約需1年10個月、花費約9.5億元。",
+    "summary": "興建迎風—港墘跨基隆河自行車專用橋，直接銜接民生社區與內湖科技園區；候選人受訪時估計約需1年10個月、花費約9.5億元。",
     "citations": [
       {
+        "sourceId": "puma-transport",
+        "quote": "興建迎風—港墘跨基隆河自行車專用橋，直接銜接民生社區與內湖科技園區",
+        "locator": {
+          "kind": "quote",
+          "value": "興建迎風—港墘跨基隆河自行車專用橋，直接銜接民生社區與內湖科技園區"
+        }
+      },
+      {
         "sourceId": "pts-20260916-shen-transport",
-        "quote": "我們是希望再有一條自行車道橋，可以讓從這邊的位置的人，可以輕鬆的從這邊直接跨越橋，進入到內湖，大概要1年10個月，大概花費要9.5億左右。",
+        "quote": "大概要1年10個月，大概花費要9.5億左右。",
         "locator": {
           "kind": "quote",
           "value": "內文候選人引述"
@@ -339,13 +467,13 @@
     ],
     "fields": {
       "tool": {
-        "stated": "自行車道橋",
+        "stated": "跨基隆河自行車專用橋",
         "citation": {
-          "sourceId": "pts-20260916-shen-transport",
-          "quote": "再有一條自行車道橋",
+          "sourceId": "puma-transport",
+          "quote": "興建迎風—港墘跨基隆河自行車專用橋",
           "locator": {
             "kind": "quote",
-            "value": "再有一條自行車道橋"
+            "value": "興建迎風—港墘跨基隆河自行車專用橋"
           }
         }
       },
@@ -356,13 +484,13 @@
         "stated": null
       },
       "deadline": {
-        "stated": "約1年10個月（候選人估計）",
+        "stated": "第二階段（3–4年）完工啟用；候選人受訪估計約1年10個月",
         "citation": {
-          "sourceId": "pts-20260916-shen-transport",
-          "quote": "大概要1年10個月",
+          "sourceId": "puma-transport",
+          "quote": "完工啟用迎風—港墘跨基隆河自行車專用橋",
           "locator": {
             "kind": "quote",
-            "value": "大概要1年10個月"
+            "value": "完工啟用迎風—港墘跨基隆河自行車專用橋"
           }
         }
       }
@@ -375,26 +503,238 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "防洪與韌性",
-    "summary": "推動分散式／微型社區滯洪，透過校園與公園改造及建物雨撲滿強化市區排洪能力。",
+    "summary": "推動分散式／微型社區滯洪，改造校園與公園，並鼓勵建物設置防洪設施；優先改善高風險節點。",
     "citations": [
       {
-        "sourceId": "newtalk-20261026-shen-water",
-        "quote": "推動「分散式/微型社區滯洪」，透過校園與公園大變身，以及建物的雨撲滿，強化市區排洪能力",
+        "sourceId": "puma-water",
+        "quote": "推動「分散式／微型社區滯洪」，改造校園與公園，並鼓勵建物設置防洪設施，協助市區防洪；注重防洪精準管理，優先改善高風險節點。",
         "locator": {
           "kind": "quote",
-          "value": "推動「分散式/微型社區滯洪」，透過校園與公園大變身，以及建物的雨撲滿，強化市區排"
+          "value": "推動「分散式／微型社區滯洪」，改造校園與公園，並鼓勵建物設置防洪設施，協助市區防"
+        }
+      },
+      {
+        "sourceId": "newtalk-20261026-shen-water",
+        "quote": "推動「分散式/微型社區滯洪」",
+        "locator": {
+          "kind": "quote",
+          "value": "推動「分散式/微型社區滯洪」"
         }
       }
     ],
     "fields": {
       "tool": {
-        "stated": "校園與公園改造、建物雨撲滿",
+        "stated": "校園與公園改造、鼓勵建物設置防洪設施",
         "citation": {
-          "sourceId": "newtalk-20261026-shen-water",
-          "quote": "透過校園與公園大變身，以及建物的雨撲滿",
+          "sourceId": "puma-water",
+          "quote": "改造校園與公園，並鼓勵建物設置防洪設施",
           "locator": {
             "kind": "quote",
-            "value": "透過校園與公園大變身，以及建物的雨撲滿"
+            "value": "改造校園與公園，並鼓勵建物設置防洪設施"
+          }
+        }
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "中期推動校園與公園改造",
+        "citation": {
+          "sourceId": "puma-water",
+          "quote": "推動校園與公園的「分散式微型社區滯洪」改造",
+          "locator": {
+            "kind": "quote",
+            "value": "推動校園與公園的「分散式微型社區滯洪」改造"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-songshan-airport-ai-park",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "產業與土地",
+    "summary": "提出松山機場遷移構想，整合機場及周邊共300公頃腹地打造「臺北AI園區」（100公頃AI產業聚落、90公頃住宅及支援性公共設施、110公頃公園綠地），市府將爭取中央支持。此構想於市政記者會以市長身分發表，競總其後稱之為政見。",
+    "citations": [
+      {
+        "sourceId": "gov-taipei-20261008-ai-park",
+        "quote": "提出松山機場遷移構想，規劃整合機場及周邊共300公頃腹地，打造全新的「臺北AI園區」，包含100公頃AI產業聚落、90公頃住宅及支援性公共設施，以及110公頃大面積公園綠地",
+        "locator": {
+          "kind": "quote",
+          "value": "提出松山機場遷移構想，規劃整合機場及周邊共300公頃腹地，打造全新的「臺北AI園"
+        }
+      },
+      {
+        "sourceId": "cna-20261028-chiang-stage",
+        "quote": "蔣萬安10月初提出設立台北AI園區政見後",
+        "locator": {
+          "kind": "quote",
+          "value": "蔣萬安10月初提出設立台北AI園區政見後"
+        }
+      },
+      {
+        "sourceId": "cna-20261008-chiang-airport",
+        "quote": "台北市政府上午舉辦市政記者會，蔣萬安、副市長林奕華等人出席，加入蔣萬安競辦發言團隊的國民黨立委賴士葆、王鴻薇、羅智強、李彥秀受邀現身",
+        "locator": {
+          "kind": "quote",
+          "value": "台北市政府上午舉辦市政記者會，蔣萬安、副市長林奕華等人出席，加入蔣萬安競辦發言團"
+        }
+      },
+      {
+        "sourceId": "ebc-20261022-chiang-interview",
+        "quote": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12兆產值與6.5萬個工作機會",
+        "locator": {
+          "kind": "quote",
+          "value": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": "爭取中央支持，以松南營區、松機南側與中央攜手整合",
+        "citation": {
+          "sourceId": "gov-taipei-20261008-ai-park",
+          "quote": "市府規劃以松南營區、松機南側與中央攜手整合，打造臺北AI園區",
+          "locator": {
+            "kind": "quote",
+            "value": "市府規劃以松南營區、松機南側與中央攜手整合，打造臺北AI園區"
+          }
+        }
+      },
+      "scale": {
+        "stated": "300公頃（100公頃AI產業聚落、90公頃住宅及支援性公共設施、110公頃公園綠地）",
+        "citation": {
+          "sourceId": "gov-taipei-20261008-ai-park",
+          "quote": "包含100公頃產業聚落、90公頃住宅及支援性公共設施，以及110公頃大面積公園綠地",
+          "locator": {
+            "kind": "quote",
+            "value": "包含100公頃產業聚落、90公頃住宅及支援性公共設施，以及110公頃大面積公園綠"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-enterovirus-vaccine",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "兒少健康",
+    "summary": "推行0至6歲幼兒免費腸病毒疫苗接種。",
+    "citations": [
+      {
+        "sourceId": "puma-welfare",
+        "quote": "推行0至6歲幼兒免費腸病毒疫苗接種",
+        "locator": {
+          "kind": "quote",
+          "value": "推行0至6歲幼兒免費腸病毒疫苗接種"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "0至6歲幼兒",
+        "citation": {
+          "sourceId": "puma-welfare",
+          "quote": "推行0至6歲幼兒免費腸病毒疫苗接種",
+          "locator": {
+            "kind": "quote",
+            "value": "推行0至6歲幼兒免費腸病毒疫苗接種"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-free-counseling",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "心理健康",
+    "summary": "推行涵蓋15至65歲的免費心理諮商計畫（產後媽媽額外加碼）。",
+    "citations": [
+      {
+        "sourceId": "puma-welfare",
+        "quote": "推行涵蓋15至65歲的免費心理諮商計畫（包含產後媽媽額外加碼）",
+        "locator": {
+          "kind": "quote",
+          "value": "推行涵蓋15至65歲的免費心理諮商計畫（包含產後媽媽額外加碼）"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "15至65歲市民",
+        "citation": {
+          "sourceId": "puma-welfare",
+          "quote": "涵蓋15至65歲的免費心理諮商計畫",
+          "locator": {
+            "kind": "quote",
+            "value": "涵蓋15至65歲的免費心理諮商計畫"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "shen-eldercare-capacity",
+    "candidacyId": "2026-taipei-shen-po-yang",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "長照",
+    "summary": "藉由都更與退場學校用地增加住宿型長照機構空間，並引入「鐘點移工」填補夜間照護人力。",
+    "citations": [
+      {
+        "sourceId": "puma-welfare",
+        "quote": "藉由都更與退場學校用地增加住宿型機構空間，並引入「鐘點移工」填補夜間照護人力",
+        "locator": {
+          "kind": "quote",
+          "value": "藉由都更與退場學校用地增加住宿型機構空間，並引入「鐘點移工」填補夜間照護人力"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": "都更與退場學校用地、鐘點移工",
+        "citation": {
+          "sourceId": "puma-welfare",
+          "quote": "藉由都更與退場學校用地增加住宿型機構空間",
+          "locator": {
+            "kind": "quote",
+            "value": "藉由都更與退場學校用地增加住宿型機構空間"
           }
         }
       },
@@ -411,19 +751,19 @@
     "timeframe": "current"
   },
   {
-    "id": "chiang-songshan-airport-ai-park",
-    "candidacyId": "2026-taipei-chiang-wan-an",
+    "id": "tang-datun-volcano",
+    "candidacyId": "2026-taipei-tang-hsin-min",
     "electionId": "2026-local",
     "districtId": "taipei",
-    "issue": "產業與土地",
-    "summary": "提出遷移松山機場，規劃將約300公頃土地打造為AI產業園區（報導稱預估創造12兆產值與6.5萬個工作機會）。",
+    "issue": "防災",
+    "summary": "於號次抽籤現場宣稱「奉蔣經國總統引領參選」，將率台大火箭社科技菁英搶救大屯火山、搶救台北鄉親（媒體報導之現場發言，未見書面政見）。",
     "citations": [
       {
-        "sourceId": "ebc-20261022-chiang-interview",
-        "quote": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12兆產值與6.5萬個工作機會",
+        "sourceId": "setn-20261027-taipei-lottery",
+        "quote": "稱「奉蔣經國總統引領參選台北市長」，率台大火箭社科技菁英搶救大屯火山 ，搶救台北鄉親",
         "locator": {
           "kind": "quote",
-          "value": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12"
+          "value": "稱「奉蔣經國總統引領參選台北市長」，率台大火箭社科技菁英搶救大屯火山 ，搶救台北"
         }
       }
     ],
@@ -432,15 +772,7 @@
         "stated": null
       },
       "scale": {
-        "stated": "約300公頃",
-        "citation": {
-          "sourceId": "ebc-20261022-chiang-interview",
-          "quote": "規劃將300公頃土地打造為AI產業園區",
-          "locator": {
-            "kind": "quote",
-            "value": "規劃將300公頃土地打造為AI產業園區"
-          }
-        }
+        "stated": null
       },
       "funding": {
         "stated": null

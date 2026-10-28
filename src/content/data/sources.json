@@ -68,5 +68,99 @@
     "retrievedAt": "2026-10-28",
     "nature": "media",
     "verification": "pending-review"
+  },
+  {
+    "id": "puma-transport",
+    "url": "https://puma.taipei/policies/%E4%BA%A4%E9%80%9A%E6%94%BF%E7%AD%96",
+    "title": "沈伯洋提四大交通政見　讓綠色通勤選項＋1",
+    "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
+    "retrievedAt": "2026-10-28",
+    "nature": "candidate-official",
+    "verification": "pending-review"
+  },
+  {
+    "id": "puma-youth",
+    "url": "https://puma.taipei/policies/%E9%9D%92%E5%B9%B4%E6%94%BF%E7%AD%96",
+    "title": "提青年加碼　沈伯洋祭城市基金、AI支持、圓夢計畫",
+    "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
+    "retrievedAt": "2026-10-28",
+    "nature": "candidate-official",
+    "verification": "pending-review"
+  },
+  {
+    "id": "puma-water",
+    "url": "https://puma.taipei/policies/%E6%B0%B4%E5%9F%9F%E6%94%BF%E7%AD%96",
+    "title": "水域政策",
+    "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
+    "retrievedAt": "2026-10-28",
+    "nature": "candidate-official",
+    "verification": "pending-review"
+  },
+  {
+    "id": "puma-family",
+    "url": "https://puma.taipei/policies/%E5%AE%B6%E5%BA%AD%E4%B8%80%E7%AB%99%E9%80%9A",
+    "title": "沈伯洋拋「家庭一站通」政策，期盼台北成為有溫度、為人設計的城市",
+    "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
+    "retrievedAt": "2026-10-28",
+    "nature": "candidate-official",
+    "verification": "pending-review"
+  },
+  {
+    "id": "puma-trails",
+    "url": "https://puma.taipei/policies/%E5%8F%B0%E5%8C%97%E6%96%87%E5%8C%96%E5%BE%91%C3%97%E5%B1%B1%E6%9E%97%E5%BE%91",
+    "title": "串起城市歷史與山林　沈伯洋推四大文化徑、三大登山中心：打造亞洲第一觀光登山城",
+    "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
+    "retrievedAt": "2026-10-28",
+    "nature": "candidate-official",
+    "verification": "pending-review"
+  },
+  {
+    "id": "puma-welfare",
+    "url": "https://puma.taipei/policies/%E7%A4%BE%E7%A6%8F%E6%94%BF%E7%AD%96",
+    "title": "社福是衡量城市溫度的尺 沈伯洋提全齡政見打造完善體系",
+    "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
+    "retrievedAt": "2026-10-28",
+    "nature": "candidate-official",
+    "verification": "pending-review"
+  },
+  {
+    "id": "gov-taipei-20261008-ai-park",
+    "url": "https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&sms=72544237BBE4C5F6&s=8ED4D25BC664CF21",
+    "title": "輝達來了！蔣萬安發表「AI黃金世紀」新願景 拋松機遷移打造百公頃臺北AI園區",
+    "publisher": "臺北市政府秘書處媒體事務組",
+    "publishedAt": "2026-10-08",
+    "retrievedAt": "2026-10-28",
+    "nature": "government-record",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20261008-chiang-airport",
+    "url": "https://www.cna.com.tw/news/aipl/202610080124.aspx",
+    "title": "蔣萬安宣布規劃松山機場遷移　打造台北AI園區",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-10-08",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20261028-chiang-stage",
+    "url": "https://www.cna.com.tw/news/aloc/202610280292.aspx",
+    "title": "蔣萬安競總創「台北安可大舞台」　邀市民想像未來",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-10-28",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "setn-20261027-taipei-lottery",
+    "url": "https://www.setn.com/news/1929086",
+    "title": "台北市長選戰還有他們！郭璽抽籤轟歧視　唐新民大喊：搶救大屯火山",
+    "publisher": "三立新聞網",
+    "publishedAt": "2026-10-27",
+    "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review"
   }
 ]
