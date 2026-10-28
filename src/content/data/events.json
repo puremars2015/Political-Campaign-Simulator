@@ -1,0 +1,49 @@
+[
+  {
+    "id": "subsidy-pressure",
+    "title": "對手的補助牌",
+    "body": "對手宣布大規模補助，記者要求回應。候選人希望跟進，但政策組提醒：上週你們才批評同類承諾缺乏財源。距離記者會還有20分鐘。",
+    "window": { "fromRound": 2, "toRound": 4 },
+    "priority": 10,
+    "once": true,
+    "conditions": {},
+    "choices": [
+      {
+        "id": "hold-position",
+        "label": "維持原立場，說明財源與權責",
+        "knownCost": "需要準備時間，可能錯過曝光機會",
+        "cost": { "actionPoints": 0, "funds": 0 },
+        "effects": [{ "kind": "resource", "key": "policyConsistency", "delta": 3 }],
+        "setFlags": ["subsidy-held"]
+      },
+      {
+        "id": "conditional-version",
+        "label": "提出較小且有條件的版本",
+        "knownCost": "政策組要加班研究，後續須說明資格與財源",
+        "cost": { "actionPoints": 1, "funds": 30 },
+        "effects": [{ "kind": "resource", "key": "morale", "delta": -2 }],
+        "setFlags": ["subsidy-conditional"]
+      },
+      {
+        "id": "under-study",
+        "label": "宣布研究中",
+        "knownCost": "會被批評拖延，下一次必須給答案",
+        "cost": { "actionPoints": 0, "funds": 0 },
+        "effects": [],
+        "setFlags": ["subsidy-deferred"]
+      },
+      {
+        "id": "match-now",
+        "label": "跟進，事後再補方案",
+        "knownCost": "政策組壓力大，信用風險升高",
+        "cost": { "actionPoints": 0, "funds": 0 },
+        "effects": [{ "kind": "resource", "key": "morale", "delta": -4 }],
+        "delayed": {
+          "afterRounds": 2,
+          "effects": [{ "kind": "resource", "key": "policyConsistency", "delta": -8 }]
+        },
+        "setFlags": ["subsidy-matched"]
+      }
+    ]
+  }
+]

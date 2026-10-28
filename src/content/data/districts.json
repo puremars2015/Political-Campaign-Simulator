@@ -1,0 +1,14 @@
+[
+  {
+    "id": "binhai",
+    "name": "濱海縣（虛構，暫名）",
+    "fictional": true,
+    "electionDate": "2026-11-28",
+    "regions": [
+      { "id": "harbor", "name": "港區", "registeredVoters": 182000 },
+      { "id": "valley", "name": "溪谷區", "registeredVoters": 96000 },
+      { "id": "newtown", "name": "新市鎮", "registeredVoters": 214000 }
+    ],
+    "baseline": { "opponentSupport": 0.36, "undecided": 0.3 }
+  }
+]

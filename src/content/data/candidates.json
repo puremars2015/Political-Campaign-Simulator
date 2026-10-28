@@ -1,0 +1,33 @@
+[
+  {
+    "id": "placeholder-a",
+    "name": "範例候選人（占位）",
+    "fictional": true,
+    "districtId": "binhai",
+    "background": "M0 前的占位資料，用來驗證引擎與介面流程。正式的三名合成候選人將在 M0 取代此筆。",
+    "personality": ["重視財政紀律", "不喜歡被幕僚推著走"],
+    "priorities": ["長照", "交通"],
+    "nonNegotiables": ["不承諾沒有財源的全面現金補助"],
+    "startingResources": {
+      "funds": 800,
+      "morale": 60,
+      "candidateTrust": 50,
+      "publicTrust": 45,
+      "policyConsistency": 70
+    },
+    "initialCommitments": [
+      {
+        "id": "eldercare-centers",
+        "issue": "長照",
+        "goal": "讓每個行政區都有日間照顧據點",
+        "tool": "與民間機構合作設置據點",
+        "strength": "promote",
+        "scale": "全縣新增 12 處",
+        "funding": "中央長照基金與縣府年度預算",
+        "deadline": "任期內",
+        "wording": "推動每區至少一處日照中心",
+        "status": "public"
+      }
+    ]
+  }
+]
