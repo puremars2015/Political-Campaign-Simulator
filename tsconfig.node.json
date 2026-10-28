@@ -2,7 +2,10 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "target": "ES2023",
-    "lib": ["ES2023", "DOM"],
+    "lib": [
+      "ES2023",
+      "DOM"
+    ],
     "module": "ESNext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
@@ -14,7 +17,18 @@
     "noUncheckedIndexedAccess": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@content-data": [
+        "./src/content/data/index.ts"
+      ]
+    }
   },
-  "include": ["vite.config.ts", "playwright.config.ts", "tests"]
+  "include": [
+    "vite.config.ts",
+    "playwright.config.ts",
+    "tests"
+  ]
 }

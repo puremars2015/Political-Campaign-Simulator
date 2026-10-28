@@ -1,14 +1,178 @@
 [
   {
-    "id": "binhai",
-    "name": "濱海縣（虛構，暫名）",
-    "fictional": true,
-    "electionDate": "2026-11-28",
-    "regions": [
-      { "id": "harbor", "name": "港區", "registeredVoters": 182000 },
-      { "id": "valley", "name": "溪谷區", "registeredVoters": 96000 },
-      { "id": "newtown", "name": "新市鎮", "registeredVoters": 214000 }
-    ],
-    "baseline": { "opponentSupport": 0.36, "undecided": 0.3 }
+    "id": "taipei",
+    "name": "臺北市",
+    "kind": "municipality",
+    "office": "臺北市長",
+    "electionId": "2026-local",
+    "status": "collecting"
+  },
+  {
+    "id": "new-taipei",
+    "name": "新北市",
+    "kind": "municipality",
+    "office": "新北市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "taoyuan",
+    "name": "桃園市",
+    "kind": "municipality",
+    "office": "桃園市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "taichung",
+    "name": "臺中市",
+    "kind": "municipality",
+    "office": "臺中市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "tainan",
+    "name": "臺南市",
+    "kind": "municipality",
+    "office": "臺南市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "kaohsiung",
+    "name": "高雄市",
+    "kind": "municipality",
+    "office": "高雄市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "keelung",
+    "name": "基隆市",
+    "kind": "provincial-city",
+    "office": "基隆市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "hsinchu-city",
+    "name": "新竹市",
+    "kind": "provincial-city",
+    "office": "新竹市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "chiayi-city",
+    "name": "嘉義市",
+    "kind": "provincial-city",
+    "office": "嘉義市長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "yilan",
+    "name": "宜蘭縣",
+    "kind": "county",
+    "office": "宜蘭縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "hsinchu-county",
+    "name": "新竹縣",
+    "kind": "county",
+    "office": "新竹縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "miaoli",
+    "name": "苗栗縣",
+    "kind": "county",
+    "office": "苗栗縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "changhua",
+    "name": "彰化縣",
+    "kind": "county",
+    "office": "彰化縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "nantou",
+    "name": "南投縣",
+    "kind": "county",
+    "office": "南投縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "yunlin",
+    "name": "雲林縣",
+    "kind": "county",
+    "office": "雲林縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "chiayi-county",
+    "name": "嘉義縣",
+    "kind": "county",
+    "office": "嘉義縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "pingtung",
+    "name": "屏東縣",
+    "kind": "county",
+    "office": "屏東縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "taitung",
+    "name": "臺東縣",
+    "kind": "county",
+    "office": "臺東縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "hualien",
+    "name": "花蓮縣",
+    "kind": "county",
+    "office": "花蓮縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "penghu",
+    "name": "澎湖縣",
+    "kind": "county",
+    "office": "澎湖縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "kinmen",
+    "name": "金門縣",
+    "kind": "county",
+    "office": "金門縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
+  },
+  {
+    "id": "lienchiang",
+    "name": "連江縣",
+    "kind": "county",
+    "office": "連江縣長",
+    "electionId": "2026-local",
+    "status": "not-started"
   }
 ]

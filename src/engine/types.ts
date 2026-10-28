@@ -25,28 +25,17 @@ export interface ActionDefinition {
   delayed?: { afterRounds: number; effects: Effect[] };
 }
 
-export type CommitmentStrength = 'study' | 'promote' | 'guarantee';
-export type CommitmentStatus = 'draft' | 'internal' | 'public' | 'revised' | 'withdrawn';
+/**
+ * 本局對某項真實政見的宣傳安排（計畫 4.3）。
+ * 這是模擬中的競選決策，不代表真人實際公布、撤回或改變政策；
+ * 政見內容本身只存在唯讀的內容庫，GameState 只保存政見 ID。
+ */
+export type ExposureStatus = 'pending' | 'internal' | 'featured' | 'deferred' | 'low-profile';
 
-export interface CommitmentVersion {
-  round: number;
-  strength: CommitmentStrength;
-  scale: string;
-  funding: string;
-  deadline: string;
-  wording: string;
-  status: CommitmentStatus;
-  /** 造成此版本的決策紀錄 ID；開局既有承諾為 null */
-  sourceDecisionId: string | null;
-}
-
-export interface PolicyCommitment {
-  id: string;
-  issue: string;
-  goal: string;
-  tool: string;
-  /** 依時間排序的完整版本歷史，最後一筆為目前版本；不可刪除舊版本。 */
-  history: CommitmentVersion[];
+export interface CampaignPolicyState {
+  policyId: string;
+  status: ExposureStatus;
+  history: { round: number; status: ExposureStatus; decisionId: string | null }[];
 }
 
 export interface PendingEffect {
@@ -59,17 +48,16 @@ export interface PendingEffect {
 export interface DecisionRecord {
   id: string;
   round: number;
-  kind: 'action' | 'event-choice' | 'delayed-effect';
-  /** 行動 ID、「事件ID:選項ID」，或延遲效果的來源決策 ID */
+  kind: 'action' | 'event-choice' | 'delayed-effect' | 'policy-exposure';
+  /** 行動 ID、「事件ID:選項ID」、政見 ID，或延遲效果的來源決策 ID */
   ref: string;
   resourceDelta: Partial<Resources>;
   summary: string;
 }
 
-/** 隱藏選情：一般畫面不得直接顯示。比例加總為 1。 */
+/** 隱藏選情：一般畫面不得直接顯示。各參選紀錄支持與未表態加總為 1。 */
 export interface HiddenElectorate {
-  ourSupport: number;
-  opponentSupport: number;
+  support: Record<string, number>;
   undecided: number;
 }
 
@@ -85,11 +73,15 @@ export interface GameState {
   phase: GamePhase;
   round: number;
   calendar: RoundSpan[];
-  candidateId: string;
+  /** 本局固定使用的資料截至日期 */
+  dataAsOf: string;
   districtId: string;
+  /** 玩家輔佐的參選紀錄 */
+  candidacyId: string;
+  opponentCandidacyIds: string[];
   resources: Resources;
   actionPoints: number;
-  commitments: PolicyCommitment[];
+  campaign: CampaignPolicyState[];
   pendingEffects: PendingEffect[];
   decisions: DecisionRecord[];
   flags: Record<string, boolean>;

@@ -1,13 +1,19 @@
 import { describe, expect, it } from 'vitest';
-import { loadContent } from '../../src/content/index.ts';
 import { BALANCE } from '../../src/engine/config.ts';
-import { createNewGame, endRound, submitAction, type EngineResult } from '../../src/engine/engine.ts';
+import {
+  createNewGame,
+  endRound,
+  setPolicyExposure,
+  submitAction,
+  type EngineResult,
+} from '../../src/engine/engine.ts';
 import type { GameState } from '../../src/engine/types.ts';
+import { loadFixture } from '../fixtures/content.ts';
 
-const content = loadContent();
+const content = loadFixture();
 
 function newGame(seed = 'test-seed'): GameState {
-  return createNewGame(content, { seed });
+  return createNewGame(content, { seed, districtId: 'test-city', candidacyId: 'cand-a' });
 }
 
 function expectOk(result: EngineResult): GameState {
@@ -16,21 +22,85 @@ function expectOk(result: EngineResult): GameState {
 }
 
 describe('createNewGame', () => {
-  it('以候選人起始資源與完整行動點開局', () => {
+  it('以指定的參選紀錄開局，並記錄同選區對手', () => {
     const state = newGame();
     expect(state.round).toBe(1);
     expect(state.phase).toBe('campaign');
+    expect(state.candidacyId).toBe('cand-a');
+    expect(state.opponentCandidacyIds).toEqual(['cand-b']);
+    expect(state.resources.funds).toBe(800);
     expect(state.actionPoints).toBe(BALANCE.actionPointsPerRound);
-    expect(state.commitments[0]?.history).toHaveLength(1);
+    expect(state.dataAsOf).toBe('2026-10-01');
+  });
+
+  it('只納入我方來源已審閱的當次政見，排除待審閱與歷史立場', () => {
+    expect(newGame().campaign.map((c) => c.policyId)).toEqual(['a-transit', 'a-housing']);
   });
 
   it('隱藏選情比例加總為 1', () => {
-    const { ourSupport, opponentSupport, undecided } = newGame().hidden;
-    expect(ourSupport + opponentSupport + undecided).toBeCloseTo(1);
+    const { support, undecided } = newGame().hidden;
+    const total = Object.values(support).reduce((a, b) => a + b, 0) + undecided;
+    expect(total).toBeCloseTo(1);
   });
 
-  it('指定不存在的候選人時拋出錯誤', () => {
-    expect(() => createNewGame(content, { seed: 'x', candidateId: 'nobody' })).toThrow();
+  it('拒絕不存在的參選紀錄', () => {
+    expect(() => createNewGame(content, { seed: 'x', districtId: 'test-city', candidacyId: 'nobody' })).toThrow();
+  });
+
+  it('拒絕其他縣市的參選紀錄', () => {
+    expect(() => createNewGame(content, { seed: 'x', districtId: 'draft-city', candidacyId: 'cand-a' })).toThrow();
+  });
+
+  it('拒絕尚未達可玩門檻的縣市', () => {
+    expect(() => createNewGame(content, { seed: 'x', districtId: 'draft-city', candidacyId: 'cand-a' })).toThrow(
+      /尚不可玩/,
+    );
+  });
+});
+
+describe('setPolicyExposure', () => {
+  it('主打政見會扣除成本並保留歷史，不保存政見內容', () => {
+    const before = newGame();
+    const after = expectOk(setPolicyExposure(before, 'a-transit', 'featured', before.revision));
+    const entry = after.campaign.find((c) => c.policyId === 'a-transit');
+    expect(entry?.status).toBe('featured');
+    expect(entry?.history.map((h) => h.status)).toEqual(['pending', 'featured']);
+    expect(after.actionPoints).toBe(before.actionPoints - 1);
+    expect(after.decisions.at(-1)?.kind).toBe('policy-exposure');
+    // GameState 只有政見 ID 與安排狀態，沒有可被改寫的政見欄位
+    expect(Object.keys(entry ?? {}).sort()).toEqual(['history', 'policyId', 'status']);
+  });
+
+  it('不能安排對手、待審閱或不存在的政見', () => {
+    const state = newGame();
+    for (const policyId of ['b-housing', 'a-parks', 'a-old', 'ghost']) {
+      expect(setPolicyExposure(state, policyId, 'featured', state.revision).ok).toBe(false);
+    }
+  });
+
+  it('重複設定相同狀態會被拒絕', () => {
+    let state = newGame();
+    state = expectOk(setPolicyExposure(state, 'a-transit', 'deferred', state.revision));
+    expect(setPolicyExposure(state, 'a-transit', 'deferred', state.revision).ok).toBe(false);
+  });
+
+  it('同時主打數量受上限限制', () => {
+    const base = newGame();
+    // 加入第三項可安排政見，以測試超過上限的情況
+    const extra = { policyId: 'a-extra', status: 'pending' as const, history: [] };
+    let state: GameState = { ...base, actionPoints: 10, campaign: [...base.campaign, extra] };
+    state = expectOk(setPolicyExposure(state, 'a-transit', 'featured', state.revision));
+    state = expectOk(setPolicyExposure(state, 'a-housing', 'featured', state.revision));
+    expect(BALANCE.maxFeaturedPolicies).toBe(2);
+    const result = setPolicyExposure(state, 'a-extra', 'featured', state.revision);
+    expect(result.ok).toBe(false);
+  });
+
+  it('不改變內容庫中的政見', () => {
+    const snapshot = structuredClone(content.policies);
+    const state = newGame();
+    expectOk(setPolicyExposure(state, 'a-transit', 'featured', state.revision));
+    expect(content.policies).toEqual(snapshot);
   });
 });
 
@@ -106,7 +176,7 @@ describe('確定性', () => {
       state = expectOk(submitAction(state, 'policy-research', state.revision));
       state = expectOk(submitAction(state, 'field-event', state.revision));
       state = expectOk(endRound(state, state.revision));
-      state = expectOk(submitAction(state, 'team-care', state.revision));
+      state = expectOk(setPolicyExposure(state, 'a-housing', 'featured', state.revision));
       return state;
     };
     expect(play()).toEqual(play());

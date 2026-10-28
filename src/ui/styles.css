@@ -92,3 +92,40 @@ button:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
 }
+
+.district-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  gap: 0.5rem;
+}
+button.district {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  color: var(--text);
+  border-color: var(--border);
+}
+.district-name { font-weight: 600; }
+
+.policy { display: flex; flex-direction: column; gap: 0.4rem; }
+.policy p { margin: 0; }
+.policy-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
+  gap: 0.25rem 1rem;
+  margin: 0;
+}
+.policy-fields dt { color: var(--muted); font-size: 0.85rem; }
+.policy-fields dd { margin: 0; }
+/* 「來源未說明」用文字與樣式雙重標示，不只靠顏色 */
+.unknown { font-style: italic; color: var(--muted); }
+
+.citations { list-style: none; padding: 0; margin: 0.5rem 0 0; display: grid; gap: 0.5rem; }
+.citations blockquote { margin: 0; padding-left: 0.75rem; border-left: 3px solid var(--border); }
+a { color: var(--accent); }
+details > summary { cursor: pointer; }

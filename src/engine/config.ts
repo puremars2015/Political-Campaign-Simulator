@@ -1,4 +1,4 @@
-import type { ActionDefinition, ResourceKey } from './types.ts';
+import type { ActionCost, ActionDefinition, ExposureStatus, ResourceKey, Resources } from './types.ts';
 
 /**
  * 集中管理的平衡參數。所有數值皆為原型初始值，須經試玩與模擬調整，
@@ -9,6 +9,15 @@ export const BALANCE = {
   totalRounds: 12,
   countdownRounds: 3,
   actionPointsPerRound: 3,
+  /** 同時主打的政見上限 */
+  maxFeaturedPolicies: 2,
+  /** 經費以外的起始資源；經費由各參選紀錄的模擬參數提供 */
+  startingResources: {
+    morale: 60,
+    candidateTrust: 50,
+    publicTrust: 50,
+    policyConsistency: 70,
+  } satisfies Omit<Resources, 'funds'>,
   resourceBounds: {
     funds: { min: 0, max: 99_999 },
     morale: { min: 0, max: 100 },
@@ -53,3 +62,11 @@ export const ACTIONS: readonly ActionDefinition[] = [
     ],
   },
 ];
+
+/** 調整政見宣傳安排的成本；只改變曝光，不改變政見內容。 */
+export const EXPOSURE_COSTS: Record<Exclude<ExposureStatus, 'pending'>, ActionCost> = {
+  internal: { actionPoints: 0, funds: 0 },
+  featured: { actionPoints: 1, funds: 10 },
+  deferred: { actionPoints: 0, funds: 0 },
+  'low-profile': { actionPoints: 0, funds: 0 },
+};

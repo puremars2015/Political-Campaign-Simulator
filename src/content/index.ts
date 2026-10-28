@@ -1,13 +1,9 @@
-import candidates from './data/candidates.json';
-import districts from './data/districts.json';
-import events from './data/events.json';
+// 「@content-data」在正式建置指向 src/content/data；e2e 建置改指向測試專用資料（見 vite.config.ts）
+import { rawContent } from '@content-data';
 import type { ContentBundle } from './schema.ts';
 import { validateContent } from './validate.ts';
 
-/** 內容版本；內容變更若影響存檔相容性，須同步更新。 */
-export const CONTENT_VERSION = '0.1.0-prototype';
-
-export const rawContent = { contentVersion: CONTENT_VERSION, districts, candidates, events };
+export { rawContent };
 
 let cached: ContentBundle | null = null;
 

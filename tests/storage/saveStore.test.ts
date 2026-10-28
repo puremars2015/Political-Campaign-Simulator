@@ -1,9 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { loadContent } from '../../src/content/index.ts';
-import { createNewGame } from '../../src/engine/engine.ts';
+import { createNewGame, type NewGameOptions } from '../../src/engine/engine.ts';
+import { loadFixture } from '../fixtures/content.ts';
 import { SAVE_KEY, createLocalSaveStore, type KeyValueStorage } from '../../src/storage/saveStore.ts';
 
-const content = loadContent();
+const content = loadFixture();
+const game = (seed: string) =>
+  createNewGame(content, { seed, districtId: 'test-city', candidacyId: 'cand-a' } satisfies NewGameOptions);
 
 function memoryStorage(): KeyValueStorage & { data: Map<string, string> } {
   const data = new Map<string, string>();
@@ -22,7 +24,7 @@ describe('localStorage 存檔', () => {
 
   it('存檔後可完整讀回', () => {
     const store = createLocalSaveStore(memoryStorage(), content.contentVersion);
-    const state = createNewGame(content, { seed: 'save' });
+    const state = game('save');
     expect(store.save(state)).toEqual({ ok: true });
     expect(store.load()).toEqual({ status: 'ok', state });
   });
@@ -35,14 +37,14 @@ describe('localStorage 存檔', () => {
 
   it('內容版本不同時回報 incompatible', () => {
     const storage = memoryStorage();
-    createLocalSaveStore(storage, content.contentVersion).save(createNewGame(content, { seed: 'v' }));
+    createLocalSaveStore(storage, content.contentVersion).save(game('v'));
     expect(createLocalSaveStore(storage, 'other-version').load().status).toBe('incompatible');
   });
 
   it('schema 版本不同時回報 incompatible', () => {
     const storage = memoryStorage();
     const store = createLocalSaveStore(storage, content.contentVersion);
-    store.save({ ...createNewGame(content, { seed: 'v' }), schemaVersion: 999 });
+    store.save({ ...game('v'), schemaVersion: 999 });
     expect(store.load().status).toBe('incompatible');
   });
 
@@ -51,7 +53,7 @@ describe('localStorage 存檔', () => {
     storage.setItem = () => {
       throw new Error('QuotaExceededError');
     };
-    const result = createLocalSaveStore(storage, content.contentVersion).save(createNewGame(content, { seed: 'q' }));
+    const result = createLocalSaveStore(storage, content.contentVersion).save(game('q'));
     expect(result.ok).toBe(false);
   });
 });

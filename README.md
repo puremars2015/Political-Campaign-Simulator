@@ -1,10 +1,10 @@
 # 選戰辦公室：距離投票還有90天
 
-單人、文字敘事、回合決策的政治模擬網頁遊戲。玩家扮演候選人的競選辦公室主任，在時間、預算、候選人立場與團隊壓力之間做選擇。
+單人、文字敘事、回合決策的政治模擬網頁遊戲。玩家先選縣市，再從該縣市2026年縣市長選舉的真實候選人中選一位，扮演其競選辦公室主任，在時間、預算、候選人立場與團隊壓力之間做選擇。候選人與政見為附出處的真實公開資料；辦公室內部對話、民調與開票為模擬。
 
 完整設計見 [`docs/DEVELOPMENT_PLAN.md`](docs/DEVELOPMENT_PLAN.md)。
 
-> 目前為專案骨架階段：引擎、內容驗證、存檔與基本介面可運作，候選人與事件仍為占位資料（M0 進行中）。
+> 目前為 M0／M1 開發階段：引擎、內容驗證、開局流程、政見來源查閱與存檔可運作。正式內容只有22縣市目錄，尚無已查證的候選人與政見，所以目前沒有可玩的縣市（臺北市資料蒐集中）。
 
 ## 環境需求
 
@@ -23,7 +23,7 @@
 | 正式建置 | `pnpm build` |
 | 端到端測試（手機＋桌面） | `pnpm test:e2e` |
 
-端到端測試使用 `@playwright/test`，首次執行前若本機沒有瀏覽器，請先執行 `pnpm exec playwright install chromium`。
+端到端測試使用 `@playwright/test`，首次執行前若本機沒有瀏覽器，請先執行 `pnpm exec playwright install chromium`。e2e 以 `vite --mode e2e` 建置到 `dist-e2e/`，改用 `tests/fixtures/content-data.ts` 的測試專用資料；正式建置不會打包這份資料。
 
 ## 專案結構
 
@@ -36,16 +36,29 @@ src/
     engine.ts    開局、提交行動、回合結算、延遲效果
     types.ts     GameState 等核心資料型別
   content/   結構化內容與 zod schema 驗證
-    data/        districts / candidates / events JSON
+    schema.ts    選舉、縣市、人物、參選紀錄、唯讀政見、來源、事件模板
+    validate.ts  引用、跨屆／跨選區誤用與可玩門檻檢查
+    query.ts     可玩門檻評估、可用政見篩選
+    data/        正式內容 JSON（22縣市目錄與真實資料）
   storage/   可替換的存檔介面（首版為 localStorage）
   ui/        React 畫面
 tests/
   engine/ content/ storage/   Vitest
+  fixtures/                   測試專用資料（標示為測試資料，不進正式內容）
   e2e/                        Playwright
 ```
 
+## 內容資料規則
+
+- 每個縣市的 `status` 只有在通過可玩門檻時才能標為 `playable`：選舉日期、行政區、參選資格與政見來源皆已審閱，所有參選紀錄為選務機關公告之正式候選人，且模擬參數已設定。
+- 政見為唯讀資料，每筆至少引用一個來源；來源未交代的欄位以 `{ "stated": null }` 表示「來源未說明」，不得補值。
+- 政見的屆次與選區必須與參選紀錄一致，驗證器會擋下跨屆或跨選區誤用。
+- 來源的 `verification` 為 `pending-review` 時，該政見可在資料頁查閱，但不會進入遊戲。
+
 ## 引擎契約
 
+- 開局必須指定縣市與參選紀錄，不隨機分配候選人。
+- GameState 只保存政見 ID 與本局宣傳安排（待宣傳、主打、延後、降低曝光），無法改寫政見內容。
 - 相同種子、內容版本與選擇序列必定得到相同結果；所有隨機抽樣都走 `engine/rng.ts`。
 - 每次提交都帶 `expectedRevision`，重複或過期的提交會被拒絕，不會重複扣款。
 - 被拒絕的行動不扣資源、不推進時間。

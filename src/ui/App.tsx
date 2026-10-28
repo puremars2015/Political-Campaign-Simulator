@@ -1,9 +1,18 @@
 import { useMemo, useRef, useState } from 'react';
 import { loadContent } from '../content/index.ts';
-import { createNewGame, endRound, submitAction, type EngineResult } from '../engine/engine.ts';
+import {
+  createNewGame,
+  endRound,
+  setPolicyExposure,
+  submitAction,
+  type EngineResult,
+} from '../engine/engine.ts';
 import type { GameState } from '../engine/types.ts';
 import { createLocalSaveStore, type LoadResult } from '../storage/saveStore.ts';
 import { BriefingScreen } from './BriefingScreen.tsx';
+import { CandidateSelectScreen } from './CandidateSelectScreen.tsx';
+import { ConfirmScreen } from './ConfirmScreen.tsx';
+import { DistrictSelectScreen } from './DistrictSelectScreen.tsx';
 import { IntroScreen } from './IntroScreen.tsx';
 
 function randomSeed(): string {
@@ -12,10 +21,18 @@ function randomSeed(): string {
   return Array.from(bytes, (n) => n.toString(36)).join('');
 }
 
+/** 開局流程：選縣市 → 選該縣市候選人 → 查閱資料並確認（計畫 3.1） */
+type SetupStep =
+  | { kind: 'intro' }
+  | { kind: 'districts' }
+  | { kind: 'candidates'; districtId: string }
+  | { kind: 'confirm'; districtId: string; candidacyId: string };
+
 export function App() {
   const content = useMemo(() => loadContent(), []);
   const store = useMemo(() => createLocalSaveStore(window.localStorage, content.contentVersion), [content]);
   const [initialLoad] = useState<LoadResult>(() => store.load());
+  const [step, setStep] = useState<SetupStep>({ kind: 'intro' });
   const [game, setGame] = useState<GameState | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   // 以 ref 保存最新狀態，避免連點時兩次提交都基於同一份舊狀態
@@ -36,32 +53,82 @@ export function App() {
     else setNotice(result.reason);
   }
 
-  function startNewGame() {
-    commit(createNewGame(content, { seed: randomSeed() }));
+  function returnToSetup() {
+    gameRef.current = null;
+    setGame(null);
+    setNotice(null);
+    setStep({ kind: 'districts' });
   }
 
-  if (!game) {
+  if (game) {
     return (
-      <IntroScreen
-        loadResult={initialLoad}
-        onContinue={initialLoad.status === 'ok' ? () => commit(initialLoad.state) : undefined}
-        onStart={startNewGame}
+      <BriefingScreen
+        content={content}
+        game={game}
+        notice={notice}
+        onAction={(actionId, revision) => apply((s) => submitAction(s, actionId, revision))}
+        onExposure={(policyId, status, revision) => apply((s) => setPolicyExposure(s, policyId, status, revision))}
+        onEndRound={(revision) => apply((s) => endRound(s, revision))}
+        onRestart={returnToSetup}
       />
     );
   }
 
-  const candidate = content.candidates.find((c) => c.id === game.candidateId);
-  const district = content.districts.find((d) => d.id === game.districtId);
+  const district =
+    step.kind === 'candidates' || step.kind === 'confirm'
+      ? content.districts.find((d) => d.id === step.districtId)
+      : undefined;
+
+  if (step.kind === 'districts') {
+    return (
+      <DistrictSelectScreen
+        content={content}
+        onSelect={(districtId) => setStep({ kind: 'candidates', districtId })}
+        onBack={() => setStep({ kind: 'intro' })}
+      />
+    );
+  }
+
+  if (step.kind === 'candidates' && district) {
+    return (
+      <CandidateSelectScreen
+        content={content}
+        district={district}
+        onSelect={(candidacyId) => setStep({ kind: 'confirm', districtId: district.id, candidacyId })}
+        // 返回更換縣市時清除尚未確認的候選人選擇
+        onBack={() => setStep({ kind: 'districts' })}
+      />
+    );
+  }
+
+  if (step.kind === 'confirm' && district) {
+    const candidacy = content.candidacies.find((c) => c.id === step.candidacyId);
+    if (candidacy) {
+      return (
+        <ConfirmScreen
+          content={content}
+          district={district}
+          candidacy={candidacy}
+          notice={notice}
+          onConfirm={() => {
+            try {
+              commit(createNewGame(content, { seed: randomSeed(), districtId: district.id, candidacyId: candidacy.id }));
+            } catch (error) {
+              setNotice(error instanceof Error ? error.message : String(error));
+            }
+          }}
+          onBack={() => setStep({ kind: 'candidates', districtId: district.id })}
+        />
+      );
+    }
+  }
 
   return (
-    <BriefingScreen
-      game={game}
-      candidateName={candidate?.name ?? game.candidateId}
-      districtName={district?.name ?? game.districtId}
+    <IntroScreen
+      loadResult={initialLoad}
       notice={notice}
-      onAction={(actionId, revision) => apply((s) => submitAction(s, actionId, revision))}
-      onEndRound={(revision) => apply((s) => endRound(s, revision))}
-      onRestart={startNewGame}
+      onContinue={initialLoad.status === 'ok' ? () => commit(initialLoad.state) : undefined}
+      onStart={() => setStep({ kind: 'districts' })}
     />
   );
 }

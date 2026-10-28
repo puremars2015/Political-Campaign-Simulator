@@ -23,50 +23,150 @@ const costSchema = z.object({
   funds: z.number().min(0),
 });
 
+// ---------- 來源 ----------
+
+/** 來源的資料性質，對應計畫 8.1 的來源優先序 */
+export const sourceNatureSchema = z.enum([
+  'election-authority', // 選務機關公告、選舉公報
+  'candidate-official', // 候選人官方政見文件、網站、正式記者會
+  'public-statement', // 有完整上下文的公開發言
+  'media', // 可靠媒體報導，用於交叉查證
+  'government-record', // 議事紀錄、政府公開資料
+]);
+
+export const verificationSchema = z.enum([
+  'pending-review', // 已蒐集、尚未人工審閱
+  'reviewed', // 已人工確認引文支持摘要
+  'disputed', // 審閱時發現問題
+  'unavailable', // 原始來源失效且無合法存檔
+]);
+
+/** 原文定位：PDF 頁碼、影片時間碼、網頁段落或可搜尋的引文 */
+export const locatorSchema = z.object({
+  kind: z.enum(['page', 'timestamp', 'paragraph', 'quote']),
+  value: z.string().min(1),
+});
+
+export const sourceSchema = z.object({
+  id,
+  url: z.url(),
+  title: z.string().min(1),
+  publisher: z.string().min(1),
+  publishedAt: isoDate.optional(),
+  retrievedAt: isoDate,
+  nature: sourceNatureSchema,
+  archiveUrl: z.url().optional(),
+  verification: verificationSchema,
+  reviewLog: z
+    .array(z.object({ date: isoDate, reviewer: z.string().min(1), note: z.string().min(1) }))
+    .default([]),
+});
+
+/** 一筆主張與其來源的連結，含引文與定位 */
+export const citationSchema = z.object({
+  sourceId: id,
+  quote: z.string().min(1),
+  locator: locatorSchema,
+});
+
+// ---------- 選舉、縣市、人物、參選紀錄 ----------
+
+export const electionSchema = z.object({
+  id,
+  name: z.string().min(1),
+  electionDate: isoDate,
+  citations: z.array(citationSchema).default([]),
+});
+
+export const districtKindSchema = z.enum(['municipality', 'provincial-city', 'county']);
+
+/** 資料製作進度；只有 playable 能開新局，且須通過驗證器的可玩門檻 */
+export const districtStatusSchema = z.enum(['not-started', 'collecting', 'preview', 'playable']);
+
 export const districtSchema = z.object({
   id,
   name: z.string().min(1),
-  /** 原型內容必須為虛構；真人資料包另行規範 */
-  fictional: z.literal(true),
-  electionDate: isoDate,
+  kind: districtKindSchema,
+  office: z.string().min(1),
+  electionId: id,
+  status: districtStatusSchema,
+  dataAsOf: isoDate.optional(),
   regions: z
-    .array(z.object({ id, name: z.string().min(1), registeredVoters: z.number().int().positive() }))
-    .min(1),
-  baseline: z.object({ opponentSupport: ratio, undecided: ratio }),
+    .array(z.object({ id, name: z.string().min(1), citations: z.array(citationSchema).min(1) }))
+    .default([]),
+  /** 模擬參數，屬模型推論，不是真實選情 */
+  simulation: z.object({ undecided: ratio }).optional(),
 });
 
-export const commitmentSeedSchema = z.object({
-  id,
-  issue: z.string().min(1),
-  goal: z.string().min(1),
-  tool: z.string().min(1),
-  strength: z.enum(['study', 'promote', 'guarantee']),
-  scale: z.string().min(1),
-  funding: z.string().min(1),
-  deadline: z.string().min(1),
-  wording: z.string().min(1),
-  status: z.enum(['draft', 'internal', 'public']),
-});
-
-export const candidateSchema = z.object({
-  id,
-  name: z.string().min(1),
-  fictional: z.literal(true),
-  districtId: id,
-  background: z.string().min(1),
+/** 人物的模擬參數；屬設計推論，需標示並人工審閱（計畫 8.2） */
+export const personSimulationSchema = z.object({
   personality: z.array(z.string().min(1)).min(1),
   priorities: z.array(z.string().min(1)).min(1),
-  /** 無論信任多高都不會讓步的原則，對應計畫 4.2 */
   nonNegotiables: z.array(z.string().min(1)),
-  startingResources: z.object({
-    funds: z.number().min(0),
-    morale: z.number().min(0).max(100),
-    candidateTrust: z.number().min(0).max(100),
-    publicTrust: z.number().min(0).max(100),
-    policyConsistency: z.number().min(0).max(100),
-  }),
-  initialCommitments: z.array(commitmentSeedSchema),
+  reviewed: z.boolean(),
 });
+
+export const personSchema = z.object({
+  id,
+  name: z.string().min(1),
+  background: z.array(z.object({ text: z.string().min(1), citation: citationSchema })).default([]),
+  simulation: personSimulationSchema.optional(),
+});
+
+export const candidacyStatusSchema = z.enum([
+  'announced', // 宣布參選
+  'nominated', // 獲政黨提名
+  'registered', // 完成登記
+  'certified', // 選務機關公告為正式候選人
+  'withdrawn', // 退選或未獲登記
+]);
+
+export const candidacySchema = z.object({
+  id,
+  personId: id,
+  electionId: id,
+  districtId: id,
+  office: z.string().min(1),
+  /** 政黨名稱或「無黨籍」，以選務機關登記為準 */
+  party: z.string().min(1),
+  ballotNumber: z.number().int().positive().optional(),
+  status: candidacyStatusSchema,
+  statusCitations: z.array(citationSchema).min(1),
+  /** 模擬起始支持，屬模型參數 */
+  simulation: z.object({ baselineSupport: ratio, startingFunds: z.number().min(0) }).optional(),
+});
+
+// ---------- 唯讀政見 ----------
+
+/** 來源未交代的欄位必須明確標示，不得補成事實（計畫 4.3） */
+export const policyFieldSchema = z.union([
+  z.object({ stated: z.string().min(1), citation: citationSchema }),
+  z.object({ stated: z.null() }),
+]);
+
+export const policySchema = z.object({
+  id,
+  candidacyId: id,
+  /** 冗餘保存屆次與選區，用來偵測跨屆或跨選區誤用 */
+  electionId: id,
+  districtId: id,
+  issue: z.string().min(1),
+  /** 忠實摘要；不得超出引文內容 */
+  summary: z.string().min(1),
+  citations: z.array(citationSchema).min(1),
+  fields: z.object({
+    tool: policyFieldSchema,
+    scale: policyFieldSchema,
+    funding: policyFieldSchema,
+    deadline: policyFieldSchema,
+  }),
+  /** current：當次競選政見；historical：過去立場，僅供對照 */
+  timeframe: z.enum(['current', 'historical']),
+  /** 公開來源證實的修訂，指向被取代的版本 */
+  supersedes: id.optional(),
+});
+
+// ---------- 事件模板 ----------
 
 export const eventChoiceSchema = z.object({
   id,
@@ -92,23 +192,43 @@ export const eventSchema = z.object({
   exclusiveGroup: id.optional(),
   conditions: z
     .object({
-      candidateIds: z.array(id).optional(),
       flagsAll: z.array(id).optional(),
       flagsNone: z.array(id).optional(),
     })
     .default({}),
+  /** 事件引用的政見須存在；不滿足時停用事件（計畫 4.6） */
+  requires: z
+    .object({
+      ourIssues: z.array(z.string().min(1)).default([]),
+      opponentIssues: z.array(z.string().min(1)).default([]),
+    })
+    .default({ ourIssues: [], opponentIssues: [] }),
   choices: z.array(eventChoiceSchema).min(2),
 });
 
 export const contentBundleSchema = z.object({
   contentVersion: z.string().min(1),
+  elections: z.array(electionSchema),
   districts: z.array(districtSchema).min(1),
-  candidates: z.array(candidateSchema).min(1),
+  people: z.array(personSchema),
+  candidacies: z.array(candidacySchema),
+  policies: z.array(policySchema),
+  sources: z.array(sourceSchema),
   events: z.array(eventSchema),
 });
 
+export type Source = z.infer<typeof sourceSchema>;
+export type Citation = z.infer<typeof citationSchema>;
+export type Election = z.infer<typeof electionSchema>;
 export type District = z.infer<typeof districtSchema>;
-export type Candidate = z.infer<typeof candidateSchema>;
+export type DistrictStatus = z.infer<typeof districtStatusSchema>;
+export type Person = z.infer<typeof personSchema>;
+export type Candidacy = z.infer<typeof candidacySchema>;
+export type CandidacyStatus = z.infer<typeof candidacyStatusSchema>;
+export type Policy = z.infer<typeof policySchema>;
+export type PolicyField = z.infer<typeof policyFieldSchema>;
 export type EventDefinition = z.infer<typeof eventSchema>;
 export type EventChoice = z.infer<typeof eventChoiceSchema>;
 export type ContentBundle = z.infer<typeof contentBundleSchema>;
+/** 未經 zod 預設值補齊的原始輸入形狀，供撰寫 JSON 與測試 fixture 使用 */
+export type ContentBundleInput = z.input<typeof contentBundleSchema>;

@@ -1,75 +1,69 @@
 import { buildCalendar } from './calendar.ts';
-import { ACTIONS, BALANCE } from './config.ts';
-import { pickOne, seedRng } from './rng.ts';
+import { ACTIONS, BALANCE, EXPOSURE_COSTS } from './config.ts';
+import { seedRng } from './rng.ts';
 import {
   GAME_STATE_SCHEMA_VERSION,
   type ActionCost,
   type DecisionRecord,
   type Effect,
+  type ExposureStatus,
   type GameState,
-  type PolicyCommitment,
   type ResourceKey,
   type Resources,
 } from './types.ts';
+import { activeCandidacies, assessDistrict, isPolicyUsable, policiesFor } from '../content/query.ts';
 import type { ContentBundle } from '../content/schema.ts';
 
 export type EngineResult = { ok: true; state: GameState } | { ok: false; reason: string };
 
 export interface NewGameOptions {
   seed: string;
-  /** 未指定時以種子隨機分配（開發模式可直接指定） */
-  candidateId?: string;
+  districtId: string;
+  candidacyId: string;
 }
 
+/** 建立新局。只接受已達可玩門檻的縣市與其當屆正式參選紀錄，不隨機分配候選人。 */
 export function createNewGame(content: ContentBundle, options: NewGameOptions): GameState {
-  let rng = seedRng(options.seed);
-  let candidate = content.candidates.find((c) => c.id === options.candidateId);
-  if (options.candidateId && !candidate) {
-    throw new Error(`找不到候選人：${options.candidateId}`);
+  const district = content.districts.find((d) => d.id === options.districtId);
+  if (!district) throw new Error(`找不到縣市：${options.districtId}`);
+  const playability = assessDistrict(content, district);
+  if (district.status !== 'playable' || !playability.playable) {
+    throw new Error(`${district.name} 尚不可玩：${playability.reasons.join('；') || '資料尚未發布'}`);
   }
-  if (!candidate) [candidate, rng] = pickOne(rng, content.candidates);
+  const election = content.elections.find((e) => e.id === district.electionId);
+  const candidacies = activeCandidacies(content, district.id);
+  const candidacy = candidacies.find((c) => c.id === options.candidacyId);
+  if (!candidacy) throw new Error(`${district.name} 沒有參選紀錄：${options.candidacyId}`);
+  // 以下欄位已由 assessDistrict 保證存在
+  if (!election || !district.dataAsOf || !district.simulation || !candidacy.simulation) {
+    throw new Error('內容資料不完整');
+  }
 
-  const district = content.districts.find((d) => d.id === candidate.districtId);
-  if (!district) throw new Error(`找不到選區：${candidate.districtId}`);
-
-  const { opponentSupport, undecided } = district.baseline;
-  const commitments: PolicyCommitment[] = candidate.initialCommitments.map((seed) => ({
-    id: seed.id,
-    issue: seed.issue,
-    goal: seed.goal,
-    tool: seed.tool,
-    history: [
-      {
-        round: 0,
-        strength: seed.strength,
-        scale: seed.scale,
-        funding: seed.funding,
-        deadline: seed.deadline,
-        wording: seed.wording,
-        status: seed.status,
-        sourceDecisionId: null,
-      },
-    ],
-  }));
+  const support: Record<string, number> = {};
+  for (const c of candidacies) support[c.id] = c.simulation?.baselineSupport ?? 0;
 
   return {
     schemaVersion: GAME_STATE_SCHEMA_VERSION,
     contentVersion: content.contentVersion,
     seed: options.seed,
-    rng,
+    rng: seedRng(options.seed),
     revision: 0,
     phase: 'campaign',
     round: 1,
-    calendar: buildCalendar(district.electionDate),
-    candidateId: candidate.id,
+    calendar: buildCalendar(election.electionDate),
+    dataAsOf: district.dataAsOf,
     districtId: district.id,
-    resources: { ...candidate.startingResources },
+    candidacyId: candidacy.id,
+    opponentCandidacyIds: candidacies.filter((c) => c.id !== candidacy.id).map((c) => c.id),
+    resources: { funds: candidacy.simulation.startingFunds, ...BALANCE.startingResources },
     actionPoints: BALANCE.actionPointsPerRound,
-    commitments,
+    campaign: policiesFor(content, candidacy.id)
+      .filter((p) => isPolicyUsable(content, p))
+      .map((p) => ({ policyId: p.id, status: 'pending', history: [{ round: 1, status: 'pending', decisionId: null }] })),
     pendingEffects: [],
     decisions: [],
     flags: {},
-    hidden: { ourSupport: 1 - opponentSupport - undecided, opponentSupport, undecided },
+    hidden: { support, undecided: district.simulation.undecided },
   };
 }
 
@@ -167,6 +161,62 @@ export function submitAction(state: GameState, actionId: string, expectedRevisio
       delayed: action.delayed,
       summary: action.label,
     }),
+  };
+}
+
+export const EXPOSURE_LABELS: Record<ExposureStatus, string> = {
+  pending: '待宣傳',
+  internal: '內部協調',
+  featured: '主打',
+  deferred: '延後',
+  'low-profile': '降低曝光',
+};
+
+/**
+ * 調整我方某項真實政見的宣傳安排。只改變本局的曝光狀態，
+ * 政見原文、規模、對象、財源、期限與承諾強度都不在 GameState 中，無從修改。
+ */
+export function setPolicyExposure(
+  state: GameState,
+  policyId: string,
+  status: Exclude<ExposureStatus, 'pending'>,
+  expectedRevision: number,
+): EngineResult {
+  const revisionError = checkRevision(state, expectedRevision);
+  if (revisionError) return { ok: false, reason: revisionError };
+
+  const entry = state.campaign.find((c) => c.policyId === policyId);
+  if (!entry) return { ok: false, reason: '只能安排我方已查證的當次政見。' };
+  if (entry.status === status) return { ok: false, reason: `這項政見已經是「${EXPOSURE_LABELS[status]}」。` };
+  if (status === 'featured') {
+    const featured = state.campaign.filter((c) => c.status === 'featured').length;
+    if (featured >= BALANCE.maxFeaturedPolicies) {
+      return { ok: false, reason: `最多同時主打 ${BALANCE.maxFeaturedPolicies} 項政見，請先調整其他項目。` };
+    }
+  }
+
+  const cost = EXPOSURE_COSTS[status];
+  const costError = checkAffordable(state, cost);
+  if (costError) return { ok: false, reason: costError };
+
+  const next = commitDecision(state, {
+    kind: 'policy-exposure',
+    ref: policyId,
+    cost,
+    effects: [],
+    summary: `政見宣傳安排：${EXPOSURE_LABELS[entry.status]} → ${EXPOSURE_LABELS[status]}`,
+  });
+  const decisionId = next.decisions.at(-1)?.id ?? null;
+  return {
+    ok: true,
+    state: {
+      ...next,
+      campaign: next.campaign.map((c) =>
+        c.policyId === policyId
+          ? { ...c, status, history: [...c.history, { round: state.round, status, decisionId }] }
+          : c,
+      ),
+    },
   };
 }
 
