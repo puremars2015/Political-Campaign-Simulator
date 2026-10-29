@@ -1,0 +1,62 @@
+[
+  {
+    "id": "childcare",
+    "name": "托育與育兒"
+  },
+  {
+    "id": "eldercare",
+    "name": "長照與高齡"
+  },
+  {
+    "id": "transit",
+    "name": "公車與大眾運輸"
+  },
+  {
+    "id": "traffic-safety",
+    "name": "行人與交通安全"
+  },
+  {
+    "id": "education",
+    "name": "校園教育"
+  },
+  {
+    "id": "housing",
+    "name": "居住"
+  },
+  {
+    "id": "urban-renewal",
+    "name": "都市更新"
+  },
+  {
+    "id": "flood",
+    "name": "防災治水"
+  },
+  {
+    "id": "parks-sports",
+    "name": "公園與運動"
+  },
+  {
+    "id": "culture-tourism",
+    "name": "文化與觀光"
+  },
+  {
+    "id": "industry",
+    "name": "產業發展"
+  },
+  {
+    "id": "youth",
+    "name": "青年"
+  },
+  {
+    "id": "health",
+    "name": "醫療與心理健康"
+  },
+  {
+    "id": "public-health",
+    "name": "環境與公共衛生"
+  },
+  {
+    "id": "governance",
+    "name": "城市治理"
+  }
+]

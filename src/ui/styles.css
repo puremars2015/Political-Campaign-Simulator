@@ -130,3 +130,8 @@ button.district {
 a { color: var(--accent); }
 details > summary { cursor: pointer; }
 .policy + .policy { border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.75rem; }
+
+.segment { font-size: 1.05rem; line-height: 1.75; }
+.check { display: flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; }
+.check input { width: 1.25rem; height: 1.25rem; }
+fieldset.card { display: flex; flex-direction: column; }

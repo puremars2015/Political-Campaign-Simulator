@@ -47,6 +47,7 @@ export function validateContent(raw: unknown): ValidationResult {
     policies: new Set(bundle.policies.map((p) => p.id)),
     sources: new Set(bundle.sources.map((s) => s.id)),
     events: new Set(bundle.events.map((e) => e.id)),
+    topics: new Set(bundle.topics.map((t) => t.id)),
   };
 
   for (const kind of Object.keys(ids) as (keyof typeof ids)[]) {
@@ -107,6 +108,7 @@ export function validateContent(raw: unknown): ValidationResult {
         add(`${path}.districtId`, `政見選區 ${policy.districtId} 與參選紀錄 ${candidacy.districtId} 不符`);
       }
     }
+    if (!ids.topics.has(policy.topic)) add(`${path}.topic`, `找不到議題分類：${policy.topic}`);
     if (policy.supersedes) {
       const previous = bundle.policies.find((p) => p.id === policy.supersedes);
       if (!previous) add(`${path}.supersedes`, `找不到被修訂的政見：${policy.supersedes}`);
@@ -138,6 +140,20 @@ export function validateContent(raw: unknown): ValidationResult {
       add(`events.${i}.choices`, '至少需要一個零成本選項，避免流程卡死');
     }
   });
+
+  bundle.comparisons.forEach((comparison, i) => {
+    const path = `comparisons.${i}`;
+    if (!ids.districts.has(comparison.districtId)) add(`${path}.districtId`, `找不到縣市：${comparison.districtId}`);
+    for (const candidacyId of [...comparison.candidacyIds, ...Object.keys(comparison.maskTerms)]) {
+      const candidacy = bundle.candidacies.find((c) => c.id === candidacyId);
+      if (!candidacy) add(`${path}`, `找不到參選紀錄：${candidacyId}`);
+      else if (candidacy.districtId !== comparison.districtId) add(`${path}`, `參選紀錄 ${candidacyId} 不屬於 ${comparison.districtId}`);
+    }
+    for (const dupe of findDuplicates(comparison.candidacyIds)) add(`${path}.candidacyIds`, `參選紀錄重複：${dupe}`);
+  });
+  for (const dupe of findDuplicates(bundle.comparisons.map((c) => c.districtId))) {
+    add('comparisons', `同一縣市只能有一組比較設定：${dupe}`);
+  }
 
   // 引用錯誤時門檻檢查沒有意義，避免重複回報
   if (issues.length === 0) {

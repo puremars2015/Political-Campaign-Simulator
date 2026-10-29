@@ -27,7 +27,7 @@ describe('createNewGame', () => {
     expect(state.round).toBe(1);
     expect(state.phase).toBe('campaign');
     expect(state.candidacyId).toBe('cand-a');
-    expect(state.opponentCandidacyIds).toEqual(['cand-b']);
+    expect(state.opponentCandidacyIds).toEqual(['cand-b', 'cand-c']);
     expect(state.resources.funds).toBe(800);
     expect(state.actionPoints).toBe(BALANCE.actionPointsPerRound);
     expect(state.dataAsOf).toBe('2026-10-01');

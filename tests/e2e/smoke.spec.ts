@@ -70,3 +70,28 @@ test('可只用鍵盤完成開局與行動', async ({ page }) => {
   await page.keyboard.press('Enter');
   await expect(page.getByTestId('action-points')).toHaveText('2');
 });
+
+test('政見盲測：遮住身分作答後開票', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: '開始新的一局' }).click();
+  await page.getByRole('button', { name: /測試市（測試資料）/ }).click();
+  await page.getByRole('button', { name: '開始政見盲測' }).click();
+  await expect(page.getByText(/測試候選人丙 尚未列入/)).toBeVisible();
+  await page.getByRole('button', { name: '開始比政見' }).click();
+
+  // 作答時看不到候選人姓名
+  for (let round = 0; round < 3; round++) {
+    await expect(page.getByText(/第 \d／3 輪/)).toBeVisible();
+    await expect(page.getByText('測試候選人甲')).toHaveCount(0);
+    await expect(page.getByText('測試候選人乙')).toHaveCount(0);
+    if (round === 0) await page.getByRole('button', { name: '跳過這一輪' }).click();
+    else await page.getByRole('button', { name: '蓋章：第 1 段' }).click();
+  }
+
+  await expect(page.getByRole('heading', { name: '哪些議題對你特別重要？' })).toBeVisible();
+  await page.getByRole('checkbox').first().check();
+  await page.getByRole('button', { name: '開票' }).click();
+  await expect(page.getByRole('heading', { name: '你蓋章的政見是誰提出的' })).toBeVisible();
+  await expect(page.getByText(/測試候選人甲（測試黨）：\d 分/)).toBeVisible();
+  await expect(page.getByText('你蓋章的段落', { exact: false }).first()).toBeVisible();
+});

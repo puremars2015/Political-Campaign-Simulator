@@ -30,6 +30,8 @@
         "stated": null
       }
     },
+    "topic": "housing",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -40,6 +42,14 @@
     "issue": "河川與親水",
     "summary": "推動淡水河、基隆河兩河沿岸空間再造與親水設施改善（8月11日發表會稱「兩河流域計畫」，提及清淤）。",
     "citations": [
+      {
+        "sourceId": "puma-water",
+        "quote": "將親水生態理念融入教育體系，改善河濱與溪流腹地的親水空間與設施（特別針對淡水河、基隆河推動空間再造），並期盼推動水上活動。",
+        "locator": {
+          "kind": "quote",
+          "value": "將親水生態理念融入教育體系，改善河濱與溪流腹地的親水空間與設施（特別針對淡水河、"
+        }
+      },
       {
         "sourceId": "puma-water",
         "quote": "特別針對淡水河、基隆河推動空間再造",
@@ -79,6 +89,8 @@
         }
       }
     },
+    "topic": "flood",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -89,6 +101,14 @@
     "issue": "休閒與觀光",
     "summary": "在北劍潭、東象山、南貓空設立三座登山觀光中心，提供裝備租借與多語導覽，並補上捷運站到登山口的接駁。",
     "citations": [
+      {
+        "sourceId": "puma-trails",
+        "quote": "山林徑則以三座登山觀光中心作為重要節點，在北劍潭、東象山、南貓空建立整合服務據點，分別串聯士林夜市與故宮、信義商圈與台北101、木柵茶園與動物園",
+        "locator": {
+          "kind": "quote",
+          "value": "山林徑則以三座登山觀光中心作為重要節點，在北劍潭、東象山、南貓空建立整合服務據點"
+        }
+      },
       {
         "sourceId": "puma-trails",
         "quote": "在北劍潭、東象山、南貓空建立整合服務據點",
@@ -136,6 +156,8 @@
         "stated": null
       }
     },
+    "topic": "culture-tourism",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -169,6 +191,8 @@
         "stated": null
       }
     },
+    "topic": "eldercare",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -218,6 +242,8 @@
         "stated": null
       }
     },
+    "topic": "childcare",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -283,6 +309,8 @@
         }
       }
     },
+    "topic": "transit",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -293,6 +321,14 @@
     "issue": "青年發展",
     "summary": "城市青年基金：18至22歲台北青年每月由市府提撥1,500元（弱勢3,000元）並鼓勵自存1,500元，協助累積第一筆起步本金。",
     "citations": [
+      {
+        "sourceId": "puma-youth",
+        "quote": "城市青年基金先完成適用對象、設籍條件、弱勢加碼、個人自存、基金操作、財商教育與退場規則設計，讓青年在 18 至 22 歲階段穩定累積第一筆資產。",
+        "locator": {
+          "kind": "quote",
+          "value": "城市青年基金先完成適用對象、設籍條件、弱勢加碼、個人自存、基金操作、財商教育與退"
+        }
+      },
       {
         "sourceId": "puma-youth",
         "quote": "協助 18 至 22 歲台北青年累積第一筆起步本金。",
@@ -340,6 +376,8 @@
         "stated": null
       }
     },
+    "topic": "youth",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -373,6 +411,8 @@
         "stated": null
       }
     },
+    "topic": "governance",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -438,6 +478,8 @@
         }
       }
     },
+    "topic": "traffic-safety",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -495,6 +537,8 @@
         }
       }
     },
+    "topic": "transit",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -552,6 +596,8 @@
         }
       }
     },
+    "topic": "flood",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -657,6 +703,8 @@
         }
       }
     },
+    "topic": "industry",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -698,6 +746,8 @@
         "stated": null
       }
     },
+    "topic": "health",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -739,6 +789,8 @@
         "stated": null
       }
     },
+    "topic": "health",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -780,6 +832,8 @@
         "stated": null
       }
     },
+    "topic": "eldercare",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -813,6 +867,8 @@
         "stated": null
       }
     },
+    "topic": "flood",
+    "origin": "campaign",
     "timeframe": "current"
   },
   {
@@ -862,6 +918,8 @@
         "stated": null
       }
     },
+    "topic": "parks-sports",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -911,6 +969,8 @@
         "stated": null
       }
     },
+    "topic": "housing",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -952,6 +1012,8 @@
         "stated": null
       }
     },
+    "topic": "transit",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -985,6 +1047,8 @@
         "stated": null
       }
     },
+    "topic": "industry",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1034,6 +1098,8 @@
         "stated": null
       }
     },
+    "topic": "urban-renewal",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1083,6 +1149,8 @@
         "stated": null
       }
     },
+    "topic": "urban-renewal",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1132,6 +1200,8 @@
         "stated": null
       }
     },
+    "topic": "urban-renewal",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1181,6 +1251,8 @@
         "stated": null
       }
     },
+    "topic": "urban-renewal",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1246,6 +1318,8 @@
         }
       }
     },
+    "topic": "childcare",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1303,6 +1377,8 @@
         }
       }
     },
+    "topic": "childcare",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1344,6 +1420,8 @@
         "stated": null
       }
     },
+    "topic": "childcare",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1393,6 +1471,8 @@
         "stated": null
       }
     },
+    "topic": "housing",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1450,6 +1530,8 @@
         }
       }
     },
+    "topic": "childcare",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1499,6 +1581,8 @@
         }
       }
     },
+    "topic": "education",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1556,6 +1640,8 @@
         "stated": null
       }
     },
+    "topic": "education",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1613,6 +1699,8 @@
         }
       }
     },
+    "topic": "transit",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1670,6 +1758,8 @@
         }
       }
     },
+    "topic": "eldercare",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1719,6 +1809,8 @@
         }
       }
     },
+    "topic": "childcare",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1768,6 +1860,8 @@
         "stated": null
       }
     },
+    "topic": "flood",
+    "origin": "government-plan",
     "timeframe": "current"
   },
   {
@@ -1817,6 +1911,8 @@
         "stated": null
       }
     },
+    "topic": "public-health",
+    "origin": "government-plan",
     "timeframe": "current"
   }
 ]

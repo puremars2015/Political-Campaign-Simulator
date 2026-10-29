@@ -160,6 +160,10 @@ export const policySchema = z.object({
     funding: policyFieldSchema,
     deadline: policyFieldSchema,
   }),
+  /** 對應 topics 的議題分類，用於跨候選人比較 */
+  topic: id,
+  /** campaign：候選人提出的競選政見；government-plan：現任者以市府名義宣布、尚未完成的計畫 */
+  origin: z.enum(['campaign', 'government-plan']).default('campaign'),
   /** current：當次競選政見；historical：過去立場，僅供對照 */
   timeframe: z.enum(['current', 'historical']),
   /** 公開來源證實的修訂，指向被取代的版本 */
@@ -206,6 +210,18 @@ export const eventSchema = z.object({
   choices: z.array(eventChoiceSchema).min(2),
 });
 
+// ---------- 議題分類與政見比較 ----------
+
+export const topicSchema = z.object({ id, name: z.string().min(1) });
+
+/** 政見盲測的設定：哪些參選紀錄納入比較，以及各自需要遮蔽的身分字詞 */
+export const comparisonSchema = z.object({
+  districtId: id,
+  candidacyIds: z.array(id).min(2),
+  /** 參選紀錄 ID → 只在該參選人自己的段落中遮蔽的身分字詞（姓名與黨名會自動遮蔽於所有段落） */
+  maskTerms: z.record(z.string(), z.array(z.string().min(1))).default({}),
+});
+
 export const contentBundleSchema = z.object({
   contentVersion: z.string().min(1),
   elections: z.array(electionSchema),
@@ -215,6 +231,8 @@ export const contentBundleSchema = z.object({
   policies: z.array(policySchema),
   sources: z.array(sourceSchema),
   events: z.array(eventSchema),
+  topics: z.array(topicSchema).default([]),
+  comparisons: z.array(comparisonSchema).default([]),
 });
 
 export type Source = z.infer<typeof sourceSchema>;
@@ -227,6 +245,8 @@ export type Candidacy = z.infer<typeof candidacySchema>;
 export type CandidacyStatus = z.infer<typeof candidacyStatusSchema>;
 export type Policy = z.infer<typeof policySchema>;
 export type PolicyField = z.infer<typeof policyFieldSchema>;
+export type Topic = z.infer<typeof topicSchema>;
+export type Comparison = z.infer<typeof comparisonSchema>;
 export type EventDefinition = z.infer<typeof eventSchema>;
 export type EventChoice = z.infer<typeof eventChoiceSchema>;
 export type ContentBundle = z.infer<typeof contentBundleSchema>;

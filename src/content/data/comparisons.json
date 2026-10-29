@@ -1,0 +1,29 @@
+[
+  {
+    "districtId": "taipei",
+    "candidacyIds": [
+      "2026-taipei-shen-po-yang",
+      "2026-taipei-chiang-wan-an"
+    ],
+    "maskTerms": {
+      "2026-taipei-shen-po-yang": [
+        "伯洋",
+        "HEART",
+        "洋流",
+        "台北順起來",
+        "puma",
+        "民進黨"
+      ],
+      "2026-taipei-chiang-wan-an": [
+        "萬安",
+        "台北安可",
+        "黃金十年",
+        "國民黨",
+        "北市府",
+        "市府",
+        "市長",
+        "北市"
+      ]
+    }
+  }
+]
