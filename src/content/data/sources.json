@@ -37,7 +37,14 @@
     "publishedAt": "2026-08-11",
     "retrievedAt": "2026-10-28",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-29",
+        "reviewer": "專案負責人",
+        "note": "決定：婚育宅與青年宅、老宅延壽、永續長／設計長／夜間市長屬沈伯洋政見，保留（中央社為出處）。"
+      }
+    ]
   },
   {
     "id": "pts-20260916-shen-transport",
@@ -131,7 +138,14 @@
     "publishedAt": "2026-10-08",
     "retrievedAt": "2026-10-28",
     "nature": "government-record",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-29",
+        "reviewer": "專案負責人",
+        "note": "決定：松山機場遷移案算蔣萬安的競選政見。"
+      }
+    ]
   },
   {
     "id": "cna-20261008-chiang-airport",
@@ -160,6 +174,146 @@
     "publisher": "三立新聞網",
     "publishedAt": "2026-10-27",
     "retrievedAt": "2026-10-28",
+    "nature": "media",
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-29",
+        "reviewer": "專案負責人",
+        "note": "決定：唐新民抽籤現場發言（搶救大屯火山）可收錄為其政見。"
+      }
+    ]
+  },
+  {
+    "id": "encore-taipei-platform",
+    "url": "https://encore.taipei/",
+    "title": "台北安可大舞台：蔣萬安黃金十年政見",
+    "publisher": "ENCORE.TAIPEI（dAAAb 與貢獻者；頁面自述「粉絲創作之互動藝術作品，非蔣萬安競選團隊官方網站」）",
+    "retrievedAt": "2026-10-29",
+    "nature": "candidate-official",
+    "archiveUrl": "https://github.com/dAAAb/encore-taipei/blob/2a0507faa01428ac9801c20ac169644bc3b43988/src/data/platform.json",
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-29",
+        "reviewer": "專案負責人",
+        "note": "決定：視為蔣萬安陣營來源，使用時標註出處（頁面自述為非官方）。"
+      }
+    ]
+  },
+  {
+    "id": "ai2033-taipei",
+    "url": "https://ai2033.taipei/",
+    "title": "AI黃金世紀，從臺北開始：松機變身 300 公頃臺北AI園區",
+    "publisher": "AI2033.Taipei（中央社報導為葛如鈞建置；頁面自述「非官方整理」）",
+    "retrievedAt": "2026-10-29",
+    "nature": "candidate-official",
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-29",
+        "reviewer": "專案負責人",
+        "note": "決定：視為蔣萬安陣營來源，使用時標註出處（頁面自述為非官方）。"
+      }
+    ]
+  },
+  {
+    "id": "gov-taipei-20261016-urban-renewal",
+    "url": "https://www.gov.taipei/News_Content.aspx?n=2044902FC839D045&s=C628D074125A7699",
+    "title": "蔣萬安宣布都更新政「都更5099」首階段門檻降至五成　推「大街廓都更」基準容積提高至300%",
+    "publisher": "臺北市政府秘書處媒體事務組",
+    "publishedAt": "2026-10-16",
+    "retrievedAt": "2026-10-29",
+    "nature": "government-record",
+    "verification": "pending-review"
+  },
+  {
+    "id": "gov-taipei-20260703-ai-education",
+    "url": "https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&s=B469C4B80810E020&sms=72544237BBE4C5F6",
+    "title": "臺北市發布AI教育政策白皮書，投入92億元打造首都AI教育藍圖",
+    "publisher": "臺北市政府教育局",
+    "publishedAt": "2026-07-03",
+    "retrievedAt": "2026-10-29",
+    "nature": "government-record",
+    "verification": "pending-review"
+  },
+  {
+    "id": "gov-taipei-20260622-senior-card",
+    "url": "https://www.gov.taipei/News_Content.aspx?n=F0DDAF49B89E9413&s=54A4E5FD9C772BD8&sms=72544237BBE4C5F6",
+    "title": "蔣萬安宣布敬老福利再升級　敬老卡600點7月上路、重陽禮金9月發放",
+    "publisher": "臺北市政府秘書處媒體事務組",
+    "publishedAt": "2026-06-22",
+    "retrievedAt": "2026-10-29",
+    "nature": "government-record",
+    "verification": "pending-review"
+  },
+  {
+    "id": "gov-taipei-20260812-budget",
+    "url": "https://www.gov.taipei/News_Content.aspx?n=2044902FC839D045&s=63455203FD0A1669",
+    "title": "赴議會報告116年度總預算案 蔣萬安：打造「安全」、「運動」、「未來」的幸福臺北",
+    "publisher": "臺北市政府秘書處媒體事務組",
+    "publishedAt": "2026-08-12",
+    "retrievedAt": "2026-10-29",
+    "nature": "government-record",
+    "verification": "pending-review"
+  },
+  {
+    "id": "udn-20261008-airport",
+    "url": "https://udn.com/news/story/7314/9802116",
+    "title": "重磅建設啟動！蔣萬安宣布規畫松山機場遷移用做AI園區、住宅及公園",
+    "publisher": "聯合新聞網",
+    "publishedAt": "2026-10-08",
+    "retrievedAt": "2026-10-29",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "ettoday-20260819-postpartum",
+    "url": "https://www.ettoday.net/news/20260819/3221768.htm",
+    "title": "快訊／蔣萬安拋明年每胎3萬「月子加菜金」　北市育兒第一胎領7萬",
+    "publisher": "ETtoday新聞雲",
+    "publishedAt": "2026-08-19",
+    "retrievedAt": "2026-10-29",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20260819-postpartum",
+    "url": "https://www.cna.com.tw/news/aloc/202608190132.aspx",
+    "title": "北市首創「月子加菜金」116年上路 每胎補助3萬元不排富",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-08-19",
+    "retrievedAt": "2026-10-29",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20260606-education",
+    "url": "https://www.cna.com.tw/news/aloc/202606060096.aspx",
+    "title": "蔣萬安推6項教育新政 國小每班人數逐年降至25人",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-06-06",
+    "retrievedAt": "2026-10-29",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "cna-20260828-autonomous-bus",
+    "url": "https://www.cna.com.tw/news/aloc/202608280108.aspx",
+    "title": "北市推自動駕駛公車　蔣萬安：規劃116年投入4輛實測",
+    "publisher": "中央通訊社",
+    "publishedAt": "2026-08-28",
+    "retrievedAt": "2026-10-29",
+    "nature": "media",
+    "verification": "pending-review"
+  },
+  {
+    "id": "udn-20260912-childcare-hours",
+    "url": "https://udn.com/news/story/124652/9749499",
+    "title": "育兒政見比拚…蔣萬安明年擴大減工時不減薪 沈伯洋提腸病毒疫苗計畫",
+    "publisher": "聯合新聞網",
+    "publishedAt": "2026-09-12",
+    "retrievedAt": "2026-10-29",
     "nature": "media",
     "verification": "pending-review"
   }

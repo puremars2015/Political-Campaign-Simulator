@@ -560,8 +560,24 @@
     "electionId": "2026-local",
     "districtId": "taipei",
     "issue": "產業與土地",
-    "summary": "提出松山機場遷移構想，整合機場及周邊共300公頃腹地打造「臺北AI園區」（100公頃AI產業聚落、90公頃住宅及支援性公共設施、110公頃公園綠地），市府將爭取中央支持。此構想於市政記者會以市長身分發表，競總其後稱之為政見。",
+    "summary": "遷移松山機場，整合機場及周邊共300公頃腹地打造「臺北AI園區」（100公頃AI產業聚落、90公頃住宅及支援性公共設施、110公頃公園綠地），並解除周邊570公頃航高限建；市府推估AI產業聚落可創造12兆元產值。此構想於10月8日市政記者會發表，陣營列為政見。",
     "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "遷移松山機場，釋出約300公頃腹地，並解除周邊570公頃航高限建，完成台北科技產業聚落最關鍵的一塊拼圖。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第1項：松山機場遷移，打造台北AI園區！"
+        }
+      },
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "100公頃AI產業聚落，串聯北台八縣市，推估創造12兆元產值、約10萬人的工作與生活圈。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第2項：百公頃AI聚落，創造12兆產值！"
+        }
+      },
       {
         "sourceId": "gov-taipei-20261008-ai-park",
         "quote": "提出松山機場遷移構想，規劃整合機場及周邊共300公頃腹地，打造全新的「臺北AI園區」，包含100公頃AI產業聚落、90公頃住宅及支援性公共設施，以及110公頃大面積公園綠地",
@@ -593,6 +609,14 @@
           "kind": "quote",
           "value": "蔣萬安大膽提出遷移松山機場，規劃將300公頃土地打造為AI產業園區，預估創造12"
         }
+      },
+      {
+        "sourceId": "ai2033-taipei",
+        "quote": "市府表示，松機遷移計畫預計於 2033 年完成",
+        "locator": {
+          "kind": "quote",
+          "value": "市府表示，松機遷移計畫預計於 2033 年完成"
+        }
       }
     ],
     "fields": {
@@ -622,7 +646,15 @@
         "stated": null
       },
       "deadline": {
-        "stated": null
+        "stated": "預計2033年完成遷移",
+        "citation": {
+          "sourceId": "ai2033-taipei",
+          "quote": "市府表示，松機遷移計畫預計於 2033 年完成",
+          "locator": {
+            "kind": "quote",
+            "value": "市府表示，松機遷移計畫預計於 2033 年完成"
+          }
+        }
       }
     },
     "timeframe": "current"
@@ -776,6 +808,1010 @@
       },
       "funding": {
         "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-taipei-central-park",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "公園綠地",
+    "summary": "於松山機場腹地北半側規劃110公頃中央公園（約大安森林公園4倍），結合基隆河岸再造。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "機場腹地規劃110公頃中央公園，約大安森林公園4倍大，結合基隆河岸再造，打造台北都市生態「綠色脊柱」。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第3項：110公頃台北中央公園！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20261008-ai-park",
+        "quote": "市府規劃於松機北半側闢建110公頃中央公園",
+        "locator": {
+          "kind": "quote",
+          "value": "市府規劃於松機北半側闢建110公頃中央公園"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "110公頃",
+        "citation": {
+          "sourceId": "gov-taipei-20261008-ai-park",
+          "quote": "闢建110公頃中央公園",
+          "locator": {
+            "kind": "quote",
+            "value": "闢建110公頃中央公園"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-living-cluster",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "住宅",
+    "summary": "於松機腹地規劃90公頃住宅及支援性公共設施；解除570公頃航高限建後，台北可增加約15萬戶居住空間。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "規劃90公頃住宅及公共設施；解除570公頃限建後，可增加約15萬戶居住空間。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第4項：90公頃國際永續生活聚落！"
+        }
+      },
+      {
+        "sourceId": "udn-20261008-airport",
+        "quote": "90公頃住宅及支援性公共設施，並打開570公頃受航高禁限建影響的都市更新劃定地區，包括台北北新北基隆桃園，台北增加15萬戶的居住空間。",
+        "locator": {
+          "kind": "quote",
+          "value": "90公頃住宅及支援性公共設施，並打開570公頃受航高禁限建影響的都市更新劃定地區"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "90公頃；約15萬戶居住空間",
+        "citation": {
+          "sourceId": "udn-20261008-airport",
+          "quote": "台北增加15萬戶的居住空間",
+          "locator": {
+            "kind": "quote",
+            "value": "台北增加15萬戶的居住空間"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-xy-metro",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "交通",
+    "summary": "「臺北XY軸捷運」構想：南北向從松山機場串聯國父紀念館、大安、公館、中和；東西向串聯士林大同線、圓山、松山機場及內湖，連結四大產業園區。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "建構南北、東西軸線捷運路網，串聯北士科、台北AI園區、內科、南軟四大科技產業聚落。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第5項：台北XY軸捷運，串聯四大園區！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20261008-ai-park",
+        "quote": "市府也規劃全新的「臺北XY軸捷運」構想。南北向捷運從松山機場向南串聯國父紀念館、大安、公館、中和；東西向軸線則串聯士林大同線、圓山、松山機場及內湖，進一步連結北士科、臺北AI園區、內科及南軟四大產業園區。",
+        "locator": {
+          "kind": "quote",
+          "value": "市府也規劃全新的「臺北XY軸捷運」構想。南北向捷運從松山機場向南串聯國父紀念館、"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-ai-corridor",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "產業",
+    "summary": "串聯北士科、內科與南港，形成基隆河AI產業廊帶（原始出處遭網站防護阻擋，僅能核對 encore.taipei 的整理）。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "北士科：輝達＋AI產業鏈；內科：硬體、資通訊與運算；南港：生技與軟體，串成基隆河AI產業廊帶。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第6項：北士科、內科、南港，AI一條龍！"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-urban-renewal-5099",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "都市更新",
+    "summary": "「都更7599」升級為「都更5099」：公辦都更第一階段意願門檻由75%降至50%，過半住戶同意市府即主動進場協助試算與說明。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "「都更7599」升級為「都更5099」：公辦都更第一階段意願門檻由75%降到50%，只要過半住戶同意，市府就主動進場協助試算與說明；全市1,214公頃法定都市更新地區都將受惠。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第7項：公辦都更門檻，75%降到50%！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20261016-urban-renewal",
+        "quote": "將現行「都更7599」升級為「都更5099」。未來第一階段只要取得50%住戶同意，市府就會主動進場，協助辦理試算及說明",
+        "locator": {
+          "kind": "quote",
+          "value": "將現行「都更7599」升級為「都更5099」。未來第一階段只要取得50%住戶同意"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "第一階段意願門檻75%降至50%",
+        "citation": {
+          "sourceId": "gov-taipei-20261016-urban-renewal",
+          "quote": "將公辦都更第一階段意願門檻由75%下修至50%",
+          "locator": {
+            "kind": "quote",
+            "value": "將公辦都更第一階段意願門檻由75%下修至50%"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-large-block-renewal",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "都市更新",
+    "summary": "「大街廓都更」：基地3,000平方公尺以上、位於捷運場站或水岸周邊的都更案，基準容積由225%提高至300%。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "2026-10-16宣布的「大街廓都更」新政：基地3,000平方公尺以上、位於捷運場站或水岸周邊的都更案，基準容積由現行225%提高至300%；部分增加的容積須回饋托育、幼兒園、長照日照中心、圖書館及運動中心等公共服務設施。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第8項：大街廓都更，基準容積衝到300%！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20261016-urban-renewal",
+        "quote": "針對基地面積達3,000平方公尺以上，且位於捷運場站或水岸周邊的都更案件，將基準容積由現行225%提高至300%",
+        "locator": {
+          "kind": "quote",
+          "value": "針對基地面積達3,000平方公尺以上，且位於捷運場站或水岸周邊的都更案件，將基準"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "基準容積225%提高至300%",
+        "citation": {
+          "sourceId": "gov-taipei-20261016-urban-renewal",
+          "quote": "將基準容積由現行225%提高至300%",
+          "locator": {
+            "kind": "quote",
+            "value": "將基準容積由現行225%提高至300%"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-zhongshan-admin-park",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "都市更新",
+    "summary": "以第一殯儀館舊址約1.5公頃作為大街廓都更示範區「中山行政園區」，串聯圓山創新聚落與松山AI園區並導入公共服務設施。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "第一殯儀館舊址約1.5公頃作為大街廓都更示範區，整合中山區公所、運動中心、圖書館及社福設施，串聯圓山創新聚落與松山AI園區。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第9項：中山行政園區，創新新軸帶！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20261016-urban-renewal",
+        "quote": "第一處為「中山行政園區」，位於原第一殯儀館舊址，基地面積約1.5公頃，未來將結合周邊圓山創新聚落與松山AI園區，串聯形成創新發展軸帶，並導入多元公共服務設施。",
+        "locator": {
+          "kind": "quote",
+          "value": "第一處為「中山行政園區」，位於原第一殯儀館舊址，基地面積約1.5公頃，未來將結合"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "約1.5公頃",
+        "citation": {
+          "sourceId": "gov-taipei-20261016-urban-renewal",
+          "quote": "基地面積約1.5公頃",
+          "locator": {
+            "kind": "quote",
+            "value": "基地面積約1.5公頃"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-nangang-admin-center",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "都市更新",
+    "summary": "「南港新行政中心」：將行政中心遷至南港高工周邊，原址約0.7公頃整體更新，結合三鐵共構導入金融、商辦等機能。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "規劃將南港行政中心遷至南港高工周邊，原址約0.7公頃整體更新，結合高鐵、臺鐵、捷運三鐵共構，導入金融、商辦等多元商業服務機能。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第10項：新南港行政中心，三鐵共構！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20261016-urban-renewal",
+        "quote": "第二處則為「南港新行政中心」，規劃將原有行政中心遷至南港高工周邊，透過約0.7公頃基地的整體更新，結合高鐵、臺鐵及捷運三鐵共構的交通優勢，導入金融、商辦等多元商業服務機能",
+        "locator": {
+          "kind": "quote",
+          "value": "第二處則為「南港新行政中心」，規劃將原有行政中心遷至南港高工周邊，透過約0.7公"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "約0.7公頃",
+        "citation": {
+          "sourceId": "gov-taipei-20261016-urban-renewal",
+          "quote": "透過約0.7公頃基地的整體更新",
+          "locator": {
+            "kind": "quote",
+            "value": "透過約0.7公頃基地的整體更新"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-postpartum-meal-subsidy",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "育兒",
+    "summary": "「月子加菜金」產後膳食費補助每胎3萬元，加上生育獎勵金第一胎共可領7萬元。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "全國首創產後「月子加菜金」每胎3萬元，加上生育獎勵金，第一胎共可領7萬元，預估每年約1.1萬名產婦受惠。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第11項：月子加菜金，每胎3萬！"
+        }
+      },
+      {
+        "sourceId": "cna-20260819-postpartum",
+        "quote": "明年將推出全國首創「月子加菜金—產後膳食費補助」政策，每胎補助新台幣3萬元",
+        "locator": {
+          "kind": "quote",
+          "value": "明年將推出全國首創「月子加菜金—產後膳食費補助」政策，每胎補助新台幣3萬元"
+        }
+      },
+      {
+        "sourceId": "ettoday-20260819-postpartum",
+        "quote": "因此加上生育獎勵金，等於台北市育兒第一胎就能領到7萬元",
+        "locator": {
+          "kind": "quote",
+          "value": "因此加上生育獎勵金，等於台北市育兒第一胎就能領到7萬元"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "每胎3萬元",
+        "citation": {
+          "sourceId": "cna-20260819-postpartum",
+          "quote": "每胎補助新台幣3萬元",
+          "locator": {
+            "kind": "quote",
+            "value": "每胎補助新台幣3萬元"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "明年（116年）上路",
+        "citation": {
+          "sourceId": "cna-20260819-postpartum",
+          "quote": "明年將推出全國首創「月子加菜金—產後膳食費補助」政策",
+          "locator": {
+            "kind": "quote",
+            "value": "明年將推出全國首創「月子加菜金—產後膳食費補助」政策"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-egg-freezing-subsidy",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "育兒",
+    "summary": "醫療性凍卵補助擴及25至40歲因疾病可能影響生育的女性，最高補助由3.2萬元提高到7.2萬元。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "醫療性凍卵補助擴及25至40歲因疾病可能影響生育的女性，最高補助由3.2萬元提高到7.2萬元，預計2027年1月實施。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第12項：凍卵補助提高到7.2萬！"
+        }
+      },
+      {
+        "sourceId": "cna-20260819-postpartum",
+        "quote": "擴大凍卵補助，範圍擴及25至40歲、因疾病本身或治療可能影響生育能力的女性，補助金額由最高3萬2000元提高至7萬2000元，預計民國116年1月實施。",
+        "locator": {
+          "kind": "quote",
+          "value": "擴大凍卵補助，範圍擴及25至40歲、因疾病本身或治療可能影響生育能力的女性，補助"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "最高7.2萬元",
+        "citation": {
+          "sourceId": "cna-20260819-postpartum",
+          "quote": "補助金額由最高3萬2000元提高至7萬2000元",
+          "locator": {
+            "kind": "quote",
+            "value": "補助金額由最高3萬2000元提高至7萬2000元"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "預計116年1月實施",
+        "citation": {
+          "sourceId": "cna-20260819-postpartum",
+          "quote": "預計民國116年1月實施",
+          "locator": {
+            "kind": "quote",
+            "value": "預計民國116年1月實施"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-newborn-family-clinic",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "育兒",
+    "summary": "「新手家庭特別門診」：小兒科醫師、護理師、社工師、營養師聯合門診，每次最長60分鐘。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "小兒科醫師、護理師、社工師、營養師聯合門診，每次最長60分鐘，同時關照家長心理健康。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第13項：新手家庭60分鐘特別門診！"
+        }
+      },
+      {
+        "sourceId": "ettoday-20260819-postpartum",
+        "quote": "市府將推出新手家庭特別門診，整合小兒科醫師、護理師、 社工師及營養師等專業人員，以聯合門診方式提供家庭支持。",
+        "locator": {
+          "kind": "quote",
+          "value": "市府將推出新手家庭特別門診，整合小兒科醫師、護理師、 社工師及營養師等專業人員，"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-social-housing-quota",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "住宅",
+    "summary": "延續「幸福住宅」，社會住宅導入20%婚育專屬配額。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "擴大幸福住宅，社會住宅導入20%婚育專屬配額，讓新婚與育兒家庭住得起台北。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第14項：社宅20%婚育專屬配額！"
+        }
+      },
+      {
+        "sourceId": "cna-20260819-postpartum",
+        "quote": "另延續「幸福住宅」專案，導入社宅20%婚育專屬配額",
+        "locator": {
+          "kind": "quote",
+          "value": "另延續「幸福住宅」專案，導入社宅20%婚育專屬配額"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "社宅20%配額",
+        "citation": {
+          "sourceId": "cna-20260819-postpartum",
+          "quote": "導入社宅20%婚育專屬配額",
+          "locator": {
+            "kind": "quote",
+            "value": "導入社宅20%婚育專屬配額"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-private-kindergarten-subsidy",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "育兒",
+    "summary": "115學年度起就讀北市私幼的5歲幼兒每學期加碼5,000元；2至4歲私幼補助排富門檻放寬。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "115學年度起就讀北市私幼的5歲幼兒每學期再加碼5,000元；2至4歲私幼補助排富門檻放寬到綜合所得淨額180萬元。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第15項：私幼5歲每學期加碼5000！"
+        }
+      },
+      {
+        "sourceId": "ettoday-20260819-postpartum",
+        "quote": "自115學年度起，針對設籍北市且就讀，北市私立幼兒園的5歲幼兒，每名幼兒每學期均額外增加5000元",
+        "locator": {
+          "kind": "quote",
+          "value": "自115學年度起，針對設籍北市且就讀，北市私立幼兒園的5歲幼兒，每名幼兒每學期均"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "5歲幼兒每學期加碼5,000元",
+        "citation": {
+          "sourceId": "ettoday-20260819-postpartum",
+          "quote": "每名幼兒每學期均額外增加5000元",
+          "locator": {
+            "kind": "quote",
+            "value": "每名幼兒每學期均額外增加5000元"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "115學年度起",
+        "citation": {
+          "sourceId": "ettoday-20260819-postpartum",
+          "quote": "自115學年度起",
+          "locator": {
+            "kind": "quote",
+            "value": "自115學年度起"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-class-size",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "教育",
+    "summary": "逐年調降班級人數至國小每班25人、國中26人、高中職32人。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "逐年調降班級人數，119學年度前目標公立國小每班25人、國中26人、高中職32人。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第16項：國小每班降到25人！"
+        }
+      },
+      {
+        "sourceId": "cna-20260606-education",
+        "quote": "將逐年調降每班學生數到國小25人、國中26人、高中職32人",
+        "locator": {
+          "kind": "quote",
+          "value": "將逐年調降每班學生數到國小25人、國中26人、高中職32人"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "119學年度前（encore.taipei 整理）",
+        "citation": {
+          "sourceId": "encore-taipei-platform",
+          "quote": "逐年調降班級人數，119學年度前目標公立國小每班25人、國中26人、高中職32人。",
+          "locator": {
+            "kind": "paragraph",
+            "value": "「黃金十年政見」第16項：國小每班降到25人！"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-ai-education",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "教育",
+    "summary": "《臺北市AI教育政策白皮書》未來4年投入92億元，包括師生AI PC、高中AI Lab與北士科AI教育中心。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "AI教育白皮書：師生AI助理、教師配發AI PC、高中AI Lab每校300萬元，並在北士科設立AI教育中心。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第17項：4年92億，AI教育領航！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20260703-ai-education",
+        "quote": "臺北市未來4年預計投入92億元",
+        "locator": {
+          "kind": "quote",
+          "value": "臺北市未來4年預計投入92億元"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20260703-ai-education",
+        "quote": "規劃成立「臺北市AI教育中心」",
+        "locator": {
+          "kind": "quote",
+          "value": "規劃成立「臺北市AI教育中心」"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": "未來4年預計投入92億元",
+        "citation": {
+          "sourceId": "gov-taipei-20260703-ai-education",
+          "quote": "臺北市未來4年預計投入92億元",
+          "locator": {
+            "kind": "quote",
+            "value": "臺北市未來4年預計投入92億元"
+          }
+        }
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-autonomous-bus",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "交通",
+    "summary": "分3階段推動自動駕駛公車，2027年10月先在北士科及信義路公車專用道投入4輛實測。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "2027年10月在北士科及信義路公車專用道投入4輛實測，2028年初擴大到12輛，迎接2029年在臺北舉辦的智慧運輸世界大會（ITS）。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第18項：無人自駕公車上路！"
+        }
+      },
+      {
+        "sourceId": "cna-20260828-autonomous-bus",
+        "quote": "會採3階段漸進式推動自動駕駛公車，明年10月先在北士科及信義路公車專用道投入4輛自駕公車實測",
+        "locator": {
+          "kind": "quote",
+          "value": "會採3階段漸進式推動自動駕駛公車，明年10月先在北士科及信義路公車專用道投入4輛"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "首階段4輛",
+        "citation": {
+          "sourceId": "cna-20260828-autonomous-bus",
+          "quote": "投入4輛自駕公車實測",
+          "locator": {
+            "kind": "quote",
+            "value": "投入4輛自駕公車實測"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "明年（2027年）10月實測",
+        "citation": {
+          "sourceId": "cna-20260828-autonomous-bus",
+          "quote": "明年10月先在北士科及信義路公車專用道投入4輛自駕公車實測",
+          "locator": {
+            "kind": "quote",
+            "value": "明年10月先在北士科及信義路公車專用道投入4輛自駕公車實測"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-senior-card-points",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "長者福利",
+    "summary": "敬老卡新增超市、超商、藥局等通路，每月300點；第二代敬老卡讓未用完點數累積到次月。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "2027年起敬老卡每月另加300點，可在超市、超商、藥局使用，也可搭貓纜、藍色公路；第二代卡讓用不完的點數累積到下個月。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第19項：二代敬老卡，點數能累積！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20260622-senior-card",
+        "quote": "新增超市、超商、藥局及農會等生活消費通路，規劃每月300點供長輩彈性運用",
+        "locator": {
+          "kind": "quote",
+          "value": "新增超市、超商、藥局及農會等生活消費通路，規劃每月300點供長輩彈性運用"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20260622-senior-card",
+        "quote": "新卡將突破現行技術限制，未來未使用完的點數可累積至次月使用，目標於明年底前完成全面換發",
+        "locator": {
+          "kind": "quote",
+          "value": "新卡將突破現行技術限制，未來未使用完的點數可累積至次月使用，目標於明年底前完成全"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "明年底前完成第二代卡全面換發",
+        "citation": {
+          "sourceId": "gov-taipei-20260622-senior-card",
+          "quote": "目標於明年底前完成全面換發",
+          "locator": {
+            "kind": "quote",
+            "value": "目標於明年底前完成全面換發"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-reduced-hours-childcare",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "育兒",
+    "summary": "「育兒家庭減工時不減薪」明年擴大辦理。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "育兒員工每天少上1小時班、薪水不減；截至2026年6月底已有480多家企業參與，2027年擴大辦理。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第20項：減工時不減薪，明年擴大！"
+        }
+      },
+      {
+        "sourceId": "udn-20260912-childcare-hours",
+        "quote": "總共有四百八十多家企業參與這個計畫，而且有近九百名員工受惠，明年一定擴大",
+        "locator": {
+          "kind": "quote",
+          "value": "總共有四百八十多家企業參與這個計畫，而且有近九百名員工受惠，明年一定擴大"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": "明年擴大",
+        "citation": {
+          "sourceId": "udn-20260912-childcare-hours",
+          "quote": "明年一定擴大",
+          "locator": {
+            "kind": "quote",
+            "value": "明年一定擴大"
+          }
+        }
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-dunbei-drain",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "防洪與韌性",
+    "summary": "編列12億元防汛經費，推動「敦北地下大排」潛盾工程，並放寬防水閘門補助。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "2027年度編列12億元防汛經費，推動全國首創「敦北地下大排」潛盾工程，並放寬防水閘門補助。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第21項：敦北地下大排，防洪更韌性！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20260812-budget",
+        "quote": "投入防汛經費，推動全國首創「敦北地下大排」潛盾工程，同時放寬防水閘門補助申請",
+        "locator": {
+          "kind": "quote",
+          "value": "投入防汛經費，推動全國首創「敦北地下大排」潛盾工程，同時放寬防水閘門補助申請"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": "116年度編列12億元",
+        "citation": {
+          "sourceId": "gov-taipei-20260812-budget",
+          "quote": "四、極端氣候防洪韌性：編列12億元",
+          "locator": {
+            "kind": "quote",
+            "value": "四、極端氣候防洪韌性：編列12億元"
+          }
+        }
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "timeframe": "current"
+  },
+  {
+    "id": "chiang-smoke-free-districts",
+    "candidacyId": "2026-taipei-chiang-wan-an",
+    "electionId": "2026-local",
+    "districtId": "taipei",
+    "issue": "公共衛生",
+    "summary": "增設負壓吸菸區，擴大西門町、迪化街、心中山、信義四大商圈無菸範圍，導入AI偵測與語音勸導。",
+    "citations": [
+      {
+        "sourceId": "encore-taipei-platform",
+        "quote": "增設負壓吸菸區，擴大西門町、迪化街、心中山、信義四大商圈無菸範圍，並導入AI偵測與語音勸導。",
+        "locator": {
+          "kind": "paragraph",
+          "value": "「黃金十年政見」第22項：無菸商圈再擴大！"
+        }
+      },
+      {
+        "sourceId": "gov-taipei-20260812-budget",
+        "quote": "持續增設指定負壓式吸菸區，並擴大西門町、迪化街、心中山及信義四大商圈無菸範圍，同時導入AI偵測及語音勸導",
+        "locator": {
+          "kind": "quote",
+          "value": "持續增設指定負壓式吸菸區，並擴大西門町、迪化街、心中山及信義四大商圈無菸範圍，同"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": "116年度編列1.6億元",
+        "citation": {
+          "sourceId": "gov-taipei-20260812-budget",
+          "quote": "六、推動無菸城市：編列1.6億元",
+          "locator": {
+            "kind": "quote",
+            "value": "六、推動無菸城市：編列1.6億元"
+          }
+        }
       },
       "deadline": {
         "stated": null
