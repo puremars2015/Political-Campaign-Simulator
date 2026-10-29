@@ -142,3 +142,8 @@ fieldset.card { display: flex; flex-direction: column; }
 .strategy-actions { display: flex; flex-direction: column; gap: 0.4rem; }
 .angle { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; color: var(--muted); }
 .angle select { font: inherit; min-height: 2.75rem; padding: 0.25rem 0.5rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; }
+
+.event { border: 2px solid var(--accent); display: flex; flex-direction: column; gap: 0.6rem; }
+.event p { margin: 0; }
+.choices { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+.choices button { width: 100%; }

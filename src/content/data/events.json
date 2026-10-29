@@ -1,1 +1,434 @@
-[]
+[
+  {
+    "id": "topic-showdown",
+    "title": "記者要比較兩邊政見",
+    "binding": "head-to-head",
+    "window": {
+      "fromRound": 2,
+      "toRound": 11
+    },
+    "priority": 1,
+    "once": false,
+    "body": "記者拿著{opponent}在「{topic}」的公開政見來問：我們的主張跟對方有什麼不同？下午就要發稿。",
+    "choices": [
+      {
+        "id": "contrast",
+        "label": "正面對比兩邊的政見",
+        "knownCost": "花一個行動點準備對照稿；我方政見若有弱點，之後可能被追問",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [],
+        "requiresStrengths": [
+          "head-to-head"
+        ],
+        "strategy": {
+          "status": "reframed",
+          "angle": "contrast"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "feature",
+        "label": "藉機把我方政見大張旗鼓",
+        "knownCost": "一個行動點與 10 萬元；聲量較大，但風險也會被放大",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 10
+        },
+        "effects": [],
+        "strategy": {
+          "status": "featured"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "check-sources",
+        "label": "先查核雙方原始出處再回應",
+        "knownCost": "今天的新聞機會會錯過；下回合拿到查核結果",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "publicTrust",
+            "delta": -1
+          }
+        ],
+        "followUp": {
+          "eventId": "fact-check-result",
+          "afterRounds": 1
+        },
+        "setFlags": []
+      },
+      {
+        "id": "dodge",
+        "label": "轉移話題，不正面回應",
+        "knownCost": "不花資源，但等於讓出這個議題",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [],
+        "strategy": {
+          "status": "low-profile"
+        },
+        "setFlags": []
+      }
+    ],
+    "cooldownRounds": 1
+  },
+  {
+    "id": "fact-check-result",
+    "title": "查核結果出爐",
+    "binding": "head-to-head",
+    "followUpOnly": true,
+    "window": {
+      "fromRound": 1,
+      "toRound": 12
+    },
+    "priority": 0,
+    "once": false,
+    "body": "政策組完成「{topic}」雙方原始出處的查核，整理出一份逐條對照表。",
+    "choices": [
+      {
+        "id": "publish",
+        "label": "公開對照表",
+        "knownCost": "一個行動點整理成對外版本",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "publicTrust",
+            "delta": 2
+          },
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 2
+          }
+        ],
+        "setFlags": []
+      },
+      {
+        "id": "internal",
+        "label": "只供內部使用",
+        "knownCost": "不花資源",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ],
+        "setFlags": []
+      }
+    ]
+  },
+  {
+    "id": "funding-grilling",
+    "title": "政論節目追問細節",
+    "binding": "our-policy",
+    "bindingRisks": [
+      "costly-unfunded",
+      "vague"
+    ],
+    "window": {
+      "fromRound": 3,
+      "toRound": 10
+    },
+    "priority": 2,
+    "once": true,
+    "body": "政論節目點名我們在「{topic}」的政見：錢從哪裡來？細節在哪裡？製作單位希望今晚連線回應。",
+    "choices": [
+      {
+        "id": "step-by-step",
+        "label": "承認還在規劃，說明推動步驟",
+        "knownCost": "一個行動點準備；可化解財源與時程的質疑",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [],
+        "strategy": {
+          "status": "reframed",
+          "angle": "step-by-step"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "numbers",
+        "label": "拿出政見寫明的數字回應",
+        "knownCost": "一個行動點；只有政見寫明數字時才能用",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [],
+        "requiresStrengths": [
+          "concrete"
+        ],
+        "strategy": {
+          "status": "reframed",
+          "angle": "numbers"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "research",
+        "label": "請政策組連夜補資料",
+        "knownCost": "一個行動點與 30 萬元，團隊會更疲累；下回合資料到位",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 30
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "morale",
+            "delta": -2
+          }
+        ],
+        "delayed": {
+          "afterRounds": 1,
+          "effects": [
+            {
+              "kind": "resource",
+              "key": "policyConsistency",
+              "delta": 3
+            }
+          ]
+        },
+        "setFlags": []
+      },
+      {
+        "id": "decline",
+        "label": "婉拒連線",
+        "knownCost": "不花資源，但節目會說我們避談",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "publicTrust",
+            "delta": -2
+          }
+        ],
+        "setFlags": []
+      }
+    ]
+  },
+  {
+    "id": "unique-spotlight",
+    "title": "地方團體邀請座談",
+    "binding": "unique-issue",
+    "window": {
+      "fromRound": 2,
+      "toRound": 8
+    },
+    "priority": 2,
+    "once": true,
+    "body": "關心「{topic}」的地方團體邀請我們座談。這個議題對手目前沒有收錄政見，現場會有媒體。",
+    "choices": [
+      {
+        "id": "feature",
+        "label": "候選人親自出席，大張旗鼓",
+        "knownCost": "一個行動點與 20 萬元",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 20
+        },
+        "effects": [],
+        "strategy": {
+          "status": "featured"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "staff",
+        "label": "派政策幕僚出席",
+        "knownCost": "不佔候選人行程，但幕僚要加班",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "morale",
+            "delta": -1
+          },
+          {
+            "kind": "resource",
+            "key": "publicTrust",
+            "delta": 1
+          }
+        ],
+        "setFlags": []
+      },
+      {
+        "id": "decline",
+        "label": "這次先婉拒",
+        "knownCost": "不花資源",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [],
+        "setFlags": []
+      }
+    ]
+  },
+  {
+    "id": "incumbent-cheque",
+    "title": "被批評選前開支票",
+    "binding": "our-policy",
+    "bindingRisks": [
+      "government-plan"
+    ],
+    "window": {
+      "fromRound": 5,
+      "toRound": 11
+    },
+    "priority": 2,
+    "once": true,
+    "body": "評論文章批評「{topic}」這類以市府名義宣布的計畫是選前開支票，要求說明與選舉的關係。",
+    "choices": [
+      {
+        "id": "continuity",
+        "label": "說明是延續既有施政",
+        "knownCost": "一個行動點準備說明",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [],
+        "strategy": {
+          "status": "reframed",
+          "angle": "continuity"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "feature",
+        "label": "不退讓，繼續大張旗鼓",
+        "knownCost": "一個行動點與 10 萬元；批評聲浪可能延燒",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 10
+        },
+        "effects": [],
+        "strategy": {
+          "status": "featured"
+        },
+        "setFlags": []
+      },
+      {
+        "id": "quiet",
+        "label": "這陣子先低調",
+        "knownCost": "不花資源",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [],
+        "strategy": {
+          "status": "low-profile"
+        },
+        "setFlags": []
+      }
+    ]
+  },
+  {
+    "id": "team-exhaustion",
+    "title": "辦公室撐不住了",
+    "binding": "none",
+    "window": {
+      "fromRound": 4,
+      "toRound": 12
+    },
+    "priority": 3,
+    "once": true,
+    "conditions": {
+      "resourceAtMost": {
+        "morale": 50
+      }
+    },
+    "body": "連續幾週跑行程，辦公室群組開始出現抱怨，有兩位志工說下週可能不來了。",
+    "choices": [
+      {
+        "id": "rest",
+        "label": "全隊放半天假",
+        "knownCost": "一個行動點",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "morale",
+            "delta": 8
+          }
+        ],
+        "setFlags": []
+      },
+      {
+        "id": "bento",
+        "label": "加菜，加碼便當",
+        "knownCost": "30 萬元",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 30
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "morale",
+            "delta": 4
+          }
+        ],
+        "setFlags": []
+      },
+      {
+        "id": "push",
+        "label": "咬牙撐過去",
+        "knownCost": "不花資源，但團隊會更累，候選人也會察覺",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "morale",
+            "delta": -3
+          }
+        ],
+        "delayed": {
+          "afterRounds": 2,
+          "effects": [
+            {
+              "kind": "resource",
+              "key": "candidateTrust",
+              "delta": -2
+            }
+          ]
+        },
+        "setFlags": []
+      }
+    ]
+  }
+]

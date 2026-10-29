@@ -3,6 +3,7 @@ import { assessPolicy, type FramingAngle } from '../content/assess.ts';
 import { ACTIONS, EXPOSURE_COSTS } from '../engine/config.ts';
 import type { ExposureStatus, GameState, ResourceKey } from '../engine/types.ts';
 import { PolicyCard } from './PolicyCard.tsx';
+import { EventCard } from './EventCard.tsx';
 import { StrategyCard } from './StrategyCard.tsx';
 import { RESOURCE_LABELS, STAGE_LABELS, formatDelta } from './labels.ts';
 
@@ -14,6 +15,7 @@ interface Props {
   notice: string | null;
   onAction: (actionId: string, revision: number) => void;
   onExposure: (policyId: string, status: ExposureChoice, angle: FramingAngle | null, revision: number) => void;
+  onEventChoice: (choiceId: string, revision: number) => void;
   onEndRound: (revision: number) => void;
   onRestart: () => void;
 }
@@ -30,7 +32,7 @@ function candidacyName(content: ContentBundle, candidacyId: string): string {
   return person?.name ?? candidacyId;
 }
 
-export function BriefingScreen({ content, game, notice, onAction, onExposure, onEndRound, onRestart }: Props) {
+export function BriefingScreen({ content, game, notice, onAction, onExposure, onEventChoice, onEndRound, onRestart }: Props) {
   const span = game.calendar[game.round - 1];
   const recent = game.decisions.slice(-5).reverse();
   const district = content.districts.find((d) => d.id === game.districtId);
@@ -70,6 +72,8 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
           {notice}
         </p>
       )}
+
+      <EventCard content={content} game={game} onChoose={onEventChoice} />
 
       <section className="card" aria-labelledby="resources-title">
         <h2 id="resources-title">辦公室狀態（模擬）</h2>
@@ -162,9 +166,20 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         })}
       </section>
 
-      <button type="button" className="primary" onClick={() => onEndRound(game.revision)}>
+      <button
+        type="button"
+        className="primary"
+        disabled={game.activeEvent !== null}
+        aria-describedby={game.activeEvent ? 'end-round-reason' : undefined}
+        onClick={() => onEndRound(game.revision)}
+      >
         結束本回合
       </button>
+      {game.activeEvent && (
+        <p id="end-round-reason" className="cost">
+          本回合還有待處理的事件，請先在上方做出決定。
+        </p>
+      )}
 
       <section className="card" aria-labelledby="log-title">
         <h2 id="log-title">選戰紀錄</h2>

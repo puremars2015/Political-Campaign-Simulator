@@ -3,6 +3,7 @@ import { BALANCE } from '../../src/engine/config.ts';
 import {
   createNewGame,
   endRound,
+  resolveEvent,
   setPolicyExposure,
   submitAction,
   type EngineResult,
@@ -19,6 +20,17 @@ function newGame(seed = 'test-seed'): GameState {
 function expectOk(result: EngineResult): GameState {
   if (!result.ok) throw new Error(`預期成功，實際失敗：${result.reason}`);
   return result.state;
+}
+
+/** 若有待處理事件，先選第一個零成本選項，再結束回合 */
+function advance(state: GameState): GameState {
+  let current = state;
+  const event = content.events.find((e) => e.id === current.activeEvent?.eventId);
+  if (event) {
+    const free = event.choices.find((c) => c.cost.actionPoints === 0 && c.cost.funds === 0)!;
+    current = expectOk(resolveEvent(current, content, free.id, current.revision));
+  }
+  return expectOk(endRound(current, content, current.revision));
 }
 
 describe('createNewGame', () => {
@@ -150,7 +162,7 @@ describe('endRound', () => {
     const consistencyBefore = state.resources.policyConsistency;
     expect(state.pendingEffects).toHaveLength(1);
 
-    state = expectOk(endRound(state, state.revision));
+    state = expectOk(endRound(state, content, state.revision));
     expect(state.round).toBe(2);
     expect(state.actionPoints).toBe(BALANCE.actionPointsPerRound);
     expect(state.pendingEffects).toHaveLength(0);
@@ -162,10 +174,10 @@ describe('endRound', () => {
 
   it('第12回合結束後進入投票階段，之後不能再行動', () => {
     let state = newGame();
-    for (let i = 0; i < BALANCE.totalRounds; i++) state = expectOk(endRound(state, state.revision));
+    for (let i = 0; i < BALANCE.totalRounds; i++) state = advance(state);
     expect(state.phase).toBe('election');
     expect(submitAction(state, 'candidate-briefing', state.revision).ok).toBe(false);
-    expect(endRound(state, state.revision).ok).toBe(false);
+    expect(endRound(state, content, state.revision).ok).toBe(false);
   });
 });
 
@@ -175,7 +187,7 @@ describe('確定性', () => {
       let state = newGame('replay');
       state = expectOk(submitAction(state, 'policy-research', state.revision));
       state = expectOk(submitAction(state, 'field-event', state.revision));
-      state = expectOk(endRound(state, state.revision));
+      state = expectOk(endRound(state, content, state.revision));
       state = expectOk(setPolicyExposure(state, content, 'a-housing', 'featured', state.revision));
       return state;
     };
@@ -186,8 +198,8 @@ describe('確定性', () => {
     let state = newGame('save-load');
     state = expectOk(submitAction(state, 'policy-research', state.revision));
     const restored = JSON.parse(JSON.stringify(state)) as GameState;
-    const a = expectOk(endRound(state, state.revision));
-    const b = expectOk(endRound(restored, restored.revision));
+    const a = expectOk(endRound(state, content, state.revision));
+    const b = expectOk(endRound(restored, content, restored.revision));
     expect(b).toEqual(a);
   });
 });

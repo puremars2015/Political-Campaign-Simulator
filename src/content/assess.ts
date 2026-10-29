@@ -1,18 +1,12 @@
-import type { ContentBundle, Policy } from './schema.ts';
+import type { ContentBundle, FramingAngle, Policy, RiskId, Strategy, StrengthId } from './schema.ts';
+
+export type { FramingAngle, RiskId, Strategy, StrengthId };
 
 /**
  * 幕僚評估：依政見資料推論宣傳上的優勢與風險。
  * 這是遊戲模型的推論（計畫 4.3），不是對政見本身好壞的判斷，介面須標示為模擬。
  */
 
-export type StrengthId = 'concrete' | 'unique-issue' | 'head-to-head' | 'official-source' | 'incumbent-resources';
-export type RiskId =
-  | 'costly-unfunded'
-  | 'vague'
-  | 'long-horizon'
-  | 'government-plan'
-  | 'thin-source'
-  | 'opponent-dominant';
 
 export const STRENGTH_LABELS: Record<StrengthId, string> = {
   concrete: '有具體規模、時程或經費，說得出數字',
@@ -32,8 +26,6 @@ export const RISK_LABELS: Record<RiskId, string> = {
 };
 
 /** 圓滑包裝的說法角度：只改變強調重點，引用的仍是原文與有出處的欄位 */
-export type FramingAngle = 'beneficiaries' | 'numbers' | 'contrast' | 'vision' | 'step-by-step' | 'continuity';
-
 export interface AngleDefinition {
   label: string;
   /** 說明這個角度會引用政見的哪一部分 */
@@ -59,7 +51,6 @@ export const FRAMING_ANGLES: Record<FramingAngle, AngleDefinition> = {
   },
 };
 
-export type Strategy = 'featured' | 'reframed' | 'low-profile' | 'deferred';
 
 export interface PolicyAssessment {
   policyId: string;

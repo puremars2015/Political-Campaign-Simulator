@@ -98,3 +98,24 @@ test('預覽縣市標示預覽資料，只能輔佐收錄範圍內的候選人',
   await expect(page.getByText(/預覽資料（名單未公告、來源待審閱）/)).toBeVisible();
   await expect(page.getByRole('button', { name: '大張旗鼓：交通' })).toBeVisible();
 });
+
+test('事件：處理完才能結束回合，選項顯示已知代價', async ({ page }) => {
+  await startAsCandidateA(page);
+  await page.getByRole('button', { name: '結束本回合' }).click();
+  await expect(page.getByRole('heading', { name: '測試事件' })).toBeVisible();
+  await expect(page.getByText('本回合事件・模擬情境')).toBeVisible();
+  await expect(page.getByRole('button', { name: '結束本回合' })).toBeDisabled();
+  await expect(page.getByText('已知代價：經費')).toBeVisible();
+
+  await page.getByRole('button', { name: '零成本選項' }).click();
+  await expect(page.getByRole('heading', { name: '測試事件' })).toHaveCount(0);
+  await expect(page.getByText(/測試事件：零成本選項/)).toBeVisible();
+
+  // 第 3 回合：綁定真實政見的交鋒事件
+  await page.getByRole('button', { name: '結束本回合' }).click();
+  await expect(page.getByRole('heading', { name: '兩邊政見交鋒' })).toBeVisible();
+  await expect(page.getByText('我方相關政見')).toBeVisible();
+  await expect(page.getByText(/對手相關政見：測試候選人乙/)).toBeVisible();
+  await page.getByRole('button', { name: '正面對比' }).click();
+  await expect(page.getByText(/目前處理：圓滑包裝（與對手對比）/)).toBeVisible();
+});

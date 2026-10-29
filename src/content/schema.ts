@@ -172,7 +172,35 @@ export const policySchema = z.object({
   supersedes: id.optional(),
 });
 
+// ---------- 政見策略（幕僚評估與包裝角度的識別碼） ----------
+
+export const strengthIdSchema = z.enum(['concrete', 'unique-issue', 'head-to-head', 'official-source', 'incumbent-resources']);
+export const riskIdSchema = z.enum([
+  'costly-unfunded',
+  'vague',
+  'long-horizon',
+  'government-plan',
+  'thin-source',
+  'opponent-dominant',
+]);
+export const framingAngleSchema = z.enum(['beneficiaries', 'numbers', 'contrast', 'vision', 'step-by-step', 'continuity']);
+export const strategySchema = z.enum(['featured', 'reframed', 'low-profile', 'deferred']);
+
 // ---------- 事件模板 ----------
+
+/**
+ * 事件劇情是虛構的模擬情境；事件中出現的政見一律綁定已收錄的真實政見並顯示原文，
+ * 不在事件文字中寫入任何候選人的主張（計畫 4.5、4.6）。
+ */
+export const eventBindingSchema = z.enum([
+  'none',
+  /** 我方任一可用政見 */
+  'our-policy',
+  /** 我方與對手在同一議題都有政見 */
+  'head-to-head',
+  /** 只有我方在該議題有政見 */
+  'unique-issue',
+]);
 
 export const eventChoiceSchema = z.object({
   id,
@@ -185,30 +213,37 @@ export const eventChoiceSchema = z.object({
     .object({ afterRounds: z.number().int().min(1), effects: z.array(effectSchema).min(1) })
     .optional(),
   setFlags: z.array(id).default([]),
-  followUpEventId: id.optional(),
+  /** 對綁定的我方政見採取策略；效果依幕僚評估計算，成本以本選項為準 */
+  strategy: z.object({ status: strategySchema, angle: framingAngleSchema.optional() }).optional(),
+  /** 綁定政見須具備的優勢，否則選項不可用（例如「引用數字」需要政見寫明數字） */
+  requiresStrengths: z.array(strengthIdSchema).default([]),
+  followUp: z.object({ eventId: id, afterRounds: z.number().int().min(1).default(1) }).optional(),
 });
 
 export const eventSchema = z.object({
   id,
   title: z.string().min(1),
+  /** 情境敘述；可使用 {topic}（議題名稱）與 {opponent}（對手姓名）佔位字 */
   body: z.string().min(1),
   window: z.object({ fromRound: z.number().int().min(1), toRound: z.number().int().min(1) }),
   priority: z.number().int().default(0),
   once: z.boolean().default(true),
+  /** 可重複事件再次發生前至少間隔的回合數 */
+  cooldownRounds: z.number().int().min(0).default(0),
   exclusiveGroup: id.optional(),
+  /** 只由其他事件的後續觸發，不參與一般抽選 */
+  followUpOnly: z.boolean().default(false),
   conditions: z
     .object({
       flagsAll: z.array(id).optional(),
       flagsNone: z.array(id).optional(),
+      resourceAtMost: z.partialRecord(resourceKeySchema, z.number()).optional(),
+      resourceAtLeast: z.partialRecord(resourceKeySchema, z.number()).optional(),
     })
     .default({}),
-  /** 事件引用的政見須存在；不滿足時停用事件（計畫 4.6） */
-  requires: z
-    .object({
-      ourIssues: z.array(z.string().min(1)).default([]),
-      opponentIssues: z.array(z.string().min(1)).default([]),
-    })
-    .default({ ourIssues: [], opponentIssues: [] }),
+  binding: eventBindingSchema.default('none'),
+  /** 綁定的我方政見須至少具備其中一項風險（空陣列表示不限） */
+  bindingRisks: z.array(riskIdSchema).default([]),
   choices: z.array(eventChoiceSchema).min(2),
 });
 
@@ -240,6 +275,11 @@ export type Policy = z.infer<typeof policySchema>;
 export type PolicyField = z.infer<typeof policyFieldSchema>;
 export type Topic = z.infer<typeof topicSchema>;
 export type EventDefinition = z.infer<typeof eventSchema>;
+export type EventBinding = z.infer<typeof eventBindingSchema>;
+export type StrengthId = z.infer<typeof strengthIdSchema>;
+export type RiskId = z.infer<typeof riskIdSchema>;
+export type FramingAngle = z.infer<typeof framingAngleSchema>;
+export type Strategy = z.infer<typeof strategySchema>;
 export type EventChoice = z.infer<typeof eventChoiceSchema>;
 export type ContentBundle = z.infer<typeof contentBundleSchema>;
 /** 未經 zod 預設值補齊的原始輸入形狀，供撰寫 JSON 與測試 fixture 使用 */

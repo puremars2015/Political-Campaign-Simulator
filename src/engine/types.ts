@@ -4,7 +4,7 @@ import type { FramingAngle } from '../content/assess.ts';
 import type { DataMode } from '../content/query.ts';
 
 /** 存檔結構版本；變更 GameState 形狀時必須遞增並撰寫遷移。 */
-export const GAME_STATE_SCHEMA_VERSION = 3;
+export const GAME_STATE_SCHEMA_VERSION = 4;
 
 export type ResourceKey = 'funds' | 'morale' | 'candidateTrust' | 'publicTrust' | 'policyConsistency';
 
@@ -40,6 +40,26 @@ export interface CampaignPolicyState {
   /** 圓滑包裝時選用的說法角度；其他狀態為 null */
   angle: FramingAngle | null;
   history: { round: number; status: ExposureStatus; angle: FramingAngle | null; decisionId: string | null }[];
+}
+
+/** 事件綁定的真實政見；事件只顯示這些政見的原文，不另寫主張 */
+export interface EventBindingState {
+  topicId: string;
+  ourPolicyId: string;
+  opponentPolicyId: string | null;
+}
+
+export interface ActiveEvent {
+  eventId: string;
+  binding: EventBindingState | null;
+}
+
+export interface ScheduledEvent {
+  eventId: string;
+  dueRound: number;
+  /** 沿用觸發它的事件所綁定的政見 */
+  binding: EventBindingState | null;
+  sourceDecisionId: string;
 }
 
 export interface PendingEffect {
@@ -91,5 +111,10 @@ export interface GameState {
   pendingEffects: PendingEffect[];
   decisions: DecisionRecord[];
   flags: Record<string, boolean>;
+  /** 本回合待處理的事件；處理完才能結束回合 */
+  activeEvent: ActiveEvent | null;
+  /** 已處理的事件紀錄，用於一次性、互斥、冷卻與避免重複綁定同一政見 */
+  eventLog: { round: number; eventId: string; ourPolicyId: string | null }[];
+  scheduledEvents: ScheduledEvent[];
   hidden: HiddenElectorate;
 }

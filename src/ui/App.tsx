@@ -3,6 +3,7 @@ import { loadContent } from '../content/index.ts';
 import {
   createNewGame,
   endRound,
+  resolveEvent,
   setPolicyExposure,
   submitAction,
   type EngineResult,
@@ -70,7 +71,8 @@ export function App() {
         onExposure={(policyId, status, angle, revision) =>
           apply((s) => setPolicyExposure(s, content, policyId, status, revision, angle))
         }
-        onEndRound={(revision) => apply((s) => endRound(s, revision))}
+        onEventChoice={(choiceId, revision) => apply((s) => resolveEvent(s, content, choiceId, revision))}
+        onEndRound={(revision) => apply((s) => endRound(s, content, revision))}
         onRestart={returnToSetup}
       />
     );

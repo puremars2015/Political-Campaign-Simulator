@@ -137,14 +137,30 @@ export function validateContent(raw: unknown): ValidationResult {
       add(`events.${i}.choices`, `選項 ID 重複：${dupe}`);
     }
     event.choices.forEach((choice, j) => {
-      if (choice.followUpEventId && !ids.events.has(choice.followUpEventId)) {
-        add(`events.${i}.choices.${j}.followUpEventId`, `找不到後續事件：${choice.followUpEventId}`);
+      const path = `events.${i}.choices.${j}`;
+      if (choice.followUp && !ids.events.has(choice.followUp.eventId)) {
+        add(`${path}.followUp`, `找不到後續事件：${choice.followUp.eventId}`);
+      }
+      if ((choice.strategy || choice.requiresStrengths.length > 0) && event.binding === 'none') {
+        add(path, '選項涉及政見策略，但事件沒有綁定政見');
+      }
+      if (choice.strategy?.status === 'reframed' && !choice.strategy.angle) {
+        add(`${path}.strategy`, '圓滑包裝需要指定說法角度');
+      }
+      if (choice.strategy && choice.strategy.status !== 'reframed' && choice.strategy.angle) {
+        add(`${path}.strategy`, '只有圓滑包裝需要說法角度');
       }
     });
-    // 計畫 4.5：任何資源狀態下都須存在有效選項
-    if (!event.choices.some((c) => c.cost.actionPoints === 0 && c.cost.funds === 0)) {
-      add(`events.${i}.choices`, '至少需要一個零成本選項，避免流程卡死');
-    }
+    // 計畫 4.5：任何資源狀態下都須存在有效選項；保底選項不能依賴政見條件或主打名額
+    const fallback = event.choices.some(
+      (c) =>
+        c.cost.actionPoints === 0 &&
+        c.cost.funds === 0 &&
+        c.requiresStrengths.length === 0 &&
+        c.strategy?.status !== 'featured' &&
+        c.strategy?.status !== 'reframed',
+    );
+    if (!fallback) add(`events.${i}.choices`, '至少需要一個零成本且無條件的選項，避免流程卡死');
   });
 
   // 引用錯誤時門檻檢查沒有意義，避免重複回報
