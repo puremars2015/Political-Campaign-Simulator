@@ -1,4 +1,4 @@
-import { assessDistrict } from '../content/query.ts';
+import { startableMode } from '../content/query.ts';
 import type { ContentBundle, District } from '../content/schema.ts';
 import { DISTRICT_STATUS_LABELS } from './labels.ts';
 
@@ -30,13 +30,13 @@ export function DistrictSelectScreen({ content, onSelect, onBack }: Props) {
             {content.districts
               .filter((d) => d.kind === group.kind)
               .map((district) => {
-                const playable = district.status === 'playable' && assessDistrict(content, district).playable;
+                const { mode } = startableMode(content, district);
                 return (
                   <li key={district.id}>
                     <button type="button" className="district" onClick={() => onSelect(district.id)}>
                       <span className="district-name">{district.name}</span>
                       <span className="cost">
-                        {playable ? '可遊玩' : DISTRICT_STATUS_LABELS[district.status]}
+                        {mode === 'formal' ? '可遊玩' : mode === 'preview' ? '預覽可玩' : DISTRICT_STATUS_LABELS[district.status]}
                         {district.dataAsOf && `・資料截至 ${district.dataAsOf}`}
                       </span>
                     </button>

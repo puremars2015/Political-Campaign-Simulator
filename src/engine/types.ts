@@ -1,9 +1,10 @@
 import type { RoundSpan } from './calendar.ts';
 import type { RngState } from './rng.ts';
 import type { FramingAngle } from '../content/assess.ts';
+import type { DataMode } from '../content/query.ts';
 
 /** 存檔結構版本；變更 GameState 形狀時必須遞增並撰寫遷移。 */
-export const GAME_STATE_SCHEMA_VERSION = 2;
+export const GAME_STATE_SCHEMA_VERSION = 3;
 
 export type ResourceKey = 'funds' | 'morale' | 'candidateTrust' | 'publicTrust' | 'policyConsistency';
 
@@ -78,6 +79,8 @@ export interface GameState {
   calendar: RoundSpan[];
   /** 本局固定使用的資料截至日期 */
   dataAsOf: string;
+  /** formal：正式資料；preview：預覽資料（名單未公告、來源待審閱） */
+  dataMode: DataMode;
   districtId: string;
   /** 玩家輔佐的參選紀錄 */
   candidacyId: string;

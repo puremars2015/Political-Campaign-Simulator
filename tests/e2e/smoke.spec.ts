@@ -80,3 +80,21 @@ test('可只用鍵盤完成開局與行動', async ({ page }) => {
   await expect(page.getByTestId('action-points')).toHaveText('2');
 });
 
+
+test('預覽縣市標示預覽資料，只能輔佐收錄範圍內的候選人', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: '開始新的一局' }).click();
+  await expect(page.getByRole('button', { name: /預覽市（測試資料）.*預覽可玩/ })).toBeVisible();
+  await page.getByRole('button', { name: /預覽市（測試資料）/ }).click();
+  await expect(page.getByRole('heading', { name: '預覽資料' })).toBeVisible();
+  await expect(page.getByText('不在本預覽的收錄範圍，尚無法輔佐；這不代表候選人沒有主張。')).toBeVisible();
+
+  await page.getByRole('button', { name: '查看預覽候選人三的資料' }).click();
+  await expect(page.getByRole('button', { name: '確認輔佐並開始' })).toBeDisabled();
+  await page.getByRole('button', { name: '返回候選人名單' }).click();
+
+  await page.getByRole('button', { name: '查看預覽候選人一的資料' }).click();
+  await page.getByRole('button', { name: '確認輔佐並開始' }).click();
+  await expect(page.getByText(/預覽資料（名單未公告、來源待審閱）/)).toBeVisible();
+  await expect(page.getByRole('button', { name: '大張旗鼓：交通' })).toBeVisible();
+});

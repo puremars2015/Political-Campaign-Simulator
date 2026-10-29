@@ -96,6 +96,8 @@ export const districtSchema = z.object({
     .default([]),
   /** 模擬參數，屬模型推論，不是真實選情 */
   simulation: z.object({ undecided: ratio }).optional(),
+  /** 預覽資料的收錄範圍；只有這些參選紀錄會出現在預覽遊戲中 */
+  focusCandidacyIds: z.array(id).min(2).optional(),
 });
 
 /** 人物的模擬參數；屬設計推論，需標示並人工審閱（計畫 8.2） */

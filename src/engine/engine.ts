@@ -12,7 +12,7 @@ import {
   type Resources,
 } from './types.ts';
 import { FRAMING_ANGLES, assessPolicy, remainingRisks, type FramingAngle } from '../content/assess.ts';
-import { activeCandidacies, assessDistrict, isPolicyUsable, policiesFor } from '../content/query.ts';
+import { gameCandidacies, isPolicyUsable, policiesFor, startableMode } from '../content/query.ts';
 import type { ContentBundle } from '../content/schema.ts';
 
 export type EngineResult = { ok: true; state: GameState } | { ok: false; reason: string };
@@ -23,19 +23,17 @@ export interface NewGameOptions {
   candidacyId: string;
 }
 
-/** 建立新局。只接受已達可玩門檻的縣市與其當屆正式參選紀錄，不隨機分配候選人。 */
+/** 建立新局。只接受已達可玩或預覽門檻的縣市與其範圍內的參選紀錄，不隨機分配候選人。 */
 export function createNewGame(content: ContentBundle, options: NewGameOptions): GameState {
   const district = content.districts.find((d) => d.id === options.districtId);
   if (!district) throw new Error(`找不到縣市：${options.districtId}`);
-  const playability = assessDistrict(content, district);
-  if (district.status !== 'playable' || !playability.playable) {
-    throw new Error(`${district.name} 尚不可玩：${playability.reasons.join('；') || '資料尚未發布'}`);
-  }
+  const { mode, reasons } = startableMode(content, district);
+  if (!mode) throw new Error(`${district.name} 尚不可玩：${reasons.join('；')}`);
   const election = content.elections.find((e) => e.id === district.electionId);
-  const candidacies = activeCandidacies(content, district.id);
+  const candidacies = gameCandidacies(content, district, mode);
   const candidacy = candidacies.find((c) => c.id === options.candidacyId);
   if (!candidacy) throw new Error(`${district.name} 沒有參選紀錄：${options.candidacyId}`);
-  // 以下欄位已由 assessDistrict 保證存在
+  // 以下欄位已由門檻檢查保證存在
   if (!election || !district.dataAsOf || !district.simulation || !candidacy.simulation) {
     throw new Error('內容資料不完整');
   }
@@ -53,13 +51,14 @@ export function createNewGame(content: ContentBundle, options: NewGameOptions): 
     round: 1,
     calendar: buildCalendar(election.electionDate),
     dataAsOf: district.dataAsOf,
+    dataMode: mode,
     districtId: district.id,
     candidacyId: candidacy.id,
     opponentCandidacyIds: candidacies.filter((c) => c.id !== candidacy.id).map((c) => c.id),
     resources: { funds: candidacy.simulation.startingFunds, ...BALANCE.startingResources },
     actionPoints: BALANCE.actionPointsPerRound,
     campaign: policiesFor(content, candidacy.id)
-      .filter((p) => isPolicyUsable(content, p))
+      .filter((p) => isPolicyUsable(content, p, mode))
       .map((p) => ({
         policyId: p.id,
         status: 'pending',

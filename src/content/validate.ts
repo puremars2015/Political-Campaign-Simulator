@@ -71,6 +71,12 @@ export function validateContent(raw: unknown): ValidationResult {
       add(`districts.${i}.regions`, `行政區 ID 重複：${dupe}`);
     }
     district.regions.forEach((r, j) => checkCitations(`districts.${i}.regions.${j}.citations`, r.citations));
+    for (const candidacyId of district.focusCandidacyIds ?? []) {
+      const candidacy = bundle.candidacies.find((c) => c.id === candidacyId);
+      if (!candidacy || candidacy.districtId !== district.id) {
+        add(`districts.${i}.focusCandidacyIds`, `收錄範圍中的參選紀錄不屬於${district.name}：${candidacyId}`);
+      }
+    }
   });
 
   bundle.people.forEach((person, i) => {
@@ -144,9 +150,11 @@ export function validateContent(raw: unknown): ValidationResult {
   // 引用錯誤時門檻檢查沒有意義，避免重複回報
   if (issues.length === 0) {
     bundle.districts.forEach((district, i) => {
-      if (district.status !== 'playable') return;
-      const { reasons } = assessDistrict(bundle, district);
-      for (const reason of reasons) add(`districts.${i}`, `${district.name} 標示為可玩但未達門檻：${reason}`);
+      if (district.status !== 'playable' && district.status !== 'preview') return;
+      const mode = district.status === 'playable' ? 'formal' : 'preview';
+      const label = mode === 'formal' ? '可玩' : '預覽';
+      const { reasons } = assessDistrict(bundle, district, mode);
+      for (const reason of reasons) add(`districts.${i}`, `${district.name} 標示為${label}但未達門檻：${reason}`);
     });
   }
 

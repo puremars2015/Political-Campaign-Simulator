@@ -1,4 +1,5 @@
-import { activeCandidacies, assessDistrict, policiesFor } from '../content/query.ts';
+import { gameCandidacies, policiesFor, startableMode } from '../content/query.ts';
+import { PreviewNotice } from './PreviewNotice.tsx';
 import type { Candidacy, ContentBundle, District } from '../content/schema.ts';
 import { assessPolicy } from '../content/assess.ts';
 import { CitationList, PolicyCard } from './PolicyCard.tsx';
@@ -38,9 +39,10 @@ function CandidacyPolicies({ content, candidacy }: { content: ContentBundle; can
 
 export function ConfirmScreen({ content, district, candidacy, notice, onConfirm, onBack }: Props) {
   const person = content.people.find((p) => p.id === candidacy.personId);
-  const opponents = activeCandidacies(content, district.id).filter((c) => c.id !== candidacy.id);
-  const playability = assessDistrict(content, district);
-  const playable = district.status === 'playable' && playability.playable;
+  const { mode } = startableMode(content, district);
+  const inGame = gameCandidacies(content, district, mode ?? 'formal');
+  const opponents = inGame.filter((c) => c.id !== candidacy.id);
+  const playable = mode !== null && inGame.some((c) => c.id === candidacy.id);
 
   return (
     <main className="screen">
@@ -51,6 +53,8 @@ export function ConfirmScreen({ content, district, candidacy, notice, onConfirm,
           {candidacy.party}・{CANDIDACY_STATUS_LABELS[candidacy.status]}
         </p>
       </header>
+
+      {mode === 'preview' && <PreviewNotice />}
 
       <section className="card" aria-labelledby="nature-title">
         <h2 id="nature-title">資料性質</h2>
@@ -125,7 +129,11 @@ export function ConfirmScreen({ content, district, candidacy, notice, onConfirm,
           {notice}
         </p>
       )}
-      {!playable && <p className="cost">此縣市資料尚未達到可玩門檻，目前僅供查閱。</p>}
+      {!playable && (
+        <p className="cost">
+          {mode === 'preview' ? '這位候選人不在本預覽的收錄範圍，目前僅供查閱。' : '此縣市資料尚未達到可玩門檻，目前僅供查閱。'}
+        </p>
+      )}
     </main>
   );
 }

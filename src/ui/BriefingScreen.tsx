@@ -60,6 +60,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
           <p className="dates">
             {span.startDate === span.endDate ? span.startDate : `${span.startDate} 至 ${span.endDate}`}
             ・資料截至 {game.dataAsOf}
+            {game.dataMode === 'preview' && '・預覽資料（名單未公告、來源待審閱）'}
           </p>
         )}
       </header>

@@ -4,6 +4,12 @@ import { assessDistrict, isPolicyUsable } from '../../src/content/query.ts';
 import { validateContent } from '../../src/content/validate.ts';
 import { loadFixture, rawFixture } from '../fixtures/content.ts';
 
+function byId<T extends { id: string }>(items: T[], id: string): T {
+  const item = items.find((x) => x.id === id);
+  if (!item) throw new Error(`fixture 缺少 ${id}`);
+  return item;
+}
+
 function clone<T>(value: T): T {
   return structuredClone(value);
 }
@@ -37,37 +43,37 @@ describe('validateContent', () => {
 
   it('指出不存在的來源', () => {
     const broken = clone(rawFixture);
-    broken.policies[0]!.citations[0]!.sourceId = 'missing-source';
+    byId(broken.policies, 'a-transit').citations[0]!.sourceId = 'missing-source';
     expect(messages(broken).some((m) => m.includes('missing-source'))).toBe(true);
   });
 
   it('指出跨屆誤用的政見', () => {
     const broken = clone(rawFixture);
-    broken.policies[0]!.electionId = 'other-election';
+    byId(broken.policies, 'a-transit').electionId = 'other-election';
     expect(messages(broken).some((m) => m.includes('屆次'))).toBe(true);
   });
 
   it('指出跨選區誤用的政見', () => {
     const broken = clone(rawFixture);
-    broken.policies[0]!.districtId = 'draft-city';
+    byId(broken.policies, 'a-transit').districtId = 'draft-city';
     expect(messages(broken).some((m) => m.includes('選區'))).toBe(true);
   });
 
   it('指出職位與縣市不符的參選紀錄', () => {
     const broken = clone(rawFixture);
-    broken.candidacies[0]!.office = '議員';
+    byId(broken.candidacies, 'cand-a').office = '議員';
     expect(messages(broken).some((m) => m.includes('職位'))).toBe(true);
   });
 
   it('只能修訂同一參選紀錄的政見', () => {
     const broken = clone(rawFixture);
-    Object.assign(broken.policies[4]!, { supersedes: 'a-old' });
+    Object.assign(byId(broken.policies, 'b-housing'), { supersedes: 'a-old' });
     expect(messages(broken).some((m) => m.includes('同一參選紀錄'))).toBe(true);
   });
 
   it('沒有引用來源的政見無法通過 schema', () => {
     const broken = clone(rawFixture);
-    (broken.policies[0] as { citations: unknown[] }).citations = [];
+    (byId(broken.policies, 'a-transit') as { citations: unknown[] }).citations = [];
     expect(validateContent(broken).ok).toBe(false);
   });
 
@@ -91,7 +97,7 @@ describe('validateContent', () => {
 
   it('標示可玩但候選人尚非正式候選人時不通過', () => {
     const broken = clone(rawFixture);
-    (broken.candidacies[1] as { status: string }).status = 'nominated';
+    (byId(broken.candidacies, 'cand-b') as { status: string }).status = 'nominated';
     expect(messages(broken).some((m) => m.includes('正式候選人'))).toBe(true);
   });
 });
@@ -100,8 +106,8 @@ describe('可玩門檻與政見可用性', () => {
   const content = loadFixture();
 
   it('資料完整的縣市可玩，蒐集中的縣市列出原因', () => {
-    expect(assessDistrict(content, content.districts[0]!).playable).toBe(true);
-    const draft = assessDistrict(content, content.districts[1]!);
+    expect(assessDistrict(content, byId(content.districts, 'test-city')).playable).toBe(true);
+    const draft = assessDistrict(content, byId(content.districts, 'draft-city'));
     expect(draft.playable).toBe(false);
     expect(draft.reasons).toContain('尚未建立候選人名單');
   });

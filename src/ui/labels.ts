@@ -21,7 +21,7 @@ export const RESOURCE_LABELS: Record<ResourceKey, string> = {
 export const DISTRICT_STATUS_LABELS: Record<DistrictStatus, string> = {
   'not-started': '尚未開始蒐集資料',
   collecting: '資料蒐集中',
-  preview: '預覽資料（尚未定案）',
+  preview: '預覽資料（名單未公告、來源待審閱）',
   playable: '可遊玩',
 };
 

@@ -5,8 +5,15 @@
     "kind": "municipality",
     "office": "臺北市長",
     "electionId": "2026-local",
-    "status": "collecting",
-    "dataAsOf": "2026-10-28"
+    "status": "preview",
+    "dataAsOf": "2026-10-28",
+    "simulation": {
+      "undecided": 0.3
+    },
+    "focusCandidacyIds": [
+      "2026-taipei-shen-po-yang",
+      "2026-taipei-chiang-wan-an"
+    ]
   },
   {
     "id": "new-taipei",

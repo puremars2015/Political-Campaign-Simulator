@@ -48,7 +48,17 @@
           }
         }
       }
-    ]
+    ],
+    "simulation": {
+      "personality": [
+        "模擬預設值：尚未設計"
+      ],
+      "priorities": [
+        "模擬預設值：尚未設計"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
   },
   {
     "id": "hsiao-wen-chien",
@@ -82,7 +92,17 @@
           }
         }
       }
-    ]
+    ],
+    "simulation": {
+      "personality": [
+        "模擬預設值：尚未設計"
+      ],
+      "priorities": [
+        "模擬預設值：尚未設計"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
   },
   {
     "id": "tang-hsin-min",

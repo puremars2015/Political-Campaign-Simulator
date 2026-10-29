@@ -81,7 +81,11 @@
           "value": "3號：民進黨沈伯洋"
         }
       }
-    ]
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
   },
   {
     "id": "2026-taipei-hsiao-wen-chien",
@@ -137,7 +141,11 @@
           "value": "5號：國民黨蔣萬安"
         }
       }
-    ]
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
   },
   {
     "id": "2026-taipei-tang-hsin-min",
