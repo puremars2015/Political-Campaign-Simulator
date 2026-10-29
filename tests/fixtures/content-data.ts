@@ -261,11 +261,4 @@ export const rawContent = {
     { id: 'youth', name: '青年' },
     { id: 'governance', name: '城市治理' },
   ],
-  comparisons: [
-    {
-      districtId: 'test-city',
-      candidacyIds: ['cand-a', 'cand-b'],
-      maskTerms: { 'cand-b': ['乙陣營'] },
-    },
-  ],
 } satisfies ContentBundleInput;

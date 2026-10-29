@@ -52,12 +52,21 @@ test('未完成的縣市只能查看進度，返回會清除候選人選擇', as
   await expect(page.getByRole('heading', { name: '選擇縣市' })).toBeVisible();
 });
 
-test('主打政見只改變宣傳安排', async ({ page }) => {
+test('政見策略室：大張旗鼓與圓滑包裝只改變宣傳安排', async ({ page }) => {
   await startAsCandidateA(page);
-  await page.getByRole('button', { name: '設為主打：交通' }).click();
+  await expect(page.getByRole('heading', { name: '政見策略室' })).toBeVisible();
+  await expect(page.getByText('風險：沒有寫明規模、時程或經費，容易被說空泛').first()).toBeVisible();
+
+  await page.getByRole('button', { name: '大張旗鼓：交通' }).click();
   await expect(page.getByTestId('action-points')).toHaveText('2');
-  await expect(page.getByText('測試政見：增加公車班次').first()).toBeVisible();
-  await expect(page.getByText(/政見宣傳安排：待宣傳 → 主打/)).toBeVisible();
+  await expect(page.getByText(/交通政見：待宣傳 → 大張旗鼓（主打）/)).toBeVisible();
+
+  const housing = page.locator('.strategy').filter({ hasText: '測試政見：興建社會住宅' }).first();
+  await housing.getByLabel('包裝角度').selectOption({ label: '承認限制、說明步驟' });
+  await housing.getByRole('button', { name: '圓滑包裝：住宅' }).click();
+  await expect(page.getByText(/住宅政見：待宣傳 → 圓滑包裝（承認限制、說明步驟）/)).toBeVisible();
+  // 政見原文不變
+  await expect(page.getByText('測試政見：興建社會住宅').first()).toBeVisible();
 });
 
 test('可只用鍵盤完成開局與行動', async ({ page }) => {
@@ -71,27 +80,3 @@ test('可只用鍵盤完成開局與行動', async ({ page }) => {
   await expect(page.getByTestId('action-points')).toHaveText('2');
 });
 
-test('政見盲測：遮住身分作答後開票', async ({ page }) => {
-  await page.goto('/');
-  await page.getByRole('button', { name: '開始新的一局' }).click();
-  await page.getByRole('button', { name: /測試市（測試資料）/ }).click();
-  await page.getByRole('button', { name: '開始政見盲測' }).click();
-  await expect(page.getByText(/測試候選人丙 尚未列入/)).toBeVisible();
-  await page.getByRole('button', { name: '開始比政見' }).click();
-
-  // 作答時看不到候選人姓名
-  for (let round = 0; round < 3; round++) {
-    await expect(page.getByText(/第 \d／3 輪/)).toBeVisible();
-    await expect(page.getByText('測試候選人甲')).toHaveCount(0);
-    await expect(page.getByText('測試候選人乙')).toHaveCount(0);
-    if (round === 0) await page.getByRole('button', { name: '跳過這一輪' }).click();
-    else await page.getByRole('button', { name: '蓋章：第 1 段' }).click();
-  }
-
-  await expect(page.getByRole('heading', { name: '哪些議題對你特別重要？' })).toBeVisible();
-  await page.getByRole('checkbox').first().check();
-  await page.getByRole('button', { name: '開票' }).click();
-  await expect(page.getByRole('heading', { name: '你蓋章的政見是誰提出的' })).toBeVisible();
-  await expect(page.getByText(/測試候選人甲（測試黨）：\d 分/)).toBeVisible();
-  await expect(page.getByText('你蓋章的段落', { exact: false }).first()).toBeVisible();
-});

@@ -1,5 +1,5 @@
 import { buildCalendar } from './calendar.ts';
-import { ACTIONS, BALANCE, EXPOSURE_COSTS } from './config.ts';
+import { ACTIONS, BALANCE, EXPOSURE_COSTS, STRATEGY_EFFECTS } from './config.ts';
 import { seedRng } from './rng.ts';
 import {
   GAME_STATE_SCHEMA_VERSION,
@@ -11,6 +11,7 @@ import {
   type ResourceKey,
   type Resources,
 } from './types.ts';
+import { FRAMING_ANGLES, assessPolicy, remainingRisks, type FramingAngle } from '../content/assess.ts';
 import { activeCandidacies, assessDistrict, isPolicyUsable, policiesFor } from '../content/query.ts';
 import type { ContentBundle } from '../content/schema.ts';
 
@@ -59,7 +60,12 @@ export function createNewGame(content: ContentBundle, options: NewGameOptions): 
     actionPoints: BALANCE.actionPointsPerRound,
     campaign: policiesFor(content, candidacy.id)
       .filter((p) => isPolicyUsable(content, p))
-      .map((p) => ({ policyId: p.id, status: 'pending', history: [{ round: 1, status: 'pending', decisionId: null }] })),
+      .map((p) => ({
+        policyId: p.id,
+        status: 'pending',
+        angle: null,
+        history: [{ round: 1, status: 'pending', angle: null, decisionId: null }],
+      })),
     pendingEffects: [],
     decisions: [],
     flags: {},
@@ -167,27 +173,43 @@ export function submitAction(state: GameState, actionId: string, expectedRevisio
 export const EXPOSURE_LABELS: Record<ExposureStatus, string> = {
   pending: '待宣傳',
   internal: '內部協調',
-  featured: '主打',
-  deferred: '延後',
-  'low-profile': '降低曝光',
+  featured: '大張旗鼓（主打）',
+  reframed: '圓滑包裝',
+  deferred: '先擱著（延後）',
+  'low-profile': '吞下去（低調處理）',
 };
 
 /**
- * 調整我方某項真實政見的宣傳安排。只改變本局的曝光狀態，
+ * 決定我方某項真實政見的宣傳策略。只改變本局的曝光與說法角度，
  * 政見原文、規模、對象、財源、期限與承諾強度都不在 GameState 中，無從修改。
  */
 export function setPolicyExposure(
   state: GameState,
+  content: ContentBundle,
   policyId: string,
   status: Exclude<ExposureStatus, 'pending'>,
   expectedRevision: number,
+  angle: FramingAngle | null = null,
 ): EngineResult {
   const revisionError = checkRevision(state, expectedRevision);
   if (revisionError) return { ok: false, reason: revisionError };
 
   const entry = state.campaign.find((c) => c.policyId === policyId);
-  if (!entry) return { ok: false, reason: '只能安排我方已查證的當次政見。' };
-  if (entry.status === status) return { ok: false, reason: `這項政見已經是「${EXPOSURE_LABELS[status]}」。` };
+  const policy = content.policies.find((p) => p.id === policyId);
+  if (!entry || !policy) return { ok: false, reason: '只能安排我方已查證的當次政見。' };
+  const assessment = assessPolicy(content, policy, state.opponentCandidacyIds);
+
+  if (status === 'reframed') {
+    if (!angle) return { ok: false, reason: '圓滑包裝需要選一個說法角度。' };
+    if (!assessment.angles.includes(angle)) {
+      return { ok: false, reason: `這項政見的資料不足以用「${FRAMING_ANGLES[angle].label}」的角度來談。` };
+    }
+  } else if (angle) {
+    return { ok: false, reason: '只有圓滑包裝需要說法角度。' };
+  }
+  if (entry.status === status && entry.angle === angle) {
+    return { ok: false, reason: `這項政見已經是「${EXPOSURE_LABELS[status]}」。` };
+  }
   if (status === 'featured') {
     const featured = state.campaign.filter((c) => c.status === 'featured').length;
     if (featured >= BALANCE.maxFeaturedPolicies) {
@@ -199,12 +221,39 @@ export function setPolicyExposure(
   const costError = checkAffordable(state, cost);
   if (costError) return { ok: false, reason: costError };
 
+  // 依幕僚評估決定效果：當下的聲量變化與之後被追問的代價
+  const effects: Effect[] = [];
+  const delayedEffects: Effect[] = [];
+  const penalize = (penalty: { publicTrust: number; policyConsistency?: number }, times: number) => {
+    if (times === 0) return;
+    delayedEffects.push({ kind: 'resource', key: 'publicTrust', delta: penalty.publicTrust * times });
+    if (penalty.policyConsistency) {
+      delayedEffects.push({ kind: 'resource', key: 'policyConsistency', delta: penalty.policyConsistency * times });
+    }
+  };
+  if (status === 'featured') {
+    const gain = Math.min(
+      STRATEGY_EFFECTS.featuredTrustCap,
+      assessment.strengths.length * STRATEGY_EFFECTS.featuredTrustPerStrength,
+    );
+    effects.push({ kind: 'resource', key: 'publicTrust', delta: gain });
+    penalize(STRATEGY_EFFECTS.featuredRiskPenalty, assessment.risks.length);
+  } else if (status === 'reframed') {
+    effects.push({ kind: 'resource', key: 'publicTrust', delta: STRATEGY_EFFECTS.reframedTrust });
+    penalize(STRATEGY_EFFECTS.reframedRiskPenalty, remainingRisks(assessment, angle).length);
+  } else if (status === 'low-profile' && assessment.opponentPolicyIds.length > 0) {
+    penalize(STRATEGY_EFFECTS.concedeIssuePenalty, 1);
+  }
+
+  const angleNote = angle ? `（${FRAMING_ANGLES[angle].label}）` : '';
   const next = commitDecision(state, {
     kind: 'policy-exposure',
     ref: policyId,
     cost,
-    effects: [],
-    summary: `政見宣傳安排：${EXPOSURE_LABELS[entry.status]} → ${EXPOSURE_LABELS[status]}`,
+    effects,
+    delayed:
+      delayedEffects.length > 0 ? { afterRounds: STRATEGY_EFFECTS.scrutinyDelay, effects: delayedEffects } : undefined,
+    summary: `${policy.issue}政見：${EXPOSURE_LABELS[entry.status]} → ${EXPOSURE_LABELS[status]}${angleNote}`,
   });
   const decisionId = next.decisions.at(-1)?.id ?? null;
   return {
@@ -213,7 +262,7 @@ export function setPolicyExposure(
       ...next,
       campaign: next.campaign.map((c) =>
         c.policyId === policyId
-          ? { ...c, status, history: [...c.history, { round: state.round, status, decisionId }] }
+          ? { ...c, status, angle, history: [...c.history, { round: state.round, status, angle, decisionId }] }
           : c,
       ),
     },

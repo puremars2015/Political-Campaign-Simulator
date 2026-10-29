@@ -214,14 +214,6 @@ export const eventSchema = z.object({
 
 export const topicSchema = z.object({ id, name: z.string().min(1) });
 
-/** 政見盲測的設定：哪些參選紀錄納入比較，以及各自需要遮蔽的身分字詞 */
-export const comparisonSchema = z.object({
-  districtId: id,
-  candidacyIds: z.array(id).min(2),
-  /** 參選紀錄 ID → 只在該參選人自己的段落中遮蔽的身分字詞（姓名與黨名會自動遮蔽於所有段落） */
-  maskTerms: z.record(z.string(), z.array(z.string().min(1))).default({}),
-});
-
 export const contentBundleSchema = z.object({
   contentVersion: z.string().min(1),
   elections: z.array(electionSchema),
@@ -232,7 +224,6 @@ export const contentBundleSchema = z.object({
   sources: z.array(sourceSchema),
   events: z.array(eventSchema),
   topics: z.array(topicSchema).default([]),
-  comparisons: z.array(comparisonSchema).default([]),
 });
 
 export type Source = z.infer<typeof sourceSchema>;
@@ -246,7 +237,6 @@ export type CandidacyStatus = z.infer<typeof candidacyStatusSchema>;
 export type Policy = z.infer<typeof policySchema>;
 export type PolicyField = z.infer<typeof policyFieldSchema>;
 export type Topic = z.infer<typeof topicSchema>;
-export type Comparison = z.infer<typeof comparisonSchema>;
 export type EventDefinition = z.infer<typeof eventSchema>;
 export type EventChoice = z.infer<typeof eventChoiceSchema>;
 export type ContentBundle = z.infer<typeof contentBundleSchema>;

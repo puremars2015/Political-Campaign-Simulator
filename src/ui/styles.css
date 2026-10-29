@@ -131,7 +131,14 @@ a { color: var(--accent); }
 details > summary { cursor: pointer; }
 .policy + .policy { border-top: 1px solid var(--border); padding-top: 0.75rem; margin-top: 0.75rem; }
 
-.segment { font-size: 1.05rem; line-height: 1.75; }
 .check { display: flex; align-items: center; gap: 0.5rem; min-height: 2.75rem; }
 .check input { width: 1.25rem; height: 1.25rem; }
 fieldset.card { display: flex; flex-direction: column; }
+
+.strategy { display: flex; flex-direction: column; gap: 0.6rem; }
+.strategy p { margin: 0; }
+.assessment { border-left: 3px solid var(--accent); padding-left: 0.75rem; }
+.assessment ul { margin: 0.25rem 0; padding-left: 1.25rem; }
+.strategy-actions { display: flex; flex-direction: column; gap: 0.4rem; }
+.angle { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.9rem; color: var(--muted); }
+.angle select { font: inherit; min-height: 2.75rem; padding: 0.25rem 0.5rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 0.5rem; }

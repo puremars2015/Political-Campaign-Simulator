@@ -61,45 +61,45 @@ describe('createNewGame', () => {
 describe('setPolicyExposure', () => {
   it('主打政見會扣除成本並保留歷史，不保存政見內容', () => {
     const before = newGame();
-    const after = expectOk(setPolicyExposure(before, 'a-transit', 'featured', before.revision));
+    const after = expectOk(setPolicyExposure(before, content, 'a-transit', 'featured', before.revision));
     const entry = after.campaign.find((c) => c.policyId === 'a-transit');
     expect(entry?.status).toBe('featured');
     expect(entry?.history.map((h) => h.status)).toEqual(['pending', 'featured']);
     expect(after.actionPoints).toBe(before.actionPoints - 1);
     expect(after.decisions.at(-1)?.kind).toBe('policy-exposure');
     // GameState 只有政見 ID 與安排狀態，沒有可被改寫的政見欄位
-    expect(Object.keys(entry ?? {}).sort()).toEqual(['history', 'policyId', 'status']);
+    expect(Object.keys(entry ?? {}).sort()).toEqual(['angle', 'history', 'policyId', 'status']);
   });
 
   it('不能安排對手、待審閱或不存在的政見', () => {
     const state = newGame();
     for (const policyId of ['b-housing', 'a-parks', 'a-old', 'ghost']) {
-      expect(setPolicyExposure(state, policyId, 'featured', state.revision).ok).toBe(false);
+      expect(setPolicyExposure(state, content, policyId, 'featured', state.revision).ok).toBe(false);
     }
   });
 
   it('重複設定相同狀態會被拒絕', () => {
     let state = newGame();
-    state = expectOk(setPolicyExposure(state, 'a-transit', 'deferred', state.revision));
-    expect(setPolicyExposure(state, 'a-transit', 'deferred', state.revision).ok).toBe(false);
+    state = expectOk(setPolicyExposure(state, content, 'a-transit', 'deferred', state.revision));
+    expect(setPolicyExposure(state, content, 'a-transit', 'deferred', state.revision).ok).toBe(false);
   });
 
   it('同時主打數量受上限限制', () => {
     const base = newGame();
     // 加入第三項可安排政見，以測試超過上限的情況
-    const extra = { policyId: 'a-extra', status: 'pending' as const, history: [] };
+    const extra = { policyId: 'a-parks', status: 'pending' as const, angle: null, history: [] };
     let state: GameState = { ...base, actionPoints: 10, campaign: [...base.campaign, extra] };
-    state = expectOk(setPolicyExposure(state, 'a-transit', 'featured', state.revision));
-    state = expectOk(setPolicyExposure(state, 'a-housing', 'featured', state.revision));
+    state = expectOk(setPolicyExposure(state, content, 'a-transit', 'featured', state.revision));
+    state = expectOk(setPolicyExposure(state, content, 'a-housing', 'featured', state.revision));
     expect(BALANCE.maxFeaturedPolicies).toBe(2);
-    const result = setPolicyExposure(state, 'a-extra', 'featured', state.revision);
+    const result = setPolicyExposure(state, content, 'a-parks', 'featured', state.revision);
     expect(result.ok).toBe(false);
   });
 
   it('不改變內容庫中的政見', () => {
     const snapshot = structuredClone(content.policies);
     const state = newGame();
-    expectOk(setPolicyExposure(state, 'a-transit', 'featured', state.revision));
+    expectOk(setPolicyExposure(state, content, 'a-transit', 'featured', state.revision));
     expect(content.policies).toEqual(snapshot);
   });
 });
@@ -176,7 +176,7 @@ describe('確定性', () => {
       state = expectOk(submitAction(state, 'policy-research', state.revision));
       state = expectOk(submitAction(state, 'field-event', state.revision));
       state = expectOk(endRound(state, state.revision));
-      state = expectOk(setPolicyExposure(state, 'a-housing', 'featured', state.revision));
+      state = expectOk(setPolicyExposure(state, content, 'a-housing', 'featured', state.revision));
       return state;
     };
     expect(play()).toEqual(play());
@@ -189,5 +189,49 @@ describe('確定性', () => {
     const a = expectOk(endRound(state, state.revision));
     const b = expectOk(endRound(restored, restored.revision));
     expect(b).toEqual(a);
+  });
+});
+
+describe('政見策略', () => {
+  it('主打依優勢增加公共信任，未處理的風險在兩回合後被追問', () => {
+    const before = newGame();
+    const after = expectOk(setPolicyExposure(before, content, 'a-transit', 'featured', before.revision));
+    // a-transit：優勢為「可正面對比」「有官方出處」；風險為「內容籠統」
+    expect(after.resources.publicTrust).toBe(before.resources.publicTrust + 2);
+    expect(after.pendingEffects).toHaveLength(1);
+    expect(after.pendingEffects[0]?.dueRound).toBe(before.round + 2);
+    expect(after.pendingEffects[0]?.effects).toEqual([
+      { kind: 'resource', key: 'publicTrust', delta: -2 },
+      { kind: 'resource', key: 'policyConsistency', delta: -1 },
+    ]);
+  });
+
+  it('包裝角度化解風險時不會留下被追問的代價', () => {
+    const before = newGame();
+    const after = expectOk(setPolicyExposure(before, content, 'a-transit', 'reframed', before.revision, 'vision'));
+    expect(after.resources.publicTrust).toBe(before.resources.publicTrust + 1);
+    expect(after.pendingEffects).toHaveLength(0);
+    expect(after.campaign.find((c) => c.policyId === 'a-transit')?.angle).toBe('vision');
+  });
+
+  it('包裝角度沒化解的風險仍會被追問，但代價較輕', () => {
+    const before = newGame();
+    const after = expectOk(setPolicyExposure(before, content, 'a-transit', 'reframed', before.revision, 'contrast'));
+    expect(after.pendingEffects[0]?.effects).toEqual([{ kind: 'resource', key: 'publicTrust', delta: -1 }]);
+  });
+
+  it('資料不支援的角度與缺少角度的包裝都會被拒絕', () => {
+    const state = newGame();
+    // 「延續既有施政」只適用於市府計畫
+    expect(setPolicyExposure(state, content, 'a-transit', 'reframed', state.revision, 'continuity').ok).toBe(false);
+    expect(setPolicyExposure(state, content, 'a-transit', 'reframed', state.revision).ok).toBe(false);
+    expect(setPolicyExposure(state, content, 'a-transit', 'featured', state.revision, 'vision').ok).toBe(false);
+  });
+
+  it('對手也有同議題政見時，吞下去等於讓出話題', () => {
+    const before = newGame();
+    const after = expectOk(setPolicyExposure(before, content, 'a-housing', 'low-profile', before.revision));
+    expect(after.actionPoints).toBe(before.actionPoints);
+    expect(after.pendingEffects[0]?.effects).toEqual([{ kind: 'resource', key: 'publicTrust', delta: -1 }]);
   });
 });

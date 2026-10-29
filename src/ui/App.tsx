@@ -9,7 +9,6 @@ import {
 } from '../engine/engine.ts';
 import type { GameState } from '../engine/types.ts';
 import { createLocalSaveStore, type LoadResult } from '../storage/saveStore.ts';
-import { BlindCompareScreen } from './BlindCompareScreen.tsx';
 import { BriefingScreen } from './BriefingScreen.tsx';
 import { CandidateSelectScreen } from './CandidateSelectScreen.tsx';
 import { ConfirmScreen } from './ConfirmScreen.tsx';
@@ -27,8 +26,7 @@ type SetupStep =
   | { kind: 'intro' }
   | { kind: 'districts' }
   | { kind: 'candidates'; districtId: string }
-  | { kind: 'confirm'; districtId: string; candidacyId: string }
-  | { kind: 'blind'; districtId: string };
+  | { kind: 'confirm'; districtId: string; candidacyId: string };
 
 export function App() {
   const content = useMemo(() => loadContent(), []);
@@ -69,7 +67,9 @@ export function App() {
         game={game}
         notice={notice}
         onAction={(actionId, revision) => apply((s) => submitAction(s, actionId, revision))}
-        onExposure={(policyId, status, revision) => apply((s) => setPolicyExposure(s, policyId, status, revision))}
+        onExposure={(policyId, status, angle, revision) =>
+          apply((s) => setPolicyExposure(s, content, policyId, status, revision, angle))
+        }
         onEndRound={(revision) => apply((s) => endRound(s, revision))}
         onRestart={returnToSetup}
       />
@@ -77,7 +77,7 @@ export function App() {
   }
 
   const district =
-    step.kind === 'candidates' || step.kind === 'confirm' || step.kind === 'blind'
+    step.kind === 'candidates' || step.kind === 'confirm'
       ? content.districts.find((d) => d.id === step.districtId)
       : undefined;
 
@@ -91,26 +91,12 @@ export function App() {
     );
   }
 
-  const comparison = district ? content.comparisons.find((c) => c.districtId === district.id) : undefined;
-
-  if (step.kind === 'blind' && district && comparison) {
-    return (
-      <BlindCompareScreen
-        content={content}
-        district={district}
-        comparison={comparison}
-        onBack={() => setStep({ kind: 'candidates', districtId: district.id })}
-      />
-    );
-  }
-
   if (step.kind === 'candidates' && district) {
     return (
       <CandidateSelectScreen
         content={content}
         district={district}
         onSelect={(candidacyId) => setStep({ kind: 'confirm', districtId: district.id, candidacyId })}
-        onBlindCompare={comparison ? () => setStep({ kind: 'blind', districtId: district.id }) : undefined}
         // 返回更換縣市時清除尚未確認的候選人選擇
         onBack={() => setStep({ kind: 'districts' })}
       />

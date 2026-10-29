@@ -1,6 +1,8 @@
 import { activeCandidacies, assessDistrict, policiesFor } from '../content/query.ts';
 import type { Candidacy, ContentBundle, District } from '../content/schema.ts';
+import { assessPolicy } from '../content/assess.ts';
 import { CitationList, PolicyCard } from './PolicyCard.tsx';
+import { StrategyCard } from './StrategyCard.tsx';
 import { CANDIDACY_STATUS_LABELS } from './labels.ts';
 
 interface Props {
@@ -76,9 +78,26 @@ export function ConfirmScreen({ content, district, candidacy, notice, onConfirm,
         </section>
       )}
 
-      <section className="card" aria-labelledby="ours-title">
-        <h2 id="ours-title">本次政見</h2>
-        <CandidacyPolicies content={content} candidacy={candidacy} />
+      <section aria-labelledby="ours-title">
+        <h2 id="ours-title">本次政見與幕僚評估</h2>
+        <p className="cost">開局後在「政見策略室」決定每項政見的處理方式。評估為遊戲模型推論。</p>
+        {policiesFor(content, candidacy.id).filter((p) => p.timeframe === 'current').length === 0 ? (
+          <p className="card">尚未取得可核對的公開主張。</p>
+        ) : (
+          <ul className="actions">
+            {policiesFor(content, candidacy.id)
+              .filter((p) => p.timeframe === 'current')
+              .map((policy) => (
+                <li key={policy.id}>
+                  <StrategyCard
+                    content={content}
+                    policy={policy}
+                    assessment={assessPolicy(content, policy, opponents.map((o) => o.id))}
+                  />
+                </li>
+              ))}
+          </ul>
+        )}
       </section>
 
       {opponents.map((opponent) => {

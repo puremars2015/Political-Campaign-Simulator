@@ -6,12 +6,10 @@ interface Props {
   content: ContentBundle;
   district: District;
   onSelect: (candidacyId: string) => void;
-  /** 有政見比較設定時才提供 */
-  onBlindCompare?: () => void;
   onBack: () => void;
 }
 
-export function CandidateSelectScreen({ content, district, onSelect, onBlindCompare, onBack }: Props) {
+export function CandidateSelectScreen({ content, district, onSelect, onBack }: Props) {
   const candidacies = activeCandidacies(content, district.id);
   const playability = assessDistrict(content, district);
   const playable = district.status === 'playable' && playability.playable;
@@ -26,16 +24,6 @@ export function CandidateSelectScreen({ content, district, onSelect, onBlindComp
           {district.dataAsOf && `・資料截至 ${district.dataAsOf}`}
         </p>
       </header>
-
-      {onBlindCompare && (
-        <section className="card" aria-labelledby="blind-title">
-          <h2 id="blind-title">政見盲測</h2>
-          <p>遮住名字與黨派，每輪只比一個議題的政見，選完再揭曉是誰提出的。</p>
-          <button type="button" className="primary" onClick={onBlindCompare}>
-            開始政見盲測
-          </button>
-        </section>
-      )}
 
       {!playable && (
         <section className="notice" aria-labelledby="progress-title">

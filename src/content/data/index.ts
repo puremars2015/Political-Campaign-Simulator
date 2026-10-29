@@ -1,5 +1,4 @@
 import candidacies from './candidacies.json';
-import comparisons from './comparisons.json';
 import districts from './districts.json';
 import elections from './elections.json';
 import events from './events.json';
@@ -21,5 +20,4 @@ export const rawContent = {
   sources,
   events,
   topics,
-  comparisons,
 };

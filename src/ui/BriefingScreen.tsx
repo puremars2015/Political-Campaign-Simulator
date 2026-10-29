@@ -1,22 +1,22 @@
 import type { ContentBundle } from '../content/schema.ts';
+import { assessPolicy, type FramingAngle } from '../content/assess.ts';
 import { ACTIONS, EXPOSURE_COSTS } from '../engine/config.ts';
 import type { ExposureStatus, GameState, ResourceKey } from '../engine/types.ts';
 import { PolicyCard } from './PolicyCard.tsx';
-import { EXPOSURE_LABELS, RESOURCE_LABELS, STAGE_LABELS, formatDelta } from './labels.ts';
+import { StrategyCard } from './StrategyCard.tsx';
+import { RESOURCE_LABELS, STAGE_LABELS, formatDelta } from './labels.ts';
 
-type ExposureChoice = Exclude<ExposureStatus, 'pending'>;
+type ExposureChoice = Exclude<ExposureStatus, 'pending' | 'internal'>;
 
 interface Props {
   content: ContentBundle;
   game: GameState;
   notice: string | null;
   onAction: (actionId: string, revision: number) => void;
-  onExposure: (policyId: string, status: ExposureChoice, revision: number) => void;
+  onExposure: (policyId: string, status: ExposureChoice, angle: FramingAngle | null, revision: number) => void;
   onEndRound: (revision: number) => void;
   onRestart: () => void;
 }
-
-const EXPOSURE_CHOICES: ExposureChoice[] = ['featured', 'deferred', 'low-profile'];
 
 function unaffordableReason(game: GameState, cost: { actionPoints: number; funds: number }): string | null {
   if (game.actionPoints < cost.actionPoints) return '行動點不足';
@@ -118,10 +118,10 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
       </section>
 
       <section aria-labelledby="folder-title">
-        <h2 id="folder-title">政見資料夾</h2>
+        <h2 id="folder-title">政見策略室</h2>
         <p className="cost">
-          只能調整我方已查證政見的宣傳安排；政見內容、對象、金額與期限不會因此改變。
-          主打需 {EXPOSURE_COSTS.featured.actionPoints} 行動點、{EXPOSURE_COSTS.featured.funds} 萬元。
+          評估每項政見該大張旗鼓、圓滑包裝、吞下去還是先擱著。包裝只改變強調重點，引用的仍是來源原文；
+          政見內容、對象、金額與期限不會因此改變。
         </p>
         {game.campaign.length === 0 ? (
           <p className="card">目前沒有可安排的已審閱政見。</p>
@@ -131,23 +131,15 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
               const policy = content.policies.find((p) => p.id === entry.policyId);
               if (!policy) return null;
               return (
-                <li key={entry.policyId} className="card">
-                  <p>
-                    目前安排：<strong>{EXPOSURE_LABELS[entry.status]}</strong>
-                  </p>
-                  <PolicyCard content={content} policy={policy} />
-                  <div className="button-row">
-                    {EXPOSURE_CHOICES.filter((s) => s !== entry.status).map((status) => (
-                      <button
-                        key={status}
-                        type="button"
-                        disabled={unaffordableReason(game, EXPOSURE_COSTS[status]) !== null}
-                        onClick={() => onExposure(entry.policyId, status, game.revision)}
-                      >
-                        設為{EXPOSURE_LABELS[status]}：{policy.issue}
-                      </button>
-                    ))}
-                  </div>
+                <li key={entry.policyId}>
+                  <StrategyCard
+                    content={content}
+                    policy={policy}
+                    assessment={assessPolicy(content, policy, game.opponentCandidacyIds)}
+                    entry={entry}
+                    canAfford={(status) => unaffordableReason(game, EXPOSURE_COSTS[status]) === null}
+                    onChoose={(status, angle) => onExposure(entry.policyId, status, angle, game.revision)}
+                  />
                 </li>
               );
             })}

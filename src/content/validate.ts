@@ -141,20 +141,6 @@ export function validateContent(raw: unknown): ValidationResult {
     }
   });
 
-  bundle.comparisons.forEach((comparison, i) => {
-    const path = `comparisons.${i}`;
-    if (!ids.districts.has(comparison.districtId)) add(`${path}.districtId`, `找不到縣市：${comparison.districtId}`);
-    for (const candidacyId of [...comparison.candidacyIds, ...Object.keys(comparison.maskTerms)]) {
-      const candidacy = bundle.candidacies.find((c) => c.id === candidacyId);
-      if (!candidacy) add(`${path}`, `找不到參選紀錄：${candidacyId}`);
-      else if (candidacy.districtId !== comparison.districtId) add(`${path}`, `參選紀錄 ${candidacyId} 不屬於 ${comparison.districtId}`);
-    }
-    for (const dupe of findDuplicates(comparison.candidacyIds)) add(`${path}.candidacyIds`, `參選紀錄重複：${dupe}`);
-  });
-  for (const dupe of findDuplicates(bundle.comparisons.map((c) => c.districtId))) {
-    add('comparisons', `同一縣市只能有一組比較設定：${dupe}`);
-  }
-
   // 引用錯誤時門檻檢查沒有意義，避免重複回報
   if (issues.length === 0) {
     bundle.districts.forEach((district, i) => {

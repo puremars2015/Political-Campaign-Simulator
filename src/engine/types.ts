@@ -1,8 +1,9 @@
 import type { RoundSpan } from './calendar.ts';
 import type { RngState } from './rng.ts';
+import type { FramingAngle } from '../content/assess.ts';
 
 /** 存檔結構版本；變更 GameState 形狀時必須遞增並撰寫遷移。 */
-export const GAME_STATE_SCHEMA_VERSION = 1;
+export const GAME_STATE_SCHEMA_VERSION = 2;
 
 export type ResourceKey = 'funds' | 'morale' | 'candidateTrust' | 'publicTrust' | 'policyConsistency';
 
@@ -30,12 +31,14 @@ export interface ActionDefinition {
  * 這是模擬中的競選決策，不代表真人實際公布、撤回或改變政策；
  * 政見內容本身只存在唯讀的內容庫，GameState 只保存政見 ID。
  */
-export type ExposureStatus = 'pending' | 'internal' | 'featured' | 'deferred' | 'low-profile';
+export type ExposureStatus = 'pending' | 'internal' | 'featured' | 'reframed' | 'deferred' | 'low-profile';
 
 export interface CampaignPolicyState {
   policyId: string;
   status: ExposureStatus;
-  history: { round: number; status: ExposureStatus; decisionId: string | null }[];
+  /** 圓滑包裝時選用的說法角度；其他狀態為 null */
+  angle: FramingAngle | null;
+  history: { round: number; status: ExposureStatus; angle: FramingAngle | null; decisionId: string | null }[];
 }
 
 export interface PendingEffect {

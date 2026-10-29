@@ -67,6 +67,25 @@ export const ACTIONS: readonly ActionDefinition[] = [
 export const EXPOSURE_COSTS: Record<Exclude<ExposureStatus, 'pending'>, ActionCost> = {
   internal: { actionPoints: 0, funds: 0 },
   featured: { actionPoints: 1, funds: 10 },
+  reframed: { actionPoints: 1, funds: 0 },
   deferred: { actionPoints: 0, funds: 0 },
   'low-profile': { actionPoints: 0, funds: 0 },
 };
+
+/**
+ * 政見策略的效果（暫定值）。主打放大優勢但未處理的風險會在之後被追問；
+ * 包裝可化解部分風險；低調處理在對手也有同議題政見時等於讓出話題。
+ */
+export const STRATEGY_EFFECTS = {
+  featuredTrustPerStrength: 1,
+  featuredTrustCap: 3,
+  reframedTrust: 1,
+  /** 風險被追問的延遲回合數 */
+  scrutinyDelay: 2,
+  /** 主打時每個未化解風險的懲罰 */
+  featuredRiskPenalty: { publicTrust: -2, policyConsistency: -1 },
+  /** 包裝後每個未化解風險的懲罰 */
+  reframedRiskPenalty: { publicTrust: -1, policyConsistency: 0 },
+  /** 低調處理但對手在同議題有政見時，讓出話題的代價 */
+  concedeIssuePenalty: { publicTrust: -1 },
+} as const;
