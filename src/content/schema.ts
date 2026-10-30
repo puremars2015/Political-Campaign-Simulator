@@ -222,6 +222,7 @@ export const eventChoiceSchema = z.object({
 
 export const eventSchema = z.object({
   id,
+  districtIds: z.array(id).optional(),
   title: z.string().min(1),
   /** 情境敘述；可使用 {topic}（議題名稱）與 {opponent}（對手姓名）佔位字 */
   body: z.string().min(1),
@@ -251,8 +252,20 @@ export const eventSchema = z.object({
 
 export const topicSchema = z.object({ id, name: z.string().min(1) });
 
+export const newsSnapshotSchema = z.object({
+  version: z.string().min(1), sourceUrl: z.literal('https://feeds.feedburner.com/rsscna/politics'), refreshMinutes: z.literal(60),
+  lastAttemptAt: z.iso.datetime().nullable(), lastSuccessAt: z.iso.datetime().nullable(),
+  status: z.enum(['ok', 'empty', 'stale']),
+  items: z.array(z.object({ id, title: z.string().min(1).max(180),
+    url: z.url().refine((url) => { const u = new URL(url); return u.protocol === 'https:' && u.hostname === 'www.cna.com.tw' && u.pathname.startsWith('/news/'); }),
+    publisher: z.literal('中央社'), publishedAt: z.iso.datetime(), districtIds: z.array(id), personNames: z.array(z.string()) })).max(60),
+});
+export type NewsSnapshot = z.infer<typeof newsSnapshotSchema>;
+
 export const contentBundleSchema = z.object({
   contentVersion: z.string().min(1),
+  news: newsSnapshotSchema.nullable().default(null),
+  releaseScope: z.object({ districtIds: z.array(id), candidacyIds: z.array(id) }).nullable().default(null),
   elections: z.array(electionSchema),
   districts: z.array(districtSchema).min(1),
   people: z.array(personSchema),

@@ -6,7 +6,7 @@
     "office": "臺北市長",
     "electionId": "2026-local",
     "status": "preview",
-    "dataAsOf": "2026-10-28",
+    "dataAsOf": "2026-10-30",
     "simulation": {
       "undecided": 0.3
     },
@@ -21,7 +21,15 @@
     "kind": "municipality",
     "office": "新北市長",
     "electionId": "2026-local",
-    "status": "not-started"
+    "status": "preview",
+    "dataAsOf": "2026-10-30",
+    "simulation": {
+      "undecided": 0.3
+    },
+    "focusCandidacyIds": [
+      "2026-new-taipei-li-ssu-chuan",
+      "2026-new-taipei-su-chiao-hui"
+    ]
   },
   {
     "id": "taoyuan",
@@ -29,7 +37,15 @@
     "kind": "municipality",
     "office": "桃園市長",
     "electionId": "2026-local",
-    "status": "not-started"
+    "status": "preview",
+    "dataAsOf": "2026-10-30",
+    "simulation": {
+      "undecided": 0.3
+    },
+    "focusCandidacyIds": [
+      "2026-taoyuan-chang-san-cheng",
+      "2026-taoyuan-huang-shih-chieh"
+    ]
   },
   {
     "id": "taichung",
@@ -37,7 +53,15 @@
     "kind": "municipality",
     "office": "臺中市長",
     "electionId": "2026-local",
-    "status": "not-started"
+    "status": "preview",
+    "dataAsOf": "2026-10-30",
+    "simulation": {
+      "undecided": 0.3
+    },
+    "focusCandidacyIds": [
+      "2026-taichung-chiang-chi-chen",
+      "2026-taichung-ho-hsin-chun"
+    ]
   },
   {
     "id": "tainan",
@@ -45,7 +69,15 @@
     "kind": "municipality",
     "office": "臺南市長",
     "electionId": "2026-local",
-    "status": "not-started"
+    "status": "preview",
+    "dataAsOf": "2026-10-30",
+    "simulation": {
+      "undecided": 0.3
+    },
+    "focusCandidacyIds": [
+      "2026-tainan-hsieh-lung-chieh",
+      "2026-tainan-chen-ting-fei"
+    ]
   },
   {
     "id": "kaohsiung",
@@ -53,7 +85,15 @@
     "kind": "municipality",
     "office": "高雄市長",
     "electionId": "2026-local",
-    "status": "not-started"
+    "status": "preview",
+    "dataAsOf": "2026-10-30",
+    "simulation": {
+      "undecided": 0.3
+    },
+    "focusCandidacyIds": [
+      "2026-kaohsiung-ko-chih-en",
+      "2026-kaohsiung-lai-jui-lung"
+    ]
   },
   {
     "id": "keelung",

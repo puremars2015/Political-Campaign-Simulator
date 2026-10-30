@@ -174,5 +174,235 @@
         }
       }
     ]
+  },
+  {
+    "id": "2026-new-taipei-li-ssu-chuan",
+    "personId": "li-ssu-chuan",
+    "electionId": "2026-local",
+    "districtId": "new-taipei",
+    "office": "新北市長",
+    "party": "中國國民黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "李四川",
+        "locator": {
+          "kind": "quote",
+          "value": "新北市，中國國民黨，李四川：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-new-taipei-su-chiao-hui",
+    "personId": "su-chiao-hui",
+    "electionId": "2026-local",
+    "districtId": "new-taipei",
+    "office": "新北市長",
+    "party": "民主進步黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "蘇巧慧",
+        "locator": {
+          "kind": "quote",
+          "value": "新北市，民主進步黨，蘇巧慧：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-taoyuan-chang-san-cheng",
+    "personId": "chang-san-cheng",
+    "electionId": "2026-local",
+    "districtId": "taoyuan",
+    "office": "桃園市長",
+    "party": "中國國民黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "張善政",
+        "locator": {
+          "kind": "quote",
+          "value": "桃園市，中國國民黨，張善政：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-taoyuan-huang-shih-chieh",
+    "personId": "huang-shih-chieh",
+    "electionId": "2026-local",
+    "districtId": "taoyuan",
+    "office": "桃園市長",
+    "party": "民主進步黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "黃世杰",
+        "locator": {
+          "kind": "quote",
+          "value": "桃園市，民主進步黨，黃世杰：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-taichung-chiang-chi-chen",
+    "personId": "chiang-chi-chen",
+    "electionId": "2026-local",
+    "districtId": "taichung",
+    "office": "臺中市長",
+    "party": "中國國民黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "江啟臣",
+        "locator": {
+          "kind": "quote",
+          "value": "臺中市，中國國民黨，江啟臣：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-taichung-ho-hsin-chun",
+    "personId": "ho-hsin-chun",
+    "electionId": "2026-local",
+    "districtId": "taichung",
+    "office": "臺中市長",
+    "party": "民主進步黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "何欣純",
+        "locator": {
+          "kind": "quote",
+          "value": "臺中市，民主進步黨，何欣純：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-tainan-hsieh-lung-chieh",
+    "personId": "hsieh-lung-chieh",
+    "electionId": "2026-local",
+    "districtId": "tainan",
+    "office": "臺南市長",
+    "party": "中國國民黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "謝龍介",
+        "locator": {
+          "kind": "quote",
+          "value": "臺南市，中國國民黨，謝龍介：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-tainan-chen-ting-fei",
+    "personId": "chen-ting-fei",
+    "electionId": "2026-local",
+    "districtId": "tainan",
+    "office": "臺南市長",
+    "party": "民主進步黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "陳亭妃",
+        "locator": {
+          "kind": "quote",
+          "value": "臺南市，民主進步黨，陳亭妃：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-kaohsiung-ko-chih-en",
+    "personId": "ko-chih-en",
+    "electionId": "2026-local",
+    "districtId": "kaohsiung",
+    "office": "高雄市長",
+    "party": "中國國民黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "柯志恩",
+        "locator": {
+          "kind": "quote",
+          "value": "高雄市，中國國民黨，柯志恩：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
+  },
+  {
+    "id": "2026-kaohsiung-lai-jui-lung",
+    "personId": "lai-jui-lung",
+    "electionId": "2026-local",
+    "districtId": "kaohsiung",
+    "office": "高雄市長",
+    "party": "民主進步黨",
+    "status": "registered",
+    "statusCitations": [
+      {
+        "sourceId": "cna-20261027-ballot-numbers",
+        "quote": "賴瑞隆",
+        "locator": {
+          "kind": "quote",
+          "value": "高雄市，民主進步黨，賴瑞隆：抽籤號次名單"
+        }
+      }
+    ],
+    "simulation": {
+      "baselineSupport": 0.35,
+      "startingFunds": 800
+    }
   }
 ]

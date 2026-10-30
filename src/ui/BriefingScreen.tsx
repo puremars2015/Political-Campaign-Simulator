@@ -1,7 +1,10 @@
+import { PollPanel } from './PollPanel.tsx';
+import { NewsPanel } from './NewsPanel.tsx';
 import type { ContentBundle } from '../content/schema.ts';
 import { assessPolicy, type FramingAngle } from '../content/assess.ts';
 import { ACTIONS, EXPOSURE_COSTS } from '../engine/config.ts';
 import type { ExposureStatus, GameState, ResourceKey } from '../engine/types.ts';
+import { ResultsScreen } from './ResultsScreen.tsx';
 import { PolicyCard } from './PolicyCard.tsx';
 import { EventCard } from './EventCard.tsx';
 import { StrategyCard } from './StrategyCard.tsx';
@@ -18,6 +21,7 @@ interface Props {
   onEventChoice: (choiceId: string, revision: number) => void;
   onEndRound: (revision: number) => void;
   onRestart: () => void;
+  onReplay: () => void;
 }
 
 function unaffordableReason(game: GameState, cost: { actionPoints: number; funds: number }): string | null {
@@ -32,21 +36,13 @@ function candidacyName(content: ContentBundle, candidacyId: string): string {
   return person?.name ?? candidacyId;
 }
 
-export function BriefingScreen({ content, game, notice, onAction, onExposure, onEventChoice, onEndRound, onRestart }: Props) {
+export function BriefingScreen({ content, game, notice, onAction, onExposure, onEventChoice, onEndRound, onRestart, onReplay }: Props) {
   const span = game.calendar[game.round - 1];
   const recent = game.decisions.slice(-5).reverse();
   const district = content.districts.find((d) => d.id === game.districtId);
 
   if (game.phase !== 'campaign') {
-    return (
-      <main className="screen">
-        <h1>投票日</h1>
-        <p className="card">十二個回合結束了。投票模型、開票與結局回顧將在 M2 實作。</p>
-        <button type="button" className="primary" onClick={onRestart}>
-          重新選擇縣市與候選人
-        </button>
-      </main>
-    );
+    return <ResultsScreen content={content} game={game} notice={notice} onRestart={onRestart} onReplay={onReplay} />;
   }
 
   return (
@@ -61,7 +57,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         {span && (
           <p className="dates">
             {span.startDate === span.endDate ? span.startDate : `${span.startDate} 至 ${span.endDate}`}
-            ・資料截至 {game.dataAsOf}
+            ・本局日期基準 {game.calendar[0]?.startDate}（臺灣）・資料截至 {game.dataAsOf}
             {game.dataMode === 'preview' && '・預覽資料（名單未公告、來源待審閱）'}
           </p>
         )}
@@ -73,12 +69,15 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         </p>
       )}
 
+      <PollPanel content={content} game={game} />
+      <NewsPanel content={content} districtId={game.districtId} />
       <EventCard content={content} game={game} onChoose={onEventChoice} />
 
+      <p className="cost">最多12份簡報，目標15分鐘內；每日一個主要事件，日期區間中的平靜日已壓縮。結尾停在選前之夜，民調觀測到選前第十天為止，不提供開票預測。</p>
       <section className="card" aria-labelledby="resources-title">
         <h2 id="resources-title">辦公室狀態（模擬）</h2>
         <dl className="resources">
-          {(Object.keys(RESOURCE_LABELS) as ResourceKey[]).map((key) => (
+          {(Object.keys(RESOURCE_LABELS) as ResourceKey[]).filter((key) => key !== 'publicTrust').map((key) => (
             <div key={key}>
               <dt>{RESOURCE_LABELS[key]}</dt>
               <dd>{game.resources[key]}</dd>
@@ -91,6 +90,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         </dl>
       </section>
 
+      <details className="card" open={!content.releaseScope}><summary>選用：安排行動</summary>
       <section aria-labelledby="actions-title">
         <h2 id="actions-title">安排行動</h2>
         <ul className="actions">
@@ -122,6 +122,8 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         </ul>
       </section>
 
+      </details>
+      <details className="card" open={!content.releaseScope}><summary>選用：政見策略室與對手資料</summary>
       <section aria-labelledby="folder-title">
         <h2 id="folder-title">政見策略室</h2>
         <p className="cost">
@@ -166,6 +168,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         })}
       </section>
 
+      </details>
       <button
         type="button"
         className="primary"
@@ -191,7 +194,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
               <li key={d.id}>
                 第 {d.round} 回合・{d.summary}
                 {Object.entries(d.resourceDelta)
-                  .filter(([, v]) => v !== 0)
+                  .filter(([k, v]) => k !== 'publicTrust' && v !== 0)
                   .map(([k, v]) => `｜${RESOURCE_LABELS[k as ResourceKey]} ${formatDelta(v)}`)
                   .join('')}
               </li>

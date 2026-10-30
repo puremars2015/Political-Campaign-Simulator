@@ -1,0 +1,51 @@
+{
+  "version": "0411ae9beda36bf5",
+  "sourceUrl": "https://feeds.feedburner.com/rsscna/politics",
+  "refreshMinutes": 60,
+  "lastAttemptAt": "2026-10-30T03:26:44.918965Z",
+  "lastSuccessAt": "2026-10-30T03:26:44.918965Z",
+  "status": "ok",
+  "items": [
+    {
+      "id": "5921ddb48edd1b70",
+      "title": "李四川合體黃國昌直播　稱年紀非問題盼改變選舉文化",
+      "url": "https://www.cna.com.tw/news/aipl/202610290391.aspx",
+      "publisher": "中央社",
+      "publishedAt": "2026-10-29T15:57:57Z",
+      "districtIds": [
+        "new-taipei"
+      ],
+      "personNames": [
+        "李四川"
+      ]
+    },
+    {
+      "id": "338441b11884dcde",
+      "title": "同框沈伯洋汐止參香　蘇巧慧喊打造雙北智慧醫療生技廊帶",
+      "url": "https://www.cna.com.tw/news/aipl/202610290374.aspx",
+      "publisher": "中央社",
+      "publishedAt": "2026-10-29T13:59:16Z",
+      "districtIds": [
+        "taipei",
+        "new-taipei"
+      ],
+      "personNames": [
+        "沈伯洋",
+        "蘇巧慧"
+      ]
+    },
+    {
+      "id": "57835a415e2e30bb",
+      "title": "李四川選前之夜在板橋第一運動場　籲支持者拉票投票",
+      "url": "https://www.cna.com.tw/news/aipl/202610290239.aspx",
+      "publisher": "中央社",
+      "publishedAt": "2026-10-29T08:36:20Z",
+      "districtIds": [
+        "new-taipei"
+      ],
+      "personNames": [
+        "李四川"
+      ]
+    }
+  ]
+}

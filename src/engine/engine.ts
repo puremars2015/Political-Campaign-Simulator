@@ -1,4 +1,4 @@
-import { buildCalendar } from './calendar.ts';
+import { buildCurrentCalendar } from './calendar.ts';
 import { ACTIONS, BALANCE } from './config.ts';
 import { applyEffects, checkAffordable, checkRevision, commitDecision, type EngineResult } from './core.ts';
 import { drawEvent } from './events.ts';
@@ -15,6 +15,8 @@ export interface NewGameOptions {
   seed: string;
   districtId: string;
   candidacyId: string;
+  /** 只有明確選擇歷史重玩才傳入；正常新局採台灣當日日期。 */
+  startDate?: string;
 }
 
 /** 建立新局。只接受已達可玩或預覽門檻的縣市與其範圍內的參選紀錄，不隨機分配候選人。 */
@@ -43,7 +45,7 @@ export function createNewGame(content: ContentBundle, options: NewGameOptions): 
     revision: 0,
     phase: 'campaign',
     round: 1,
-    calendar: buildCalendar(election.electionDate),
+    calendar: buildCurrentCalendar(election.electionDate, options.startDate),
     dataAsOf: district.dataAsOf,
     dataMode: mode,
     districtId: district.id,
@@ -93,15 +95,15 @@ export function submitAction(state: GameState, actionId: string, expectedRevisio
   };
 }
 
-/** 結束本回合：結算到期的延遲效果、推進日期、重置行動點並抽下一回合的事件；第12回合後進入投票階段。 */
+/** 結束本回合：結算到期的延遲效果、推進日期、重置行動點並抽下一回合的事件；最後一回合停在選前之夜，保留開票懸念。 */
 export function endRound(state: GameState, content: ContentBundle, expectedRevision: number): EngineResult {
   const revisionError = checkRevision(state, expectedRevision);
   if (revisionError) return { ok: false, reason: revisionError };
   if (state.phase !== 'campaign') return { ok: false, reason: '選戰已結束。' };
   if (state.activeEvent) return { ok: false, reason: '本回合還有待處理的事件，請先做出決定。' };
 
-  if (state.round >= BALANCE.totalRounds) {
-    return { ok: true, state: { ...state, revision: state.revision + 1, phase: 'election', actionPoints: 0 } };
+  if (state.round >= state.calendar.length) {
+    return { ok: true, state: { ...state, revision: state.revision + 1, phase: 'ended', actionPoints: 0 } };
   }
 
   const nextRound = state.round + 1;

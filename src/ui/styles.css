@@ -147,3 +147,9 @@ fieldset.card { display: flex; flex-direction: column; }
 .event p { margin: 0; }
 .choices { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
 .choices button { width: 100%; }
+
+.screen { overflow-wrap: anywhere; }
+table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+th, td { padding: 0.5rem 0.25rem; border-bottom: 1px solid var(--border); text-align: right; }
+th:first-child { text-align: left; }
+summary:focus-visible, a:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }

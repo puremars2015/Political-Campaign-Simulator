@@ -1,5 +1,7 @@
 import { expect, test } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => { await page.clock.setFixedTime(new Date('2026-10-30T03:00:00Z')); });
+
 // e2e 建置使用 tests/fixtures/content-data.ts 的測試專用資料
 
 async function startAsCandidateA(page: import('@playwright/test').Page) {

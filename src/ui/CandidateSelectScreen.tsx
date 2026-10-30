@@ -11,7 +11,7 @@ interface Props {
 }
 
 export function CandidateSelectScreen({ content, district, onSelect, onBack }: Props) {
-  const candidacies = activeCandidacies(content, district.id);
+  const candidacies = activeCandidacies(content, district.id).filter((c) => !content.releaseScope || content.releaseScope.candidacyIds.includes(c.id));
   const { mode, reasons } = startableMode(content, district);
   const playable = mode !== null;
   const inGame = new Set(gameCandidacies(content, district, mode ?? 'formal').map((c) => c.id));

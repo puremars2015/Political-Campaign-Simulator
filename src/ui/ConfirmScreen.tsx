@@ -1,3 +1,4 @@
+import { taipeiToday, addDays } from '../engine/calendar.ts';
 import { gameCandidacies, policiesFor, startableMode } from '../content/query.ts';
 import { PreviewNotice } from './PreviewNotice.tsx';
 import type { Candidacy, ContentBundle, District } from '../content/schema.ts';
@@ -12,6 +13,7 @@ interface Props {
   candidacy: Candidacy;
   notice: string | null;
   onConfirm: () => void;
+  onHistorical: (date: string) => void;
   onBack: () => void;
 }
 
@@ -37,11 +39,13 @@ function CandidacyPolicies({ content, candidacy }: { content: ContentBundle; can
   );
 }
 
-export function ConfirmScreen({ content, district, candidacy, notice, onConfirm, onBack }: Props) {
+export function ConfirmScreen({ content, district, candidacy, notice, onConfirm, onHistorical, onBack }: Props) {
   const person = content.people.find((p) => p.id === candidacy.personId);
   const { mode } = startableMode(content, district);
   const inGame = gameCandidacies(content, district, mode ?? 'formal');
   const opponents = inGame.filter((c) => c.id !== candidacy.id);
+  const electionDate = content.elections.find((e) => e.id === district.electionId)?.electionDate;
+  const ended = electionDate ? taipeiToday() >= electionDate : false;
   const playable = mode !== null && inGame.some((c) => c.id === candidacy.id);
 
   return (
@@ -59,7 +63,7 @@ export function ConfirmScreen({ content, district, candidacy, notice, onConfirm,
       <section className="card" aria-labelledby="nature-title">
         <h2 id="nature-title">資料性質</h2>
         <p>
-          候選人與政見為真實公開資料，每項都附出處。競選辦公室的內部對話、資源、民調變化與選舉結果為遊戲模擬，
+          候選人與政見為真實公開資料，每項都附出處。競選辦公室的內部對話與資源為遊戲模擬，民調為純遊戲觀測，只呈現到選前第十天；本版不產生開票結果，
           不代表真人的實際決策，也不是選舉預測。你在遊戲中的宣傳安排不會改變任何候選人的真實政見。
         </p>
         <p className="cost">資料截至 {district.dataAsOf ?? '未標示'}</p>
@@ -82,6 +86,7 @@ export function ConfirmScreen({ content, district, candidacy, notice, onConfirm,
         </section>
       )}
 
+      <details className="card" open={!content.releaseScope}><summary>查閱政見與對手資料（選用）</summary>
       <section aria-labelledby="ours-title">
         <h2 id="ours-title">本次政見與幕僚評估</h2>
         <p className="cost">開局後在「政見策略室」決定每項政見的處理方式。評估為遊戲模型推論。</p>
@@ -116,8 +121,10 @@ export function ConfirmScreen({ content, district, candidacy, notice, onConfirm,
         );
       })}
 
+      </details>
+      {ended && electionDate && <section className="notice"><p>本屆劇本已結束，不能以今天開局。可明確選擇歷史日期重玩，新聞仍是本次載入快照，並非當時史實重演。</p><button type="button" disabled={!playable} onClick={() => onHistorical(addDays(electionDate, -12))}>歷史重玩：{addDays(electionDate, -12)} 起</button></section>}
       <div className="button-row">
-        <button type="button" className="primary" disabled={!playable} onClick={onConfirm}>
+        <button type="button" className="primary" disabled={!playable || ended} onClick={onConfirm}>
           確認輔佐並開始
         </button>
         <button type="button" onClick={onBack}>

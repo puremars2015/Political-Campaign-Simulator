@@ -69,9 +69,10 @@ export function eligibleEvents(state: GameState, content: ContentBundle): EventD
   return content.events.filter(
     (event) =>
       !event.followUpOnly &&
+      (!event.districtIds || event.districtIds.includes(state.districtId)) &&
       event.window.fromRound <= state.round &&
       state.round <= event.window.toRound &&
-      !(event.once && fired.has(event.id)) &&
+      !((event.once || content.releaseScope !== null) && fired.has(event.id)) &&
       state.round - lastRound(event.id) > event.cooldownRounds &&
       !(event.exclusiveGroup && firedGroups.has(event.exclusiveGroup)) &&
       conditionsMet(state, event) &&

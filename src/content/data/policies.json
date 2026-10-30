@@ -1914,5 +1914,379 @@
     "topic": "public-health",
     "origin": "government-plan",
     "timeframe": "current"
+  },
+  {
+    "id": "v1-li-ssu-chuan-housing",
+    "candidacyId": "2026-new-taipei-li-ssu-chuan",
+    "electionId": "2026-local",
+    "districtId": "new-taipei",
+    "issue": "持續興辦社會住宅",
+    "summary": "持續興辦社會住宅",
+    "citations": [
+      {
+        "sourceId": "v1-1150824ntp-l",
+        "quote": "他也會延續侯友宜市長的政策，持續興辦社會住宅",
+        "locator": {
+          "kind": "quote",
+          "value": "他也會延續侯友宜市長的政策，持續興辦社會住宅"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "housing",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-su-chiao-hui-housing",
+    "candidacyId": "2026-new-taipei-su-chiao-hui",
+    "electionId": "2026-local",
+    "districtId": "new-taipei",
+    "issue": "當選後持續新建社會住宅",
+    "summary": "當選後持續新建社會住宅",
+    "citations": [
+      {
+        "sourceId": "v1-1150824ntp-s",
+        "quote": "若當選新北市長，會持續新建社會住宅",
+        "locator": {
+          "kind": "quote",
+          "value": "若當選新北市長，會持續新建社會住宅"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "housing",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-chang-san-cheng-housing",
+    "candidacyId": "2026-taoyuan-chang-san-cheng",
+    "electionId": "2026-local",
+    "districtId": "taoyuan",
+    "issue": "社會住宅持續推動並編列預算",
+    "summary": "社會住宅持續推動並編列預算",
+    "citations": [
+      {
+        "sourceId": "v1-1150827ty",
+        "quote": "桃園的社會住宅政策會穩定繼續往前推動，預算持續編列",
+        "locator": {
+          "kind": "quote",
+          "value": "桃園的社會住宅政策會穩定繼續往前推動，預算持續編列"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "housing",
+    "origin": "government-plan",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-huang-shih-chieh-housing",
+    "candidacyId": "2026-taoyuan-huang-shih-chieh",
+    "electionId": "2026-local",
+    "districtId": "taoyuan",
+    "issue": "延續既有社宅計畫",
+    "summary": "延續既有社宅計畫",
+    "citations": [
+      {
+        "sourceId": "v1-1150812ty",
+        "quote": "既有規劃與計畫會繼續推動，不會停止興辦",
+        "locator": {
+          "kind": "quote",
+          "value": "既有規劃與計畫會繼續推動，不會停止興辦"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "housing",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-chiang-chi-chen-education",
+    "candidacyId": "2026-taichung-chiang-chi-chen",
+    "electionId": "2026-local",
+    "districtId": "taichung",
+    "issue": "每年至少編列十億元改善校舍、廁所與校園安全設施",
+    "summary": "每年至少編列十億元改善校舍、廁所與校園安全設施",
+    "citations": [
+      {
+        "sourceId": "v1-202610260237",
+        "quote": "未來每年至少編列新台幣10億元，改善老舊校舍、廁所及校園安全設施",
+        "locator": {
+          "kind": "quote",
+          "value": "未來每年至少編列新台幣10億元，改善老舊校舍、廁所及校園安全設施"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": "改善老舊校舍、廁所及校園安全設施",
+        "citation": {
+          "sourceId": "v1-202610260237",
+          "quote": "未來每年至少編列新台幣10億元，改善老舊校舍、廁所及校園安全設施",
+          "locator": {
+            "kind": "quote",
+            "value": "未來每年至少編列新台幣10億元，改善老舊校舍、廁所及校園安全設施"
+          }
+        }
+      },
+      "scale": {
+        "stated": "每年至少新台幣10億元",
+        "citation": {
+          "sourceId": "v1-202610260237",
+          "quote": "未來每年至少編列新台幣10億元，改善老舊校舍、廁所及校園安全設施",
+          "locator": {
+            "kind": "quote",
+            "value": "未來每年至少編列新台幣10億元，改善老舊校舍、廁所及校園安全設施"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "education",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-ho-hsin-chun-youth",
+    "candidacyId": "2026-taichung-ho-hsin-chun",
+    "electionId": "2026-local",
+    "districtId": "taichung",
+    "issue": "成立青年局及山海屯城青創基地",
+    "summary": "成立青年局及山海屯城青創基地",
+    "citations": [
+      {
+        "sourceId": "v1-202610260237",
+        "quote": "未來將成立青年局、打造山海屯城青創基地",
+        "locator": {
+          "kind": "quote",
+          "value": "未來將成立青年局、打造山海屯城青創基地"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "youth",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-hsieh-lung-chieh-childcare",
+    "candidacyId": "2026-tainan-hsieh-lung-chieh",
+    "electionId": "2026-local",
+    "districtId": "tainan",
+    "issue": "育兒成長津貼加碼二千五百元",
+    "summary": "育兒成長津貼加碼二千五百元",
+    "citations": [
+      {
+        "sourceId": "v1-202610270247",
+        "quote": "育兒成長津貼加碼新台幣2500元",
+        "locator": {
+          "kind": "quote",
+          "value": "育兒成長津貼加碼新台幣2500元"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": "加碼新台幣2500元（引文未交代發放週期）",
+        "citation": {
+          "sourceId": "v1-202610270247",
+          "quote": "育兒成長津貼加碼新台幣2500元",
+          "locator": {
+            "kind": "quote",
+            "value": "育兒成長津貼加碼新台幣2500元"
+          }
+        }
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "childcare",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-chen-ting-fei-culture-tourism",
+    "candidacyId": "2026-tainan-chen-ting-fei",
+    "electionId": "2026-local",
+    "districtId": "tainan",
+    "issue": "提出五大觀光軸政見",
+    "summary": "提出五大觀光軸政見",
+    "citations": [
+      {
+        "sourceId": "v1-202609010168",
+        "quote": "陳亭妃發表「5大觀光軸」人工智慧（AI）動畫政見影片",
+        "locator": {
+          "kind": "quote",
+          "value": "陳亭妃發表「5大觀光軸」人工智慧（AI）動畫政見影片"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "culture-tourism",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-ko-chih-en-housing",
+    "candidacyId": "2026-kaohsiung-ko-chih-en",
+    "electionId": "2026-local",
+    "districtId": "kaohsiung",
+    "issue": "持續興建社會住宅",
+    "summary": "持續興建社會住宅",
+    "citations": [
+      {
+        "sourceId": "v1-1150930ks",
+        "quote": "會持續興建社會住宅，地方政府也應承擔興辦責任",
+        "locator": {
+          "kind": "quote",
+          "value": "會持續興建社會住宅，地方政府也應承擔興辦責任"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "housing",
+    "origin": "campaign",
+    "timeframe": "current"
+  },
+  {
+    "id": "v1-lai-jui-lung-housing",
+    "candidacyId": "2026-kaohsiung-lai-jui-lung",
+    "electionId": "2026-local",
+    "districtId": "kaohsiung",
+    "issue": "持續支持與推動社會住宅",
+    "summary": "持續支持與推動社會住宅",
+    "citations": [
+      {
+        "sourceId": "v1-1150923ks",
+        "quote": "會繼續支持並推動社會住宅",
+        "locator": {
+          "kind": "quote",
+          "value": "會繼續支持並推動社會住宅"
+        }
+      }
+    ],
+    "fields": {
+      "tool": {
+        "stated": null
+      },
+      "scale": {
+        "stated": null
+      },
+      "funding": {
+        "stated": null
+      },
+      "deadline": {
+        "stated": null
+      }
+    },
+    "topic": "housing",
+    "origin": "campaign",
+    "timeframe": "current"
   }
 ]

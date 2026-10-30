@@ -4,12 +4,14 @@ const PORT = 4173;
 
 export default defineConfig({
   testDir: 'tests/e2e',
+  outputDir: 'test-results/fixtures',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
   use: {
     baseURL: `http://localhost:${PORT}`,
     trace: 'on-first-retry',
+    launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE },
   },
   projects: [
     { name: 'mobile', use: { ...devices['Pixel 7'] } },

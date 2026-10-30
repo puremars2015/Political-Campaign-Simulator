@@ -172,10 +172,10 @@ describe('endRound', () => {
     expect(delayed?.ref).toBe('d1');
   });
 
-  it('第12回合結束後進入投票階段，之後不能再行動', () => {
+  it('最後一份簡報停在選前之夜，之後不能再行動', () => {
     let state = newGame();
     for (let i = 0; i < BALANCE.totalRounds; i++) state = advance(state);
-    expect(state.phase).toBe('election');
+    expect(state.phase).toBe('ended');
     expect(submitAction(state, 'candidate-briefing', state.revision).ok).toBe(false);
     expect(endRound(state, content, state.revision).ok).toBe(false);
   });

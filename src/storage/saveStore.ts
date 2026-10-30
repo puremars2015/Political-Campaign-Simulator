@@ -1,3 +1,6 @@
+import { validateContent } from '../content/validate.ts';
+import type { ContentBundle } from '../content/schema.ts';
+import { savedStateSchema } from './stateSchema.ts';
 import { GAME_STATE_SCHEMA_VERSION, type GameState } from '../engine/types.ts';
 
 export const SAVE_KEY = 'campaign-office/save/v1';
@@ -7,11 +10,12 @@ export interface SaveEnvelope {
   contentVersion: string;
   savedAt: string;
   state: GameState;
+  contentSnapshot?: ContentBundle;
 }
 
 export type LoadResult =
   | { status: 'empty' }
-  | { status: 'ok'; state: GameState }
+  | { status: 'ok'; state: GameState; contentSnapshot?: ContentBundle }
   | { status: 'corrupt'; message: string }
   | { status: 'incompatible'; message: string };
 
@@ -31,6 +35,7 @@ export function createLocalSaveStore(
   storage: KeyValueStorage,
   contentVersion: string,
   now: () => Date = () => new Date(),
+  contentSnapshot?: ContentBundle,
 ): SaveStore {
   return {
     load() {
@@ -58,13 +63,33 @@ export function createLocalSaveStore(
           message: `存檔格式版本 ${String(envelope.schemaVersion)} 與目前版本 ${GAME_STATE_SCHEMA_VERSION} 不相容。`,
         };
       }
-      if (envelope.contentVersion !== contentVersion) {
+      const snapshot = envelope.contentSnapshot ? validateContent(envelope.contentSnapshot) : null;
+      if (snapshot && (!snapshot.ok || snapshot.bundle.contentVersion !== envelope.contentVersion)) {
+        return { status: 'corrupt', message: '存檔的內容快照損壞。' };
+      }
+      if (envelope.contentVersion !== contentVersion && !snapshot?.ok) {
         return {
           status: 'incompatible',
           message: `存檔使用的內容版本 ${String(envelope.contentVersion)} 與目前版本 ${contentVersion} 不同。`,
         };
       }
-      return { status: 'ok', state: envelope.state };
+      const parsed = savedStateSchema.safeParse(envelope.state);
+      if (!parsed.success || envelope.state.schemaVersion !== envelope.schemaVersion ||
+          envelope.state.contentVersion !== envelope.contentVersion) {
+        return { status: 'corrupt', message: '存檔中的狀態欄位損壞或不一致，無法繼續。' };
+      }
+      const bundle = snapshot?.ok ? snapshot.bundle : contentSnapshot;
+      if (bundle) {
+        const state = parsed.data;
+        const district = bundle.districts.find((d) => d.id === state.districtId);
+        const validCandidate = (id: string) => bundle.candidacies.some((c) => c.id === id && c.districtId === state.districtId);
+        if (!district || ![state.candidacyId, ...state.opponentCandidacyIds].every(validCandidate) ||
+            state.campaign.some((entry) => !bundle.policies.some((p) => p.id === entry.policyId && p.candidacyId === state.candidacyId)) ||
+            (state.activeEvent && !bundle.events.some((e) => e.id === state.activeEvent?.eventId))) {
+          return { status: 'corrupt', message: '存檔的縣市、人物或事件與內容快照不一致。' };
+        }
+      }
+      return { status: 'ok', state: parsed.data, ...(snapshot?.ok ? { contentSnapshot: snapshot.bundle } : {}) };
     },
 
     save(state) {
@@ -73,6 +98,7 @@ export function createLocalSaveStore(
         contentVersion: state.contentVersion,
         savedAt: now().toISOString(),
         state,
+        ...(contentSnapshot ? { contentSnapshot } : {}),
       };
       try {
         storage.setItem(SAVE_KEY, JSON.stringify(envelope));

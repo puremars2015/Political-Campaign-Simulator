@@ -8,10 +8,14 @@ import sources from './sources.json';
 import topics from './topics.json';
 
 /** 內容版本；內容變更若影響存檔相容性，須同步更新。 */
-export const CONTENT_VERSION = '0.4.0';
+export const CONTENT_VERSION = '0.5.0';
 
 export const rawContent = {
   contentVersion: CONTENT_VERSION,
+  releaseScope: {
+    districtIds: districts.filter((d) => d.kind === 'municipality').map((d) => d.id),
+    candidacyIds: districts.filter((d) => d.kind === 'municipality').flatMap((d) => d.focusCandidacyIds ?? []),
+  },
   elections,
   districts,
   people,

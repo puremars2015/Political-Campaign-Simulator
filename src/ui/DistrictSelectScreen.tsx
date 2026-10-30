@@ -20,15 +20,15 @@ export function DistrictSelectScreen({ content, onSelect, onBack }: Props) {
       <header>
         <p className="eyebrow">第一步</p>
         <h1>選擇縣市</h1>
-        <p className="dates">2026年直轄市長及縣市長選舉。尚未完成資料查證的縣市可查看進度，但不能開始遊戲。</p>
+        <p className="dates">V1：六都主要藍綠參選人，依2026-10-30現實名單收錄。尚未完成資料查證的縣市可查看進度，但不能開始遊戲。</p>
       </header>
 
-      {GROUPS.map((group) => (
+      {GROUPS.filter((group) => !content.releaseScope || group.kind === 'municipality').map((group) => (
         <section key={group.kind} aria-labelledby={`group-${group.kind}`}>
           <h2 id={`group-${group.kind}`}>{group.title}</h2>
           <ul className="district-list">
             {content.districts
-              .filter((d) => d.kind === group.kind)
+              .filter((d) => d.kind === group.kind && (!content.releaseScope || content.releaseScope.districtIds.includes(d.id)))
               .map((district) => {
                 const { mode } = startableMode(content, district);
                 return (

@@ -108,5 +108,155 @@
     "id": "tang-hsin-min",
     "name": "唐新民",
     "background": []
+  },
+  {
+    "id": "li-ssu-chuan",
+    "name": "李四川",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "su-chiao-hui",
+    "name": "蘇巧慧",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "chang-san-cheng",
+    "name": "張善政",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "huang-shih-chieh",
+    "name": "黃世杰",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "chiang-chi-chen",
+    "name": "江啟臣",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "ho-hsin-chun",
+    "name": "何欣純",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "hsieh-lung-chieh",
+    "name": "謝龍介",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "chen-ting-fei",
+    "name": "陳亭妃",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "ko-chih-en",
+    "name": "柯志恩",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
+  },
+  {
+    "id": "lai-jui-lung",
+    "name": "賴瑞隆",
+    "background": [],
+    "simulation": {
+      "personality": [
+        "遊戲中性預設，非真人性格評價"
+      ],
+      "priorities": [
+        "依來源收錄政見"
+      ],
+      "nonNegotiables": [],
+      "reviewed": false
+    }
   }
 ]

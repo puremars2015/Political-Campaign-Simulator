@@ -316,5 +316,104 @@
     "retrievedAt": "2026-10-29",
     "nature": "media",
     "verification": "pending-review"
+  },
+  {
+    "id": "v1-1150824ntp-l",
+    "url": "https://ours.org.tw/2026/10/22/1150824ntp-l/",
+    "title": "李四川拜會紀錄",
+    "publisher": "OURs都市改革組織",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-30",
+    "nature": "public-statement",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-1150824ntp-s",
+    "url": "https://ours.org.tw/2026/10/22/1150824ntp-s/",
+    "title": "蘇巧慧拜會紀錄",
+    "publisher": "OURs都市改革組織",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-30",
+    "nature": "public-statement",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-1150827ty",
+    "url": "https://ours.org.tw/2026/10/22/1150827ty/",
+    "title": "張善政拜會紀錄",
+    "publisher": "OURs都市改革組織",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-30",
+    "nature": "public-statement",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-1150812ty",
+    "url": "https://ours.org.tw/2026/10/22/1150812ty/",
+    "title": "黃世杰拜會紀錄",
+    "publisher": "OURs都市改革組織",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-30",
+    "nature": "public-statement",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-202610260237",
+    "url": "https://www.cna.com.tw/news/aipl/202610260237.aspx",
+    "title": "江啟臣主打安全、何欣純推青年局",
+    "publisher": "中央社",
+    "publishedAt": "2026-10-26",
+    "retrievedAt": "2026-10-30",
+    "nature": "media",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-202610270247",
+    "url": "https://www.cna.com.tw/news/aipl/202610270247.aspx",
+    "title": "謝龍介抽中2號持續掃街",
+    "publisher": "中央社",
+    "publishedAt": "2026-10-27",
+    "retrievedAt": "2026-10-30",
+    "nature": "media",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-202609010168",
+    "url": "https://www.cna.com.tw/news/aipl/202609010168.aspx",
+    "title": "陳亭妃提5大觀光軸政見",
+    "publisher": "中央社",
+    "publishedAt": "2026-09-01",
+    "retrievedAt": "2026-10-30",
+    "nature": "media",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-1150930ks",
+    "url": "https://ours.org.tw/2026/10/22/1150930ks/",
+    "title": "柯志恩拜會紀錄",
+    "publisher": "OURs都市改革組織",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-30",
+    "nature": "public-statement",
+    "verification": "pending-review",
+    "reviewLog": []
+  },
+  {
+    "id": "v1-1150923ks",
+    "url": "https://ours.org.tw/2026/10/22/1150923ks/",
+    "title": "賴瑞隆拜會紀錄",
+    "publisher": "OURs都市改革組織",
+    "publishedAt": "2026-10-22",
+    "retrievedAt": "2026-10-30",
+    "nature": "public-statement",
+    "verification": "pending-review",
+    "reviewLog": []
   }
 ]

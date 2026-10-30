@@ -6,3 +6,6 @@ playwright-report/
 *.tsbuildinfo
 .DS_Store
 dist-e2e/
+
+__pycache__/
+*.pyc

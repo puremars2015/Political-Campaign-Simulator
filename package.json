@@ -14,7 +14,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
-    "validate:content": "vitest run tests/content"
+    "validate:content": "vitest run tests/content",
+    "news:update": "python3 scripts/update_news.py",
+    "test:news": "python3 -m unittest discover -s tests/news -v",
+    "start": "node scripts/serve.mjs",
+    "test:e2e:production": "playwright test --config playwright.production.config.ts"
   },
   "dependencies": {
     "react": "19.2.9",

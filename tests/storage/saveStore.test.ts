@@ -57,3 +57,13 @@ describe('localStorage 存檔', () => {
     expect(result.ok).toBe(false);
   });
 });
+
+it('合法JSON但欄位缺失或內外版本矛盾也回報損壞', () => {
+  const storage = memoryStorage();
+  const store = createLocalSaveStore(storage, content.contentVersion);
+  store.save(game('shape'));
+  const envelope = JSON.parse(storage.data.get(SAVE_KEY)!);
+  delete envelope.state.resources;
+  storage.data.set(SAVE_KEY,JSON.stringify(envelope));
+  expect(store.load().status).toBe('corrupt');
+});

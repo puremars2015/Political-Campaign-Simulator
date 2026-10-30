@@ -1,4 +1,6 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { withNews } from '../content/news.ts';
+import type { ContentBundle } from '../content/schema.ts';
 import { loadContent } from '../content/index.ts';
 import {
   createNewGame,
@@ -30,19 +32,53 @@ type SetupStep =
   | { kind: 'confirm'; districtId: string; candidacyId: string };
 
 export function App() {
-  const content = useMemo(() => loadContent(), []);
-  const store = useMemo(() => createLocalSaveStore(window.localStorage, content.contentVersion), [content]);
+  const base = useMemo(() => loadContent(), []);
+  const [latestContent, setLatestContent] = useState(base);
+  const [gameContent, setGameContent] = useState<ContentBundle | null>(null);
+  const content = gameContent ?? latestContent;
+  useEffect(() => {
+    const controller = new AbortController();
+    async function refresh() {
+      try {
+        const response = await fetch(`${import.meta.env.BASE_URL}news.json`, { cache: 'no-cache', signal: controller.signal });
+        if (!response.ok) return;
+        const raw: unknown = await response.json();
+        if (!controller.signal.aborted) setLatestContent(withNews(base, raw));
+      } catch { /* 來源失效或離線時，保留內建資料，不阻止遊玩。 */ }
+    }
+    void refresh();
+    const timer = window.setInterval(() => void refresh(), 60 * 60 * 1000);
+    return () => { controller.abort(); window.clearInterval(timer); };
+  }, [base]);
+  const store = useMemo(() => createLocalSaveStore({
+    getItem: (key) => window.localStorage.getItem(key),
+    setItem: (key, value) => window.localStorage.setItem(key, value),
+    removeItem: (key) => window.localStorage.removeItem(key),
+  }, content.contentVersion, () => new Date(), content), [content]);
   const [initialLoad] = useState<LoadResult>(() => store.load());
   const [step, setStep] = useState<SetupStep>({ kind: 'intro' });
   const [game, setGame] = useState<GameState | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
+  const screenKey = game ? `${game.round}/${game.phase}` : JSON.stringify(step);
+  useEffect(() => {
+    const heading = document.querySelector('h1');
+    heading?.setAttribute('tabindex', '-1');
+    heading?.focus();
+    window.scrollTo({ top: 0 });
+  }, [screenKey]);
   // 以 ref 保存最新狀態，避免連點時兩次提交都基於同一份舊狀態
   const gameRef = useRef<GameState | null>(null);
 
-  function commit(next: GameState) {
+  function commit(next: GameState, snapshot = content) {
+    setGameContent(snapshot);
     gameRef.current = next;
     setGame(next);
-    const saved = store.save(next);
+    const snapshotStore = createLocalSaveStore({
+      getItem: (key) => window.localStorage.getItem(key),
+      setItem: (key, value) => window.localStorage.setItem(key, value),
+      removeItem: (key) => window.localStorage.removeItem(key),
+    }, snapshot.contentVersion, () => new Date(), snapshot);
+    const saved = snapshotStore.save(next);
     setNotice(saved.ok ? null : `${saved.message}。目前進度仍保留在畫面上，但尚未保存。`);
   }
 
@@ -57,6 +93,7 @@ export function App() {
   function returnToSetup() {
     gameRef.current = null;
     setGame(null);
+    setGameContent(null);
     setNotice(null);
     setStep({ kind: 'districts' });
   }
@@ -74,6 +111,11 @@ export function App() {
         onEventChoice={(choiceId, revision) => apply((s) => resolveEvent(s, content, choiceId, revision))}
         onEndRound={(revision) => apply((s) => endRound(s, content, revision))}
         onRestart={returnToSetup}
+        onReplay={() => {
+          try {
+            commit(createNewGame(content, { seed: game.seed, districtId: game.districtId, candidacyId: game.candidacyId, startDate: game.calendar[0]?.startDate }));
+          } catch (error) { setNotice(error instanceof Error ? error.message : String(error)); }
+        }}
       />
     );
   }
@@ -114,6 +156,10 @@ export function App() {
           district={district}
           candidacy={candidacy}
           notice={notice}
+          onHistorical={(startDate) => {
+            try { commit(createNewGame(content, { seed: randomSeed(), districtId: district.id, candidacyId: candidacy.id, startDate })); }
+            catch (error) { setNotice(error instanceof Error ? error.message : String(error)); }
+          }}
           onConfirm={() => {
             try {
               commit(createNewGame(content, { seed: randomSeed(), districtId: district.id, candidacyId: candidacy.id }));
@@ -129,9 +175,10 @@ export function App() {
 
   return (
     <IntroScreen
+      content={content}
       loadResult={initialLoad}
       notice={notice}
-      onContinue={initialLoad.status === 'ok' ? () => commit(initialLoad.state) : undefined}
+      onContinue={initialLoad.status === 'ok' ? () => commit(initialLoad.state, initialLoad.contentSnapshot ?? base) : undefined}
       onStart={() => setStep({ kind: 'districts' })}
     />
   );

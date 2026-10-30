@@ -430,5 +430,485 @@
         "setFlags": []
       }
     ]
+  },
+  {
+    "id": "daily-briefing-1",
+    "title": "第1份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 1,
+      "toRound": 1
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-2",
+    "title": "第2份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 2,
+      "toRound": 2
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-3",
+    "title": "第3份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 3,
+      "toRound": 3
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-4",
+    "title": "第4份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 4,
+      "toRound": 4
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-5",
+    "title": "第5份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 5,
+      "toRound": 5
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-6",
+    "title": "第6份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 6,
+      "toRound": 6
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-7",
+    "title": "第7份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 7,
+      "toRound": 7
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-8",
+    "title": "第8份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 8,
+      "toRound": 8
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-9",
+    "title": "第9份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 9,
+      "toRound": 9
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-10",
+    "title": "第10份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 10,
+      "toRound": 10
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-11",
+    "title": "第11份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 11,
+      "toRound": 11
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
+  },
+  {
+    "id": "daily-briefing-12",
+    "title": "第12份工作盤點",
+    "body": "這是虛構的辦公室工作情境。今天沒有需要新增事實判斷的消息，請決定要整理手上的已收錄資料，或保留時間讓團隊休息。不能把缺少資料解讀為候選人的立場。",
+    "window": {
+      "fromRound": 12,
+      "toRound": 12
+    },
+    "priority": -100,
+    "once": true,
+    "binding": "none",
+    "choices": [
+      {
+        "id": "organize",
+        "label": "整理既有資料",
+        "knownCost": "1 行動點；政策一致性提升 1，這是遊戲敘事指標。",
+        "cost": {
+          "actionPoints": 1,
+          "funds": 0
+        },
+        "effects": [
+          {
+            "kind": "resource",
+            "key": "policyConsistency",
+            "delta": 1
+          }
+        ]
+      },
+      {
+        "id": "rest",
+        "label": "保留時間、準備下一份簡報",
+        "knownCost": "零成本，無額外效果。",
+        "cost": {
+          "actionPoints": 0,
+          "funds": 0
+        },
+        "effects": []
+      }
+    ]
   }
 ]
