@@ -37,6 +37,11 @@ export function App() {
   const [gameContent, setGameContent] = useState<ContentBundle | null>(null);
   const content = gameContent ?? latestContent;
   useEffect(() => {
+    const packaged = document.getElementById('campaign-news-snapshot')?.textContent;
+    if (packaged) {
+      try { setLatestContent(withNews(base, JSON.parse(packaged))); } catch { /* 離線包資料損壞時使用內建資料。 */ }
+      return;
+    }
     const controller = new AbortController();
     async function refresh() {
       try {

@@ -32,6 +32,7 @@ export const sourceNatureSchema = z.enum([
   'public-statement', // 有完整上下文的公開發言
   'media', // 可靠媒體報導，用於交叉查證
   'government-record', // 議事紀錄、政府公開資料
+  'secondary-summary', // 非官方二手整理，不視為候選人官方來源
 ]);
 
 export const verificationSchema = z.enum([

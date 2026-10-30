@@ -190,7 +190,7 @@
     "title": "台北安可大舞台：蔣萬安黃金十年政見",
     "publisher": "ENCORE.TAIPEI（dAAAb 與貢獻者；頁面自述「粉絲創作之互動藝術作品，非蔣萬安競選團隊官方網站」）",
     "retrievedAt": "2026-10-29",
-    "nature": "candidate-official",
+    "nature": "secondary-summary",
     "archiveUrl": "https://github.com/dAAAb/encore-taipei/blob/2a0507faa01428ac9801c20ac169644bc3b43988/src/data/platform.json",
     "verification": "pending-review",
     "reviewLog": [
@@ -198,6 +198,11 @@
         "date": "2026-10-29",
         "reviewer": "專案負責人",
         "note": "決定：視為蔣萬安陣營來源，使用時標註出處（頁面自述為非官方）。"
+      },
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源複核（非人工審核）",
+        "note": "網站自述非官方；修正為非官方二手整理，不視為候選人官方來源。保留原始歷程。"
       }
     ]
   },
@@ -207,13 +212,18 @@
     "title": "AI黃金世紀，從臺北開始：松機變身 300 公頃臺北AI園區",
     "publisher": "AI2033.Taipei（中央社報導為葛如鈞建置；頁面自述「非官方整理」）",
     "retrievedAt": "2026-10-29",
-    "nature": "candidate-official",
+    "nature": "secondary-summary",
     "verification": "pending-review",
     "reviewLog": [
       {
         "date": "2026-10-29",
         "reviewer": "專案負責人",
         "note": "決定：視為蔣萬安陣營來源，使用時標註出處（頁面自述為非官方）。"
+      },
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源複核（非人工審核）",
+        "note": "網站自述非官方；修正為非官方二手整理，不視為候選人官方來源。保留原始歷程。"
       }
     ]
   },

@@ -91,7 +91,7 @@ export function assessPolicy(
   if (concrete) strengths.push('concrete');
   if (opponentPolicyIds.length === 0) strengths.push('unique-issue');
   else if (!opponentDominant) strengths.push('head-to-head');
-  if (natures.some((n) => n !== undefined && n !== 'media')) strengths.push('official-source');
+  if (natures.some((n) => n === 'candidate-official' || n === 'government-record' || n === 'election-authority')) strengths.push('official-source');
   if (policy.origin === 'government-plan') strengths.push('incumbent-resources');
 
   const risks: RiskId[] = [];
