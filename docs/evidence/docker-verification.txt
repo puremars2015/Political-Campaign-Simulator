@@ -1,0 +1,19 @@
+2026-10-30 managed cloud Docker validation; NOT deployed to user desktop.
+Docker Engine 28.4.0; Compose 2.40.3; Linux amd64; runtime user node.
+docker compose config --quiet: PASS
+docker build: PASS
+Snapshot stack 127.0.0.1:8787 only: healthy, HTTP200, configuredRefreshMinutes=null.
+Separate hourly test 127.0.0.1:8788 only: healthy, actual RSS fetch succeeded at 2026-10-30T04:10:26.262892Z; configuredRefreshMinutes=60.
+Did not wait for the next natural hourly timer tick.
+Image ID during browser validation: sha256:bbea2dfad60f7a3c84fed4c5a65fa12290ef56f5ae9d27b887763f1f9e749af7
+Image size: 277577731 bytes.
+Initial runtime failure from source mode0600 was corrected with COPY --chown=node:node; final health and browser checks passed.
+Build proxy CA was mounted with BuildKit secret; Docker config/registry credentials unchanged; no TLS bypass.
+
+  ✓  2 [mobile] › tests/production/full-game.spec.ts:88:1 › 選前第十天後與終局不經新聞標題洩漏民調數字 (5.4s)
+  ✓  1 [mobile] › tests/production/full-game.spec.ts:30:3 › 臺南市 陳亭妃 正式內容完整一局、選前夜收尾、存讀與重玩 (10.7s)
+  ✓  4 [desktop] › tests/production/full-game.spec.ts:88:1 › 選前第十天後與終局不經新聞標題洩漏民調數字 (2.8s)
+  ✓  3 [desktop] › tests/production/full-game.spec.ts:30:3 › 臺南市 陳亭妃 正式內容完整一局、選前夜收尾、存讀與重玩 (8.0s)
+  4 passed (18.5s)
+
+Cleanup: both task-owned cloud test containers and their test volumes removed; no hourly job left running. Local build image retained for review.

@@ -27,7 +27,7 @@ export function ResultsScreen({ content, game, notice, onRestart, onReplay }: Pr
         <ol>{entry.history.map((h, i) => <li key={i}>第 {h.round} 份簡報：{EXPOSURE_LABELS[h.status]}{h.decisionId && `（決策 ${h.decisionId}）`}</li>)}</ol><PolicyCard content={content} policy={policy}/></details>; })}
       <p>{game.pendingEffects.length} 項後續工作尚未到期；故事在此收尾，不推算它們的選票影響。</p>
     </section>
-    <NewsPanel content={content} districtId={game.districtId} />
+    <NewsPanel content={content} districtId={game.districtId} game={game} />
     <details className="card"><summary>完整決策紀錄與重現資訊</summary><p>種子：{game.seed}・內容版本：{game.contentVersion}・本局起始：{game.calendar[0]?.startDate}（臺灣日期）。資料截至 {game.dataAsOf}。</p><ol>{game.decisions.map((d) => <li key={d.id}>{d.id}・第 {d.round} 份簡報：{d.summary}</li>)}</ol></details>
     <div className="button-row"><button type="button" onClick={onReplay}>相同日期與種子重新挑戰</button><button type="button" className="primary" onClick={onRestart}>重新選擇縣市與候選人</button></div>
   </main>;

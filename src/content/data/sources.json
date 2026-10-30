@@ -5,9 +5,16 @@
     "title": "公告115年直轄市長、縣（市）長、直轄市議員、縣（市）議員選舉之選舉種類、名額、選舉區之劃分、投票日期、投票起止時間及競選經費最高金額等事項（中選務字第1153150253號）",
     "publisher": "中央選舉委員會",
     "publishedAt": "2026-08-20",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "election-authority",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "cec-2026-mayor-registration",
@@ -15,9 +22,16 @@
     "title": "115年直轄市長選舉候選人登記彙總表",
     "publisher": "中央選舉委員會",
     "publishedAt": "2026-09-07",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "election-authority",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "cna-20261027-ballot-numbers",
@@ -35,7 +49,7 @@
     "title": "沈伯洋發布競選願景　從「心」出發推5大政見",
     "publisher": "中央通訊社",
     "publishedAt": "2026-08-11",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
     "verification": "pending-review",
     "reviewLog": [
@@ -43,6 +57,11 @@
         "date": "2026-10-29",
         "reviewer": "專案負責人",
         "note": "決定：婚育宅與青年宅、老宅延壽、永續長／設計長／夜間市長屬沈伯洋政見，保留（中央社為出處）。"
+      },
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
       }
     ]
   },
@@ -52,9 +71,16 @@
     "title": "沈伯洋拋交通政見 蔣萬安細數政績回應",
     "publisher": "公視新聞網",
     "publishedAt": "2026-09-16",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "newtalk-20261026-shen-water",
@@ -62,9 +88,16 @@
     "title": "「台北水文化復興運動」打造北市親水生活 沈伯洋提出五大政見",
     "publisher": "新頭殼 Newtalk",
     "publishedAt": "2026-10-26",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "ebc-20261022-chiang-interview",
@@ -81,54 +114,96 @@
     "url": "https://puma.taipei/policies/%E4%BA%A4%E9%80%9A%E6%94%BF%E7%AD%96",
     "title": "沈伯洋提四大交通政見　讓綠色通勤選項＋1",
     "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "candidate-official",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "puma-youth",
     "url": "https://puma.taipei/policies/%E9%9D%92%E5%B9%B4%E6%94%BF%E7%AD%96",
     "title": "提青年加碼　沈伯洋祭城市基金、AI支持、圓夢計畫",
     "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "candidate-official",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "puma-water",
     "url": "https://puma.taipei/policies/%E6%B0%B4%E5%9F%9F%E6%94%BF%E7%AD%96",
     "title": "水域政策",
     "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "candidate-official",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "puma-family",
     "url": "https://puma.taipei/policies/%E5%AE%B6%E5%BA%AD%E4%B8%80%E7%AB%99%E9%80%9A",
     "title": "沈伯洋拋「家庭一站通」政策，期盼台北成為有溫度、為人設計的城市",
     "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "candidate-official",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "puma-trails",
     "url": "https://puma.taipei/policies/%E5%8F%B0%E5%8C%97%E6%96%87%E5%8C%96%E5%BE%91%C3%97%E5%B1%B1%E6%9E%97%E5%BE%91",
     "title": "串起城市歷史與山林　沈伯洋推四大文化徑、三大登山中心：打造亞洲第一觀光登山城",
     "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "candidate-official",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "puma-welfare",
     "url": "https://puma.taipei/policies/%E7%A4%BE%E7%A6%8F%E6%94%BF%E7%AD%96",
     "title": "社福是衡量城市溫度的尺 沈伯洋提全齡政見打造完善體系",
     "publisher": "沈伯洋台北市長競選總部（puma.taipei，CC BY 4.0）",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "candidate-official",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "gov-taipei-20261008-ai-park",
@@ -136,7 +211,7 @@
     "title": "輝達來了！蔣萬安發表「AI黃金世紀」新願景 拋松機遷移打造百公頃臺北AI園區",
     "publisher": "臺北市政府秘書處媒體事務組",
     "publishedAt": "2026-10-08",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "government-record",
     "verification": "pending-review",
     "reviewLog": [
@@ -144,6 +219,11 @@
         "date": "2026-10-29",
         "reviewer": "專案負責人",
         "note": "決定：松山機場遷移案算蔣萬安的競選政見。"
+      },
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
       }
     ]
   },
@@ -153,9 +233,16 @@
     "title": "蔣萬安宣布規劃松山機場遷移　打造台北AI園區",
     "publisher": "中央通訊社",
     "publishedAt": "2026-10-08",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "cna-20261028-chiang-stage",
@@ -163,9 +250,16 @@
     "title": "蔣萬安競總創「台北安可大舞台」　邀市民想像未來",
     "publisher": "中央通訊社",
     "publishedAt": "2026-10-28",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "setn-20261027-taipei-lottery",
@@ -173,7 +267,7 @@
     "title": "台北市長選戰還有他們！郭璽抽籤轟歧視　唐新民大喊：搶救大屯火山",
     "publisher": "三立新聞網",
     "publishedAt": "2026-10-27",
-    "retrievedAt": "2026-10-28",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
     "verification": "pending-review",
     "reviewLog": [
@@ -181,6 +275,11 @@
         "date": "2026-10-29",
         "reviewer": "專案負責人",
         "note": "決定：唐新民抽籤現場發言（搶救大屯火山）可收錄為其政見。"
+      },
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
       }
     ]
   },
@@ -233,9 +332,16 @@
     "title": "蔣萬安宣布都更新政「都更5099」首階段門檻降至五成　推「大街廓都更」基準容積提高至300%",
     "publisher": "臺北市政府秘書處媒體事務組",
     "publishedAt": "2026-10-16",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "government-record",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "gov-taipei-20260703-ai-education",
@@ -243,9 +349,16 @@
     "title": "臺北市發布AI教育政策白皮書，投入92億元打造首都AI教育藍圖",
     "publisher": "臺北市政府教育局",
     "publishedAt": "2026-07-03",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "government-record",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "gov-taipei-20260622-senior-card",
@@ -253,9 +366,16 @@
     "title": "蔣萬安宣布敬老福利再升級　敬老卡600點7月上路、重陽禮金9月發放",
     "publisher": "臺北市政府秘書處媒體事務組",
     "publishedAt": "2026-06-22",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "government-record",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "gov-taipei-20260812-budget",
@@ -263,9 +383,16 @@
     "title": "赴議會報告116年度總預算案 蔣萬安：打造「安全」、「運動」、「未來」的幸福臺北",
     "publisher": "臺北市政府秘書處媒體事務組",
     "publishedAt": "2026-08-12",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "government-record",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "udn-20261008-airport",
@@ -273,9 +400,16 @@
     "title": "重磅建設啟動！蔣萬安宣布規畫松山機場遷移用做AI園區、住宅及公園",
     "publisher": "聯合新聞網",
     "publishedAt": "2026-10-08",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "ettoday-20260819-postpartum",
@@ -283,9 +417,16 @@
     "title": "快訊／蔣萬安拋明年每胎3萬「月子加菜金」　北市育兒第一胎領7萬",
     "publisher": "ETtoday新聞雲",
     "publishedAt": "2026-08-19",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "cna-20260819-postpartum",
@@ -293,9 +434,16 @@
     "title": "北市首創「月子加菜金」116年上路 每胎補助3萬元不排富",
     "publisher": "中央通訊社",
     "publishedAt": "2026-08-19",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "cna-20260606-education",
@@ -303,9 +451,16 @@
     "title": "蔣萬安推6項教育新政 國小每班人數逐年降至25人",
     "publisher": "中央通訊社",
     "publishedAt": "2026-06-06",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "cna-20260828-autonomous-bus",
@@ -313,9 +468,16 @@
     "title": "北市推自動駕駛公車　蔣萬安：規劃116年投入4輛實測",
     "publisher": "中央通訊社",
     "publishedAt": "2026-08-28",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "udn-20260912-childcare-hours",
@@ -323,9 +485,16 @@
     "title": "育兒政見比拚…蔣萬安明年擴大減工時不減薪 沈伯洋提腸病毒疫苗計畫",
     "publisher": "聯合新聞網",
     "publishedAt": "2026-09-12",
-    "retrievedAt": "2026-10-29",
+    "retrievedAt": "2026-10-30",
     "nature": "media",
-    "verification": "pending-review"
+    "verification": "pending-review",
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-1150824ntp-l",
@@ -336,7 +505,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "public-statement",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-1150824ntp-s",
@@ -347,7 +522,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "public-statement",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-1150827ty",
@@ -358,7 +539,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "public-statement",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-1150812ty",
@@ -369,7 +556,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "public-statement",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-202610260237",
@@ -380,7 +573,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "media",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-202610270247",
@@ -391,7 +590,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "media",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-202609010168",
@@ -402,7 +607,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "media",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-1150930ks",
@@ -413,7 +624,13 @@
     "retrievedAt": "2026-10-30",
     "nature": "public-statement",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   },
   {
     "id": "v1-1150923ks",
@@ -424,6 +641,12 @@
     "retrievedAt": "2026-10-30",
     "nature": "public-statement",
     "verification": "pending-review",
-    "reviewLog": []
+    "reviewLog": [
+      {
+        "date": "2026-10-30",
+        "reviewer": "AI來源全文複核（非人工審閱）",
+        "note": "已讀取公開全文並核對本版引用、人物與日期；保留pending-review，不將代理複核冒稱人工審閱。"
+      }
+    ]
   }
 ]

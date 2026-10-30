@@ -22,7 +22,7 @@ export function CitationList({ content, citations }: { content: ContentBundle; c
                   {source.title}
                 </a>
                 ・{source.publisher}
-                {source.publishedAt && `・${source.publishedAt}`}・{LOCATOR_LABELS[citation.locator.kind]}：
+                {source.publishedAt ? `・發布 ${source.publishedAt}` : '・發布日期未載明'}・擷取 {source.retrievedAt}・{LOCATOR_LABELS[citation.locator.kind]}：
                 {citation.locator.value}・{VERIFICATION_LABELS[source.verification]}
                 {source.archiveUrl && (
                   <>
@@ -53,6 +53,7 @@ export function PolicyCard({ content, policy }: { content: ContentBundle; policy
   return (
     <article className="policy">
       <p className="eyebrow">{policy.issue}</p>
+      <p className="cost">{policy.timeframe === 'historical' ? '資料性質：歷史公開主張，非本次政見' : policy.origin === 'government-plan' ? '資料性質：市府公開施政資料，含既有措施與規劃，非全為本次新政見' : '資料性質：本次競選公開主張'}</p>
       <p>{policy.summary}</p>
       <dl className="policy-fields">
         {(Object.keys(FIELD_LABELS) as (keyof Policy['fields'])[]).map((key) => (

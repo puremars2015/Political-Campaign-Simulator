@@ -90,7 +90,7 @@ export function buildCurrentCalendar(electionDate: string, startDate = taipeiTod
   });
 }
 
-/** 依使用者的玩法界線：選前第10天之後不呈現民調；目前版本無民調功能。 */
+/** 依使用者的玩法界線：選前第10天之後不呈現民調；以遊戲目前事件日期判斷，終局另行停止呈現。 */
 export function pollVisible(date: string, electionDate: string): boolean {
   return parseIsoDate(date) <= parseIsoDate(addDays(electionDate, -10));
 }

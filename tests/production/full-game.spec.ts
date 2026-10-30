@@ -84,3 +84,25 @@ test('選前第十天、九天、前一夜與選後歷史重玩介面',async({pa
   await page.getByRole('button',{name:'歷史重玩：2026-11-16 起'}).click();
   await expect(page.getByText(/本局日期基準 2026-11-16/)).toBeVisible();
 });
+
+test('選前第十天後與終局不經新聞標題洩漏民調數字',async({page}) => {
+  await page.route('**/news.json',route=>route.fulfill({contentType:'application/json',body:JSON.stringify({
+    version:'poll-headline-test',sourceUrl:'https://feeds.feedburner.com/rsscna/politics',refreshMinutes:60,status:'ok',
+    lastAttemptAt:'2026-11-19T03:00:00Z',lastSuccessAt:'2026-11-19T03:00:00Z',
+    items:[{id:'poll-headline',title:'新北市民調支持率55%',url:'https://www.cna.com.tw/news/aipl/202611190001.aspx',publisher:'中央社',publishedAt:'2026-11-19T00:00:00Z',districtIds:['new-taipei'],personNames:['李四川']}]
+  })}));
+  await page.clock.setFixedTime(new Date('2026-11-19T03:00:00Z'));
+  await page.goto('/');
+  await expect(page.getByText(/版本：poll-headline-test/)).toHaveCount(1);
+  await expect(page.getByRole('link',{name:'新北市民調支持率55%'})).toHaveCount(0);
+  for (const name of ['開始新的一局',/新北市/,'查看李四川的資料','確認輔佐並開始']) await page.getByRole('button',{name}).click();
+  await expect(page.getByRole('link',{name:'新北市民調支持率55%'})).toHaveCount(0);
+  await expect(page.getByText(/模擬民調觀測・/)).toHaveCount(0);
+  for(let round=1;round<=9;round++) {
+    const choices=page.locator('.choices button:not(:disabled)');
+    if(await choices.count()) await choices.last().click();
+    await page.getByRole('button',{name:'結束本回合'}).click();
+  }
+  await expect(page.getByRole('heading',{name:'選前之夜',exact:true})).toBeVisible();
+  await expect(page.getByRole('link',{name:'新北市民調支持率55%'})).toHaveCount(0);
+});

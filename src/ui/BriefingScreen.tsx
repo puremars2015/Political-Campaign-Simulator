@@ -1,3 +1,4 @@
+import { addDays } from '../engine/calendar.ts';
 import { PollPanel } from './PollPanel.tsx';
 import { NewsPanel } from './NewsPanel.tsx';
 import type { ContentBundle } from '../content/schema.ts';
@@ -56,7 +57,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
         </h1>
         {span && (
           <p className="dates">
-            {span.startDate === span.endDate ? span.startDate : `${span.startDate} 至 ${span.endDate}`}
+            事件日 {span.endDate}{span.startDate !== span.endDate && `（${span.startDate} 至 ${addDays(span.endDate, -1)} 的平靜日已壓縮）`}
             ・本局日期基準 {game.calendar[0]?.startDate}（臺灣）・資料截至 {game.dataAsOf}
             {game.dataMode === 'preview' && '・預覽資料（名單未公告、來源待審閱）'}
           </p>
@@ -70,7 +71,7 @@ export function BriefingScreen({ content, game, notice, onAction, onExposure, on
       )}
 
       <PollPanel content={content} game={game} />
-      <NewsPanel content={content} districtId={game.districtId} />
+      <NewsPanel content={content} districtId={game.districtId} game={game} />
       <EventCard content={content} game={game} onChoose={onEventChoice} />
 
       <p className="cost">最多12份簡報，目標15分鐘內；每日一個主要事件，日期區間中的平靜日已壓縮。結尾停在選前之夜，民調觀測到選前第十天為止，不提供開票預測。</p>

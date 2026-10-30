@@ -32,7 +32,7 @@ def parse_feed(data, now):
     for node in root.findall('./channel/item'):
         title = re.sub(r'<[^>]*>', '', node.findtext('title', '')).strip()[:180]
         link = urlsplit(node.findtext('link', '').strip())
-        if link.scheme != 'https' or link.hostname != 'www.cna.com.tw' or not link.path.startswith('/news/'):
+        if link.scheme != 'https' or link.netloc.lower() != 'www.cna.com.tw' or not link.path.startswith('/news/'):
             continue
         url = urlunsplit((link.scheme, link.netloc, link.path, '', ''))
         try:
@@ -49,9 +49,12 @@ def parse_feed(data, now):
         if not cities:
             continue
         key = hashlib.sha256(url.encode()).hexdigest()[:16]
-        items[key] = {'id': key, 'title': title, 'url': url, 'publisher': '中央社',
+        item = {'id': key, 'title': title, 'url': url, 'publisher': '中央社',
                       'publishedAt': published.isoformat().replace('+00:00', 'Z'),
                       'districtIds': cities, 'personNames': [n for n in PEOPLE if n in title]}
+        previous = items.get(key)
+        if previous is None or (item['publishedAt'], item['title']) > (previous['publishedAt'], previous['title']):
+            items[key] = item
     return sorted(items.values(), key=lambda i: (i['publishedAt'], i['id']), reverse=True)[:60]
 
 def update(previous, data, now):

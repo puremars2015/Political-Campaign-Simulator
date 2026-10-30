@@ -17,6 +17,17 @@
 
 人物及政見有來源；辦公室情境、內部資源與民調觀測是遊戲虛構，不代表真人性格、實際民調或選舉預測。新聞只以中性查核議程影響遊戲，不將報導指控變成既定事實。
 
+## 本地Docker試玩
+
+使用者已選擇本地Docker方式，預設入口`http://127.0.0.1:8787`，只綁本機，先使用新聞快照。主機為DESKTOP-JDGUJKR，但程式目前仍在雲端工作分支，需完成經授權的版本交付才能在桌機執行。
+
+```sh
+docker compose up --build -d
+docker compose ps
+```
+
+完整取得版本、空閒埠、健康檢查與新聞模式操作見 [本地Docker](docs/LOCAL_DOCKER.md)。
+
 ## 安裝與執行
 
 Node.js 22.12+、Python 3（新聞擷取）、pnpm 10.28.0（以 `packageManager` 固定）。

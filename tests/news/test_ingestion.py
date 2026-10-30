@@ -40,3 +40,14 @@ class IngestionTest(unittest.TestCase):
         for payload in [b'<rss><channel/></rss>', feed(date='Fri, 30 Oct 2026 08:00:00'),feed(date='Fri, 30 Oct 2027 08:00:00 +0800'),feed(date='Fri, 10 Oct 2026 08:00:00 +0800')]:
             self.assertEqual(news.update(self.previous,payload,self.now)['status'],'empty')
         self.assertEqual(news.update(self.previous,b'<!DOCTYPE rss><rss/>',self.now)['status'],'stale')
+
+    def test_conflicting_duplicates_order_independent_and_unsafe_authority(self):
+        a=feed('新北蘇巧慧公開說明')
+        b=feed('新北蘇巧慧新版說明','Fri, 30 Oct 2026 09:00:00 +0800')
+        item_a=a.split(b'<channel>')[1].split(b'</channel>')[0]
+        item_b=b.split(b'<channel>')[1].split(b'</channel>')[0]
+        ab=b'<rss><channel>'+item_a+item_b+b'</channel></rss>'
+        ba=b'<rss><channel>'+item_b+item_a+b'</channel></rss>'
+        self.assertEqual(news.update(self.previous,ab,self.now)['version'],news.update(self.previous,ba,self.now)['version'])
+        unsafe=a.replace(b'www.cna.com.tw/news/',b'www.cna.com.tw:4444/news/')
+        self.assertEqual(news.parse_feed(unsafe,self.now),[])

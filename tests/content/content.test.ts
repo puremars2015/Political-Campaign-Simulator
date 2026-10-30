@@ -124,3 +124,21 @@ describe('可玩門檻與政見可用性', () => {
     expect(policy.fields.funding).toEqual({ stated: null });
   });
 });
+
+it('V1啟用政見不依賴非官方整理或無法讀取的來源，預算金額不冒充財源', () => {
+  const result=validateContent(rawContent);
+  if (!result.ok) throw new Error('content failed validation');
+  const bundle=result.bundle;
+  const secondary=new Set(bundle.sources.filter((s)=>s.nature==='secondary-summary').map((s)=>s.id));
+  for (const policy of bundle.policies) {
+    const citations=[...policy.citations,...Object.values(policy.fields).flatMap((f)=>f.stated===null?[]:[f.citation])];
+    expect(citations.some((c)=>secondary.has(c.sourceId)||c.sourceId==='ebc-20261022-chiang-interview')).toBe(false);
+  }
+  expect(bundle.policies.find((p)=>p.id==='chiang-songshan-airport-ai-park')?.fields.deadline.stated).toBeNull();
+  expect(bundle.policies.find((p)=>p.id==='chiang-class-size')?.fields.deadline.stated).toContain('119');
+  for (const id of ['chiang-ai-education','chiang-dunbei-drain','chiang-smoke-free-districts']) {
+    expect(bundle.policies.find((p)=>p.id===id)?.fields.funding.stated).toBeNull();
+  }
+  const fallbacks=bundle.events.filter((e)=>e.id.startsWith('daily-briefing-'));
+  expect(new Set(fallbacks.map((e)=>e.body)).size).toBe(fallbacks.length);
+});

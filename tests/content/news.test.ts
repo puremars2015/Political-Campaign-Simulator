@@ -41,3 +41,16 @@ describe('每日新聞快照', () => {
     expect(createNewGame(b,{ districtId:'taipei', candidacyId:'2026-taipei-shen-po-yang', seed:'stale' }).phase).toBe('campaign');
   });
 });
+
+import { newsVisibleInGame } from '../../src/content/newsVisibility.ts';
+it('截止後與終局不經新聞標題繞道呈現民調；原快照保留供版本追溯', () => {
+  const raw = snapshot('poll-test','2026-10-30');
+  raw.items[0]!.title='臺北市長民調支持率55%';
+  const content=withNews(base,raw);
+  for (const [date, count] of [['2026-11-18',1],['2026-11-19',0],['2026-11-27',0]] as const) {
+    const state=createNewGame(content,{districtId:'taipei',candidacyId:'2026-taipei-shen-po-yang',seed:'headline',startDate:date});
+    expect(newsVisibleInGame(content,state)).toHaveLength(count);
+    expect(newsVisibleInGame(content,{...state,phase:'ended'})).toHaveLength(0);
+  }
+  expect(content.news?.items).toHaveLength(1);
+});

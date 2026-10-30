@@ -1,0 +1,33 @@
+{
+  "environment": "selected managed cloud environment, not DESKTOP-JDGUJKR",
+  "hostBindings": [
+    "127.0.0.1:8787:8080",
+    "127.0.0.1:8788:8080"
+  ],
+  "results": {
+    "8787": {
+      "status": "ok",
+      "application": "political-campaign-simulator",
+      "news": {
+        "status": "ok",
+        "updateMode": "snapshot",
+        "version": "0411ae9beda36bf5",
+        "lastAttemptAt": "2026-10-30T03:26:44.918965Z",
+        "lastSuccessAt": "2026-10-30T03:26:44.918965Z",
+        "configuredRefreshMinutes": null
+      }
+    },
+    "8788": {
+      "status": "ok",
+      "application": "political-campaign-simulator",
+      "news": {
+        "status": "ok",
+        "updateMode": "hourly",
+        "version": "0411ae9beda36bf5",
+        "lastAttemptAt": "2026-10-30T04:10:26.262892Z",
+        "lastSuccessAt": "2026-10-30T04:10:26.262892Z",
+        "configuredRefreshMinutes": 60
+      }
+    }
+  }
+}

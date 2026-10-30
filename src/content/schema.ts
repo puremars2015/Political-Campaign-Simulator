@@ -165,7 +165,7 @@ export const policySchema = z.object({
   }),
   /** 對應 topics 的議題分類，用於跨候選人比較 */
   topic: id,
-  /** campaign：候選人提出的競選政見；government-plan：現任者以市府名義宣布、尚未完成的計畫 */
+  /** campaign：候選人提出的競選政見；government-plan：現任者以市府名義宣布的既有措施或施政規劃 */
   origin: z.enum(['campaign', 'government-plan']).default('campaign'),
   /** current：當次競選政見；historical：過去立場，僅供對照 */
   timeframe: z.enum(['current', 'historical']),
@@ -257,6 +257,7 @@ export const newsSnapshotSchema = z.object({
   version: z.string().min(1), sourceUrl: z.literal('https://feeds.feedburner.com/rsscna/politics'), refreshMinutes: z.literal(60),
   lastAttemptAt: z.iso.datetime().nullable(), lastSuccessAt: z.iso.datetime().nullable(),
   status: z.enum(['ok', 'empty', 'stale']),
+  updateMode: z.enum(['snapshot', 'hourly']).default('snapshot'),
   items: z.array(z.object({ id, title: z.string().min(1).max(180),
     url: z.url().refine((url) => { const u = new URL(url); return u.protocol === 'https:' && u.hostname === 'www.cna.com.tw' && u.pathname.startsWith('/news/'); }),
     publisher: z.literal('中央社'), publishedAt: z.iso.datetime(), districtIds: z.array(id), personNames: z.array(z.string()) })).max(60),

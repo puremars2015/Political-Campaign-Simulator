@@ -47,7 +47,6 @@ export function StrategyCard({ content, policy, assessment, entry, canAfford, on
         </p>
       )}
       <PolicyCard content={content} policy={policy} />
-      {policy.origin === 'government-plan' && <p className="cost">市府計畫：以市府名義宣布、尚未完成。</p>}
 
       <details>
         <summary>

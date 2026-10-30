@@ -1,3 +1,11 @@
+Latest review 2026-10-30; content 0.6.0
+Typecheck PASS; 89 TypeScript tests PASS; 5 Python tests PASS; 30 production E2E PASS; 14 fixture E2E PASS; 4 E2E against actual Docker container PASS.
+Source review: 44 V1 policy records, all retained quotations located; AI review only.
+Docker build/config/runtime/health checks PASS; no user desktop deployment, git push, public service or Library upload.
+Agent interactive review: 12 main decisions, 34 clicks, 2009 event characters; 314.71 seconds including tool waits; NOT human timing.
+See docker-verification.txt, docker-health.json, SOURCE_REVIEW.md and LOCAL_DOCKER.md for current evidence.
+
+--- Earlier baseline evidence (superseded counts below) ---
 2026-10-30 validation; source base 8cdeded; branch codex/six-cities-v1
 Node 24.19.0; pnpm 10.28.0; system Chromium; Python 3 standard library
 pnpm typecheck: PASS

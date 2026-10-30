@@ -19,7 +19,8 @@
     "test:news": "python3 -m unittest discover -s tests/news -v",
     "start": "node scripts/serve.mjs",
     "test:e2e:production": "playwright test --config playwright.production.config.ts",
-    "package:trial": "pnpm build && python3 scripts/package_trial.py"
+    "package:trial": "pnpm build && python3 scripts/package_trial.py",
+    "test:e2e:docker": "playwright test --config playwright.docker.config.ts"
   },
   "dependencies": {
     "react": "19.2.9",

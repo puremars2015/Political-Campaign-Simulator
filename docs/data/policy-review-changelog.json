@@ -1,0 +1,16 @@
+{
+  "reviewedAt": "2026-10-30",
+  "reviewer": "AI來源全文複核，非人工審閱",
+  "previousCommit": "b9c39ab7a164bfd2a58f58b8b0efca786cf0b59a",
+  "removedFromActive": [
+    {
+      "id": "chiang-ai-corridor",
+      "reason": "僅非官方二手整理支撐，未取得可獨立核對的原始主張。原始紀錄保留於previousCommit的policies.json。"
+    }
+  ],
+  "removedCitations": [
+    "ai2033-taipei",
+    "ebc-20261022-chiang-interview",
+    "encore-taipei-platform"
+  ]
+}

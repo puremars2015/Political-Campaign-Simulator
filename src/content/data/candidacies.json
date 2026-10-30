@@ -185,6 +185,14 @@
     "status": "registered",
     "statusCitations": [
       {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "新北市 115/09/04 李四川 中國國民黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
+      {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "李四川",
         "locator": {
@@ -207,6 +215,14 @@
     "party": "民主進步黨",
     "status": "registered",
     "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "新北市 115/09/02 蘇巧慧 民主進步黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
       {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "蘇巧慧",
@@ -231,6 +247,14 @@
     "status": "registered",
     "statusCitations": [
       {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "桃園市 115/09/01 張善政 中國國民黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
+      {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "張善政",
         "locator": {
@@ -253,6 +277,14 @@
     "party": "民主進步黨",
     "status": "registered",
     "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "桃園市 115/09/02 黃世杰 民主進步黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
       {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "黃世杰",
@@ -277,6 +309,14 @@
     "status": "registered",
     "statusCitations": [
       {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺中市 115/09/03 江啟臣 中國國民黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
+      {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "江啟臣",
         "locator": {
@@ -299,6 +339,14 @@
     "party": "民主進步黨",
     "status": "registered",
     "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺中市 115/09/02 何欣純 民主進步黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
       {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "何欣純",
@@ -323,6 +371,14 @@
     "status": "registered",
     "statusCitations": [
       {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺南市 115/09/01 謝龍介 中國國民黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
+      {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "謝龍介",
         "locator": {
@@ -345,6 +401,14 @@
     "party": "民主進步黨",
     "status": "registered",
     "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "臺南市 115/09/02 陳亭妃 民主進步黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
       {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "陳亭妃",
@@ -369,6 +433,14 @@
     "status": "registered",
     "statusCitations": [
       {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "高雄市 115/09/03 柯志恩 中國國民黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
+      {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "柯志恩",
         "locator": {
@@ -391,6 +463,14 @@
     "party": "民主進步黨",
     "status": "registered",
     "statusCitations": [
+      {
+        "sourceId": "cec-2026-mayor-registration",
+        "quote": "高雄市 115/09/02 賴瑞隆 民主進步黨",
+        "locator": {
+          "kind": "page",
+          "value": "第1頁，直轄市長登記參選人名單"
+        }
+      },
       {
         "sourceId": "cna-20261027-ballot-numbers",
         "quote": "賴瑞隆",
